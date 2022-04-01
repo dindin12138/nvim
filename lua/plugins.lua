@@ -5,6 +5,10 @@ packer.startup({
     -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
 
+    -------------------------- plugins -------------------------------------------
+    -- nvim-tree
+    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+
     --------------------- colorschemes --------------------
     -- tokyonight
     use("folke/tokyonight.nvim")
