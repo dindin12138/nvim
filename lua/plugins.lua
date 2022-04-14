@@ -5,7 +5,7 @@ packer.startup({
     -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
 
-    -------------------------- plugins -------------------------------------------
+    -------------------- plugins --------------------
     -- nvim-tree
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
     -- bufferline
@@ -13,10 +13,13 @@ packer.startup({
     -- lualine
     use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
     use("arkav/lualine-lsp-progress")
+    -- telescope
+    use ({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
-    --------------------- colorschemes --------------------
+    -------------------- colorschemes --------------------
     -- tokyonight
     use("folke/tokyonight.nvim")
+    use("rebelot/kanagawa.nvim")
 
   end,
   config = {
