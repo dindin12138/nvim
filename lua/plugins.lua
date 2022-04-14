@@ -15,6 +15,10 @@ packer.startup({
     use("arkav/lualine-lsp-progress")
     -- telescope
     use ({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    -- dashboard-nvim
+    use("glepnir/dashboard-nvim")
+    -- project
+    use("ahmedkhalf/project.nvim")
 
     -------------------- colorschemes --------------------
     -- tokyonight
