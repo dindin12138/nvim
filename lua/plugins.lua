@@ -22,6 +22,10 @@ packer.startup({
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
+    -------------------- LSP --------------------
+    -- lspconfig
+    use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
+
     -------------------- colorschemes --------------------
     -- tokyonight
     use("folke/tokyonight.nvim")
