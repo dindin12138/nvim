@@ -25,6 +25,19 @@ packer.startup({
     -------------------- LSP --------------------
     -- lspconfig
     use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
+    -- 补全引擎
+    use("hrsh7th/nvim-cmp")
+    -- snippet 引擎
+    use("hrsh7th/vim-vsnip")
+    -- 补全源
+    use("hrsh7th/cmp-vsnip")
+    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
+    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+    use("hrsh7th/cmp-path") -- { name = 'path' }
+    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+
+    -- 常见编程语言代码段
+    use("rafamadriz/friendly-snippets")
 
     -------------------- colorschemes --------------------
     -- tokyonight
