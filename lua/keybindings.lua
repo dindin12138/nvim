@@ -5,15 +5,24 @@ vim.g.maplocalleader = " "
 -- 本地变量
 local map = vim.api.nvim_set_keymap
 -- 复用 opt 参数
-local opt = {noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
+
+-- 不映射 s 键
+map("n", "s", "<nop>", opt)
 
 -- windows 分屏快捷键
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
+-- 向右分屏
+map("n", "sl", ":vsp<CR>", opt)
+-- 向左分屏
+map("n", "sj", ":sp<CR>", opt)
+-- 切换为垂直分屏
+map("n", "sv", "<C-w>t<C-w>H", opt)
+-- 切换为水平分屏
+map("n", "sh", "<C-w>t<C-w>K", opt)
 -- 关闭当前
 map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
-map("n", "so", "<C-w>o", opt) -- close others
+map("n", "so", "<C-w>o", opt)
 -- alt + hjkl  窗口之间跳转
 map("n", "<A-h>", "<C-w>h", opt)
 map("n", "<A-j>", "<C-w>j", opt)
@@ -34,8 +43,8 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
--- map("n", "<leader>t", ":sp | terminal<CR>", opt)
--- map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+map("n", "<leader>t", ":sp | terminal<CR>", opt)
+map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
@@ -49,9 +58,11 @@ map("v", ">", ">gv", opt)
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
--- 上下滚动浏览
-map("n", "<C-j>", "5j", opt)
-map("n", "<C-k>", "5k", opt)
+-- 上下左右滚动浏览
+map("n", "J", "5j", opt)
+map("n", "K", "5k", opt)
+map("n", "H", "5h", opt)
+map("n", "L", "5l", opt)
 -- ctrl u / ctrl + d  只移动10行，默认移动半屏
 map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
@@ -59,7 +70,8 @@ map("n", "<C-d>", "10j", opt)
 -- 在visual 模式里粘贴不要复制
 map("v", "p", '"_dP', opt)
 
--- 退出
+-- 保存 退出
+map("n", "<C-s>", ":w<CR>", opt)
 map("n", "q", ":q<CR>", opt)
 map("n", "qq", ":q!<CR>", opt)
 map("n", "Q", ":qa!<CR>", opt)
@@ -72,13 +84,19 @@ map("i", "<C-l>", "<ESC>A", opt)
 -- 插件快捷键
 local pluginKeys = {}
 
+-- packer.nvim
+map("n", "<leader>ps", ":PackerSync<CR>", opt)
+map("n", "<leader>pu", ":PackerUpdate<CR>", opt)
+map("n", "<leader>pi", ":PackerInstall<CR>", opt)
+map("n", "<leader>pc", ":PackerClean<CR>", opt)
+
 -- nvim-tree
--- alt + m 键打开关闭tree
-map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
+-- tt 键打开关闭tree
+map("n", "tt", ":NvimTreeToggle<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = {
   -- 打开文件或文件夹
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+  { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
   -- 分屏打开文件
   { key = "v", action = "vsplit" },
   { key = "h", action = "split" },
@@ -159,27 +177,27 @@ end
 
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
-    return {
-        -- 出现补全
-        ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
-        -- 取消
-        ["<A-,>"] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close()
-        }),
-        -- 上一个
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        -- 下一个
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        -- 确认
-        ["<CR>"] = cmp.mapping.confirm({
-            select = true,
-            behavior = cmp.ConfirmBehavior.Replace
-        }),
-        -- 如果窗口内容太多，可以滚动
-        ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
-        ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
-    }
+  return {
+    -- 出现补全
+    ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    -- 取消
+    ["<A-,>"] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close()
+    }),
+    -- 上一个
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    -- 下一个
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    -- 确认
+    ["<CR>"] = cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Replace
+    }),
+    -- 如果窗口内容太多，可以滚动
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+  }
 end
 
 --- 注意：放在最后

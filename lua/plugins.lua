@@ -43,6 +43,9 @@ packer.startup({
     -- tokyonight
     use("folke/tokyonight.nvim")
     use("rebelot/kanagawa.nvim")
+    use("ful1e5/onedark.nvim")
+    use("shaunsingh/nord.nvim")
+    use("sainnhe/edge")
 
   end,
   config = {
@@ -59,9 +62,9 @@ packer.startup({
 })
 
 -- 每次保存 plugins.lua 自动安装插件
-pcall(vim.cmd, [[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerSync
-augroup end
-]])
+-- pcall(vim.cmd, [[
+-- augroup packer_user_config
+-- autocmd!
+-- autocmd BufWritePost plugins.lua source <afile> | PackerSync
+-- augroup end
+-- ]])

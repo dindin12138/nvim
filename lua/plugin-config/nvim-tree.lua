@@ -1,7 +1,7 @@
 local status, nvim_tree = pcall(require, "nvim-tree")
 if not status then
     vim.notify("没有找到 nvim-tree")
-  return
+    return
 end
 
 -- 列表操作快捷键
@@ -24,7 +24,7 @@ nvim_tree.setup({
     },
     view = {
         -- 宽度
-        width = 40,
+        width = 30,
         -- 也可以 'right'
         side = 'left',
         -- 隐藏根目录
@@ -50,9 +50,9 @@ nvim_tree.setup({
     },
     -- wsl install -g wsl-open
     -- https://github.com/4U6U57/wsl-open/
-    system_open = {
-        cmd = 'wsl-open', -- mac 直接设置为 open
-    },
+    --system_open = {
+    --    cmd = 'wsl-open', -- mac 直接设置为 open
+    --},
 })
 -- 自动关闭
 vim.cmd([[
