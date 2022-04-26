@@ -40,12 +40,12 @@ packer.startup({
     use("rafamadriz/friendly-snippets")
 
     -------------------- colorschemes --------------------
-    -- tokyonight
     use("folke/tokyonight.nvim")
     use("rebelot/kanagawa.nvim")
     use("ful1e5/onedark.nvim")
     use("shaunsingh/nord.nvim")
     use("sainnhe/edge")
+    use({ "catppuccin/nvim", as = "catppuccin" })
 
   end,
   config = {
