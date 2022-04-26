@@ -43,13 +43,13 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
-map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
+-- map("n", "<leader>t", ":sp | terminal<CR>", opt)
+-- map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+-- map("t", "<Esc>", "<C-\\><C-n>", opt)
+-- map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
+-- map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
+-- map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
+-- map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 
 -- visual模式下缩进代码
 map("v", "<", "<gv", opt)
@@ -92,17 +92,18 @@ map("n", "<leader>pc", ":PackerClean<CR>", opt)
 
 -- nvim-tree
 -- tt 键打开关闭tree
-map("n", "tt", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>t", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>tf", ":NvimTreeFindFile<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = {
   -- 打开文件或文件夹
-  { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
+  { key = { "l", "o", "<CR>" }, action = "edit" },
   -- 分屏打开文件
   { key = "v", action = "vsplit" },
   { key = "h", action = "split" },
   -- 显示隐藏文件
-  { key = "i", action = "toggle_ignored" }, -- Ignore (node_modules)
-  { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
+  { key = "i", action = "toggle_git_ignored" },
+  { key = ".", action = "toggle_dotfiles" },
   -- 文件操作
   { key = "<F5>", action = "refresh" },
   { key = "a", action = "create" },
@@ -111,7 +112,6 @@ pluginKeys.nvimTreeList = {
   { key = "x", action = "cut" },
   { key = "c", action = "copy" },
   { key = "p", action = "paste" },
-  { key = "s", action = "system_open" },
 }
 
 -- bufferline

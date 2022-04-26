@@ -7,38 +7,42 @@ end
 -- 列表操作快捷键
 local list_keys = require('keybindings').nvimTreeList
 nvim_tree.setup({
-    -- 不显示 git 状态图标
-    git = {
+    disable_netrw = true,
+    hijack_netrw = true,
+    open_on_setup = false,
+    ignore_ft_on_setup = { "dashboard" },
+    open_on_tab = false,
+    hijack_cursor = true,
+    diagnostics = {
         enable = false,
+        icons = { hint = "", info = "", warning = "", error = "" },
     },
     -- project plugin 需要这样设置
     update_cwd = true,
     update_focused_file = {
         enable = true,
         update_cwd = true,
+        ignore_list = {},
     },
-    -- 隐藏 .文件 和 node_modules 文件夹
-    filters = {
-        dotfiles = true,
-        custom = { 'node_modules' },
-    },
+    system_open = { cmd = nil, args = {} },
+    git = { enable = true, ignore = true, timeout = 500 },
+    filters = { dotfiles = false, custom = {} },
     view = {
-        -- 宽度
         width = 30,
-        -- 也可以 'right'
+        height = 30,
         side = 'left',
-        -- 隐藏根目录
         hide_root_folder = false,
-        -- 自定义列表中快捷键
+        number = false,
+        relativenumber = false,
+        signcolumn = 'yes',
         mappings = {
             custom_only = false,
             list = list_keys,
         },
-        -- 不显示行数
-        number = false,
-        relativenumber = false,
-        -- 显示图标
-        signcolumn = 'yes',
+    },
+    trash = {
+        cmd = "trash",
+        require_confirm = true,
     },
     actions = {
         open_file = {
@@ -54,6 +58,10 @@ nvim_tree.setup({
     --    cmd = 'wsl-open', -- mac 直接设置为 open
     --},
 })
+
+-- with relative path
+require "nvim-tree.events".on_file_created(function(file) vim.cmd("edit " .. file.fname) end)
+
 -- 自动关闭
 vim.cmd([[
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
