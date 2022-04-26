@@ -7,37 +7,27 @@ end
 
 lualine.setup({
   options = {
-    theme = "onedark",
+    theme = "auto",
     component_separators = { left = "|", right = "|" },
     -- https://github.com/ryanoasis/powerline-extra-symbols
     section_separators = { left = " ", right = "" },
   },
-  extensions = { "nvim-tree", "toggleterm" },
   sections = {
-    lualine_c = {
-      "filename",
-      {
-        "lsp_progress",
-        spinner_symbols = { " ", " ", " ", " ", " ", " " },
-      },
-    },
-    lualine_x = {
-      "filesize",
-      {
-        "fileformat",
-        symbols = {
-          unix = '', -- e712
-          dos = '', -- e70f
-          mac = '', -- e711
-        },
-        -- symbols = {
-        --   unix = "LF",
-        --   dos = "CRLF",
-        --   mac = "CR",
-        -- },
-      },
-      "encoding",
-      "filetype",
-    },
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { 'filename' },
+    lualine_x = { 'location' },
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = { "nvim-tree", "toggleterm" },
 })
