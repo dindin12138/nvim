@@ -15,6 +15,8 @@ packer.startup({
     -- use("arkav/lualine-lsp-progress")
     -- telescope
     use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    -- telescope extensions
+    use("LinArcX/telescope-env.nvim")
     -- dashboard-nvim
     use("glepnir/dashboard-nvim")
     -- project
