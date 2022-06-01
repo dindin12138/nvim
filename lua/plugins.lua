@@ -52,6 +52,11 @@ packer.startup({
     use("sainnhe/edge")
     use({ "catppuccin/nvim", as = "catppuccin" })
 
+    -------------------- ui --------------------
+    use("onsails/lspkind-nvim")
+    -- indent-blankline
+    use("lukas-reineke/indent-blankline.nvim")
+
   end,
   config = {
     -- 并发数限制
