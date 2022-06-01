@@ -1,4 +1,4 @@
-local colorscheme = "onedark"
+local colorscheme = "catppuccin"
 -- tokyonight
 -- zephyr
 -- nord
