@@ -24,10 +24,10 @@ map("n", "sc", "<C-w>c", opt)
 -- 关闭其他
 map("n", "so", "<C-w>o", opt)
 -- alt + hjkl  窗口之间跳转
-map("n", "<A-h>", "<C-w>h", opt)
-map("n", "<A-j>", "<C-w>j", opt)
-map("n", "<A-k>", "<C-w>k", opt)
-map("n", "<A-l>", "<C-w>l", opt)
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-l>", "<C-w>l", opt)
 
 -- 左右比例控制
 map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
@@ -101,14 +101,14 @@ pluginKeys.nvimTreeList = {
   { key = "d", action = "remove" },
   { key = "r", action = "rename" },
   { key = "x", action = "cut" },
-  { key = "c", action = "copy" },
+  { key = "y", action = "copy" },
   { key = "p", action = "paste" },
 }
 
 -- bufferline
 -- 左右Tab切换
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<C-p>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-n>", ":BufferLineCycleNext<CR>", opt)
 -- 关闭
 --"moll/vim-bbye"
 map("n", "<leader>q", ":Bdelete!<CR>", opt)
@@ -126,9 +126,9 @@ map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opt)
 
 -- Telescope
 -- 查找文件
-map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+map("n", "<C-f>", ":Telescope find_files<CR>", opt)
 -- 全局搜索
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+map("n", "<C-g>", ":Telescope live_grep<CR>", opt)
 map("n", "<C-e>", ":Telescope env<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
