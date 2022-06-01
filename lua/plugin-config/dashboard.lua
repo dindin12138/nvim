@@ -4,31 +4,31 @@ vim.g.dashboard_footer_icon = "🐬 "
 
 vim.g.dashboard_custom_section = {
   change_colorscheme = {
-    description = { " Scheme change              SPC x x " },
+    description = { " Change Colorscheme               " },
     command = "DashboardChangeColorscheme",
   },
   recently_file = {
-    description = { " Recently files             SPC x x " },
+    description = { " Recently Files            Ctrl o " },
     command = "DashboardFindHistory"
   },
   find_project = {
-    description = { " Project find               SPC x x " },
+    description = { " Project Find              Ctrl p " },
     command = "Telescope projects",
   },
   find_file = {
-    description = { " File find                  SPC x x " },
+    description = { " File Find                 Ctrl f " },
     command = "DashboardFindFile",
   },
   file_new = {
-    description = { " File new                   SPC x x " },
+    description = { " File New                  SPC n f" },
     command = "DashboardNewFile",
   },
   find_word = {
-    description = { " Word find                  SPC x x " },
+    description = { " Text Find                 Ctrl g " },
     command = "DashboardFindWord",
   },
   edit_keybindings = {
-    description = { " Edit keybindings           SPC x x " },
+    description = { " Edit Keybindings                 " },
     command = "edit ~/.config/nvim/lua/keybindings.lua"
   },
   -- a = { description = { "  Projects              " }, command = "Telescope projects" },

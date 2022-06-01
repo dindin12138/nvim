@@ -13,7 +13,7 @@ map("n", "s", "<nop>", opt)
 -- windows 分屏快捷键
 -- 向右分屏
 map("n", "sl", ":vsp<CR>", opt)
--- 向左分屏
+-- 向下分屏
 map("n", "sj", ":sp<CR>", opt)
 -- 切换为垂直分屏
 map("n", "sv", "<C-w>t<C-w>H", opt)
@@ -35,10 +35,10 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
 -- map("n", "s,", ":vertical resize -20<CR>", opt)
 -- map("n", "s.", ":vertical resize +20<CR>", opt)
 -- 上下比例
--- map("n", "sj", ":resize +10<CR>", opt)
--- map("n", "sk", ":resize -10<CR>", opt)
 map("n", "<C-Down>", ":resize +2<CR>", opt)
 map("n", "<C-Up>", ":resize -2<CR>", opt)
+-- map("n", "sj", ":resize +10<CR>", opt)
+-- map("n", "sk", ":resize -10<CR>", opt)
 -- 等比例
 map("n", "s=", "<C-w>=", opt)
 
@@ -108,7 +108,7 @@ pluginKeys.nvimTreeList = {
 
 -- bufferline
 -- 左右Tab切换
-map("n", "<C-p>", ":BufferLineCyclePrev<CR>", opt)
+-- map("n", "<C-p>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-n>", ":BufferLineCycleNext<CR>", opt)
 -- 关闭
 --"moll/vim-bbye"
@@ -126,10 +126,10 @@ map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opt)
 map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opt)
 
 -- Telescope
--- 查找文件
 map("n", "<C-f>", ":Telescope find_files<CR>", opt)
--- 全局搜索
+map("n", "<C-o>", ":Telescope oldfiles<CR>", opt)
 map("n", "<C-g>", ":Telescope live_grep<CR>", opt)
+map("n", "<C-p>", ":Telescope projects<CR>", opt)
 map("n", "<C-e>", ":Telescope env<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
@@ -149,6 +149,9 @@ pluginKeys.telescopeList = {
     ["<C-d>"] = "preview_scrolling_down",
   },
 }
+
+-- Dashboard
+map("n", "<leader>nf", ":DashboardNewFile<CR>", opt)
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
