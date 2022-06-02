@@ -43,6 +43,9 @@ packer.startup({
 
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
+    -- 代码格式化
+    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+    use("simrat39/rust-tools.nvim")
 
     -------------------- colorschemes --------------------
     use("folke/tokyonight.nvim")

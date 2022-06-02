@@ -7,6 +7,8 @@ local lsp_installer = require("nvim-lsp-installer")
 local servers = {
   sumneko_lua = require("lsp.config.sumneko_lua"), -- lua/lsp/config/lua.lua
   clangd = require("lsp.config.clangd"),
+  pyright = require("lsp.config.pyright"),
+  rust_analyzer = require("lsp.config.rust_analyzer"),
 }
 -- 自动安装 Language Servers
 for name, _ in pairs(servers) do
