@@ -13,6 +13,7 @@ null_ls.setup({
 		--  brew install shfmt
 		formatting.shfmt,
 		-- StyLua
+		-- cargo install stylua
 		formatting.stylua,
 		-- ClangFormat
 		-- formatting.clang_format,
@@ -21,7 +22,6 @@ null_ls.setup({
 		formatting.rustfmt,
 		-- Python
 		-- pip install black
-		-- asdf reshim python
 		formatting.black.with({ extra_args = { "--fast" } }),
 		-- frontend
 		formatting.prettier.with({
