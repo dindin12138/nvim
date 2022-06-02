@@ -4,7 +4,6 @@ if not status then
     return
 end
 
-
 toggleterm.setup({
     size = function(term)
         if term.direction == "horizontal" then
@@ -44,54 +43,54 @@ local lazygit = Terminal:new({
     end,
 })
 
-local ta = Terminal:new({
+local terminal_float = Terminal:new({
     direction = "float",
     close_on_exit = true,
 })
 
-local tb = Terminal:new({
+local terminal_vertical = Terminal:new({
     direction = "vertical",
     close_on_exit = true,
 })
 
-local tc = Terminal:new({
+local Terminal_horizontal = Terminal:new({
     direction = "horizontal",
     close_on_exit = true,
 })
 
 local M = {}
 
-M.toggleA = function()
-    if ta:is_open() then
-        ta:close()
+M.toggle_float = function()
+    if terminal_float:is_open() then
+        terminal_float:close()
         return
     end
-    tb:close()
-    tc:close()
-    ta:open()
+    terminal_vertical:close()
+    Terminal_horizontal:close()
+    terminal_float:open()
 end
 
-M.toggleB = function()
-    if tb:is_open() then
-        tb:close()
+M.toggle_vertical = function()
+    if terminal_vertical:is_open() then
+        terminal_vertical:close()
         return
     end
-    ta:close()
-    tc:close()
-    tb:open()
+    terminal_float:close()
+    Terminal_horizontal:close()
+    terminal_vertical:open()
 end
 
-M.toggleC = function()
-    if tc:is_open() then
-        tc:close()
+M.toggle_horizontal = function()
+    if Terminal_horizontal:is_open() then
+        Terminal_horizontal:close()
         return
     end
-    ta:close()
-    tb:close()
-    tc:open()
+    terminal_float:close()
+    terminal_vertical:close()
+    Terminal_horizontal:open()
 end
 
-M.toggleG = function()
+M.toggle_lazygit = function()
     lazygit:toggle()
 end
 

@@ -217,16 +217,16 @@ pluginKeys.cmp = function(cmp)
 end
 
 -- 自定义 toggleterm 3个不同类型的命令行窗口
--- <leader>ta 浮动
--- <leader>tb 右侧
--- <leader>tc 下方
+-- <leader>tf 浮动
+-- <leader>tv 右侧
+-- <leader>th 下方
 -- 特殊lazygit 窗口，需要安装lazygit
 -- <leader>tg lazygit
 pluginKeys.mapToggleTerm = function(toggleterm)
-  vim.keymap.set({ "n", "t" }, "<leader>ta", toggleterm.toggleA)
-  vim.keymap.set({ "n", "t" }, "<leader>tb", toggleterm.toggleB)
-  vim.keymap.set({ "n", "t" }, "<leader>tc", toggleterm.toggleC)
-  vim.keymap.set({ "n", "t" }, "<leader>tg", toggleterm.toggleG)
+  vim.keymap.set({ "n", "t" }, "<leader>tf", toggleterm.toggle_float)
+  vim.keymap.set({ "n", "t" }, "<leader>tv", toggleterm.toggle_vertical)
+  vim.keymap.set({ "n", "t" }, "<leader>th", toggleterm.toggle_horizontal)
+  vim.keymap.set({ "n", "t" }, "<leader>tg", toggleterm.toggle_lazygit)
 end
 
 --- 注意：放在最后
