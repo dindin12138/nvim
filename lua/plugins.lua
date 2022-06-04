@@ -59,6 +59,7 @@ packer.startup({
     -- tools
     use("dstein64/vim-startuptime")
     use("akinsho/toggleterm.nvim")
+    use("windwp/nvim-autopairs")
 
     -------------------- LSP --------------------
     -- lspconfig
