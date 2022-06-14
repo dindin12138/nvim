@@ -1,5 +1,5 @@
 -- 基础配置
-require('basic')
+require("basic")
 -- 快捷键映射
 require("keybindings")
 -- Packer插件管理
