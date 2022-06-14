@@ -57,9 +57,9 @@ packer.startup({
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
     -- tools
-    use("dstein64/vim-startuptime")
-    use("akinsho/toggleterm.nvim")
-    use("windwp/nvim-autopairs")
+    use({ "dstein64/vim-startuptime" })
+    use({ "akinsho/toggleterm.nvim" })
+    use({ "windwp/nvim-autopairs" })
 
     -------------------- LSP --------------------
     -- lspconfig
@@ -91,8 +91,8 @@ packer.startup({
 
     -------------------- ui --------------------
     use("onsails/lspkind-nvim")
-    use("lukas-reineke/indent-blankline.nvim")
-    use("tami5/lspsaga.nvim")
+    use({ "lukas-reineke/indent-blankline.nvim" })
+    use({ "tami5/lspsaga.nvim" })
 
   end,
   config = {
@@ -105,6 +105,11 @@ packer.startup({
       -- default_url_format = "https://gitcode.net/mirrors/%s",
       -- default_url_format = "https://gitclone.com/github.com/%s",
     },
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end
+    }
   },
 })
 
