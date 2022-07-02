@@ -2,7 +2,7 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.tools.config')
 
 plugin {'nvim-telescope/telescope.nvim',
-  cmd = 'Telescope',
+  -- cmd = 'Telescope',
   config = conf.telescope,
   requires = {
     {'nvim-lua/popup.nvim', opt = true},
