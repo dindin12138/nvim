@@ -1,7 +1,7 @@
 local config = {}
 
-function config.zephyr()
-  vim.cmd('colorscheme zephyr')
+function config.catppuccin()
+  vim.cmd('colorscheme catppuccin')
 end
 
 function config.galaxyline()
