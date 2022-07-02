@@ -22,4 +22,17 @@ map {
   { 'n', '<Leader>b', cmd('Telescope buffers'), opts(noremap, silent) },
   { 'n', '<Leader>fa', cmd('Telescope live_grep'), opts(noremap, silent) },
   { 'n', '<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent) },
+  -- buffer
+  { 'n', '<C-n>', cmd('BufferLineCycleNext'), opts(noremap, silent) },
+  { 'n', '<leader>q', cmd('Bdelete!'), opts(noremap, silent) },
+  { 'n', '<leader>x', cmd('BufferLinePickClose'), opts(noremap, silent) },
+  { 'n', '<leader>1', cmd('BufferLineGoToBuffer 1'), opts(noremap, silent) },
+  { 'n', '<leader>2', cmd('BufferLineGoToBuffer 2'), opts(noremap, silent) },
+  { 'n', '<leader>3', cmd('BufferLineGoToBuffer 3'), opts(noremap, silent) },
+  { 'n', '<leader>4', cmd('BufferLineGoToBuffer 4'), opts(noremap, silent) },
+  { 'n', '<leader>5', cmd('BufferLineGoToBuffer 5'), opts(noremap, silent) },
+  { 'n', '<leader>6', cmd('BufferLineGoToBuffer 6'), opts(noremap, silent) },
+  { 'n', '<leader>7', cmd('BufferLineGoToBuffer 7'), opts(noremap, silent) },
+  { 'n', '<leader>8', cmd('BufferLineGoToBuffer 8'), opts(noremap, silent) },
+  { 'n', '<leader>9', cmd('BufferLineGoToBuffer 9'), opts(noremap, silent) },
 }
