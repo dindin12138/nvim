@@ -1,7 +1,7 @@
 local cache_dir = os.getenv("HOME") .. '/.cache/nvim/'
 
 vim.opt.termguicolors  = true;
-vim.opt.mouse          = "nv";
+vim.opt.mouse          = "a";
 vim.opt.errorbells     = true;
 vim.opt.visualbell     = true;
 vim.opt.hidden         = true;
@@ -83,6 +83,7 @@ vim.opt.formatoptions  = "1jcroql";
 vim.opt.textwidth      = 80;
 vim.opt.expandtab      = true;
 vim.opt.autoindent     = true;
+vim.opt.smartindent    = true;
 vim.opt.tabstop        = 2;
 vim.opt.shiftwidth     = 2;
 vim.opt.softtabstop    = -1;
@@ -90,11 +91,16 @@ vim.opt.breakindentopt = "shift:2,min:20";
 vim.opt.wrap           = false;
 vim.opt.linebreak      = true;
 vim.opt.number         = true;
-vim.opt.colorcolumn    = "80";
+vim.opt.relativenumber = true;
+vim.opt.cursorline     = true;
+-- vim.opt.colorcolumn    = "80";
+vim.opt.hlsearch       = false
 vim.opt.foldenable     = true;
 vim.opt.signcolumn     = "yes";
 vim.opt.conceallevel   = 2;
 vim.opt.concealcursor  = "niv";
+vim.opt.autoread       = true;
+vim.opt.wildmenu       = true;
 
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
