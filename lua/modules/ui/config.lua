@@ -77,7 +77,7 @@ end
 function config.nvim_bufferline()
   require('bufferline').setup {
     options = {
-      always_show_bufferline = false,
+      always_show_bufferline = true,
       mode = "buffers",
       numbers = "ordinal",
       -- Command to close Buffer moll/vim-bbye :Bdelete
