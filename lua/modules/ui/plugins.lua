@@ -21,8 +21,7 @@ plugin { 'kyazdani42/nvim-tree.lua',
   requires = 'kyazdani42/nvim-web-devicons'
 }
 
-
 plugin { 'akinsho/nvim-bufferline.lua',
   config = conf.nvim_bufferline,
-  requires = 'kyazdani42/nvim-web-devicons'
+  requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }
 }
