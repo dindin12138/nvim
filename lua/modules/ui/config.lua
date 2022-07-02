@@ -117,11 +117,11 @@ function config.nvim_tree()
       icons = { hint = "", info = "", warning = "", error = "" },
     },
     -- project plugin
+    respect_buf_cwd = true,
     update_cwd = true,
     update_focused_file = {
       enable = true,
       update_cwd = true,
-      ignore_list = {},
     },
     system_open = { cmd = nil, args = {} },
     git = { enable = true, ignore = true, timeout = 500 },
