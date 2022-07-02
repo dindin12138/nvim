@@ -1,4 +1,4 @@
-local cache_dir  = os.getenv("HOME") .. '/.cache/nvim/'
+local cache_dir = os.getenv("HOME") .. '/.cache/nvim/'
 
 vim.opt.termguicolors  = true;
 vim.opt.mouse          = "nv";
@@ -59,7 +59,7 @@ vim.opt.sidescrolloff  = 5;
 vim.opt.foldlevelstart = 99;
 vim.opt.ruler          = false;
 vim.opt.list           = true;
-vim.opt.showtabline    = 0;
+vim.opt.showtabline    = 2;
 vim.opt.winwidth       = 30;
 vim.opt.winminwidth    = 10;
 vim.opt.pumheight      = 15;
