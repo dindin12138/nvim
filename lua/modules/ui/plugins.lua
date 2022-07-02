@@ -9,9 +9,8 @@ plugin {
 
 plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
-plugin { 'glepnir/galaxyline.nvim',
-  branch = 'main',
-  config = conf.galaxyline,
+plugin { 'nvim-lualine/lualine.nvim',
+  config = conf.lualine,
   requires = 'kyazdani42/nvim-web-devicons'
 }
 
