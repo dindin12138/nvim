@@ -9,6 +9,7 @@ plugin { 'nvim-telescope/telescope.nvim',
     { 'nvim-lua/plenary.nvim', opt = true },
     { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
     { 'LinArcX/telescope-env.nvim', opt = true },
-    { 'ahmedkhalf/project.nvim', config = conf.project, opt = true }
   }
 }
+
+plugin { 'ahmedkhalf/project.nvim', config = conf.project }
