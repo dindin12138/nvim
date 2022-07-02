@@ -22,6 +22,7 @@ map {
   { 'n', '<Leader>b', cmd('Telescope buffers'), opts(noremap, silent) },
   { 'n', '<Leader>fa', cmd('Telescope live_grep'), opts(noremap, silent) },
   { 'n', '<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent) },
+  { 'n', '<Leader>fe', cmd('Telescope env'), opts(noremap, silent) },
   -- buffer
   { 'n', '<C-n>', cmd('BufferLineCycleNext'), opts(noremap, silent) },
   { 'n', '<leader>q', cmd('Bdelete!'), opts(noremap, silent) },
