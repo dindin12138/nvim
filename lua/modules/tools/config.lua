@@ -6,6 +6,7 @@ function config.telescope()
         vim.cmd [[packadd popup.nvim]]
         vim.cmd [[packadd telescope-fzy-native.nvim]]
         vim.cmd [[packadd telescope-env.nvim]]
+        vim.cmd [[packadd project.nvim]]
     end
     require('telescope').setup {
         defaults = {
@@ -57,6 +58,28 @@ function config.telescope()
     }
     require('telescope').load_extension('fzy_native')
     require('telescope').load_extension('env')
+    require('telescope').load_extension('projects')
+end
+
+function config.project()
+    require("project_nvim").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        detection_methods = { "pattern" },
+        patterns = {
+            "README.md",
+            "Cargo.toml",
+            "package.json",
+            ".sln",
+            ".git",
+            "_darcs",
+            ".hg",
+            ".bzr",
+            ".svn",
+            "Makefile",
+        },
+    }
 end
 
 return config
