@@ -38,4 +38,16 @@ map {
   { 'n', '<leader>7', cmd('BufferLineGoToBuffer 7'), opts(noremap, silent) },
   { 'n', '<leader>8', cmd('BufferLineGoToBuffer 8'), opts(noremap, silent) },
   { 'n', '<leader>9', cmd('BufferLineGoToBuffer 9'), opts(noremap, silent) },
+  -- lsp
+  -- { 'n', '<leader>rn', cmd('vim.lsp.buf.rename'), opts(noremap, silent) },
+  -- { 'n', '<leader>ca', cmd('vim.lsp.buf.code_action'), opts(noremap, silent) },
+  -- { 'n', '<leader>f', cmd('vim.lsp.buf.formatting'), opts(noremap, silent) },
+  -- { 'n', 'gd', cmd('vim.lsp.buf.definition'), opts(noremap, silent) },
+  -- { 'n', 'gh', cmd('vim.lsp.buf.hover'), opts(noremap, silent) },
+  -- { 'n', 'gD', cmd('vim.lsp.buf.declaration'), opts(noremap, silent) },
+  -- { 'n', 'gi', cmd('vim.lsp.buf.implementation'), opts(noremap, silent) },
+  -- { 'n', 'gr', cmd('vim.lsp.buf.references'), opts(noremap, silent) },
+  -- { 'n', 'gp', cmd('vim.diagnostic.open_float'), opts(noremap, silent) },
+  -- { 'n', 'gk', cmd('vim.diagnostic.goto_prev'), opts(noremap, silent) },
+  -- { 'n', 'gj', cmd('vim.diagnostic.goto_next'), opts(noremap, silent) },
 }
