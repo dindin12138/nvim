@@ -2,15 +2,16 @@ local keymap = {}
 local opts = {}
 
 function opts:new(instance)
-  instance = instance or {}
-  setmetatable(instance,self)
-  self.__index = self
-  self.options = {
-    silent = false,
-    nowait = false,
-    expr = false,
-    noremap = false
+  instance = instance or {
+    options = {
+      silent = false,
+      nowait = false,
+      expr = false,
+      noremap = false
+    }
   }
+  setmetatable(instance, self)
+  self.__index = self
   return instance
 end
 
@@ -52,7 +53,7 @@ function keymap.new_opts(...)
     return o.options
   end
 
-  for _,arg in pairs(args) do
+  for _, arg in pairs(args) do
     arg(o.options)()
   end
   return o.options
@@ -70,7 +71,7 @@ end
 --@private
 local keymap_set = function(tbl)
   vim.validate {
-    tbl = {tbl,'table'}
+    tbl = { tbl, 'table' }
   }
   local len = #tbl
   if len < 3 then
@@ -80,16 +81,16 @@ local keymap_set = function(tbl)
 
   local options = len == 4 and tbl[4] or keymap.new_opts()
 
-  vim.keymap.set(tbl[1],tbl[2],tbl[3],options)
+  vim.keymap.set(tbl[1], tbl[2], tbl[3], options)
 end
 
 function keymap.map(tbl)
   vim.validate {
-    tbl = { tbl,'table' }
+    tbl = { tbl, 'table' }
   }
 
   if type(tbl[1]) == 'table' and type(tbl[2]) == 'table' then
-    for _,v in pairs(tbl) do
+    for _, v in pairs(tbl) do
       keymap_set(v)
     end
   else
