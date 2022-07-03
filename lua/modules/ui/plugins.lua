@@ -9,18 +9,21 @@ plugin {
 
 plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
-plugin { 'nvim-lualine/lualine.nvim',
+plugin {
+  'nvim-lualine/lualine.nvim',
   config = conf.lualine,
   requires = 'kyazdani42/nvim-web-devicons'
 }
 
-plugin { 'kyazdani42/nvim-tree.lua',
+plugin {
+  'kyazdani42/nvim-tree.lua',
   cmd = 'NvimTreeToggle',
   config = conf.nvim_tree,
   requires = 'kyazdani42/nvim-web-devicons'
 }
 
-plugin { 'akinsho/bufferline.nvim',
+plugin {
+  'akinsho/bufferline.nvim',
   event = "BufRead",
   config = conf.nvim_bufferline,
   requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }
