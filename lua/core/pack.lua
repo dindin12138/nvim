@@ -120,12 +120,6 @@ function plugins.load_compile()
       require('core.pack')[func]()
     end, {})
   end
-  -- vim.cmd [[command! PackerCompile lua require('core.pack').compile_notify()]]
-  -- vim.cmd [[command! PackerInstall lua require('core.pack').install()]]
-  -- vim.cmd [[command! PackerUpdate lua require('core.pack').update()]]
-  -- vim.cmd [[command! PackerSync lua require('core.pack').sync()]]
-  -- vim.cmd [[command! PackerClean lua require('core.pack').clean()]]
-  -- vim.cmd [[command! PackerStatus  lua require('packer').status()]]
 end
 
 return plugins
