@@ -54,14 +54,42 @@ function config.dashboard()
     [[]],
   }
   db.custom_center = {
-    { icon = '  ',
-      desc = 'Update Plugins                          ',
-      shortcut = 'SPC p u',
-      action = 'PackerUpdate' },
-    { icon = '  ',
+    {
+      icon = '  ',
+      desc = 'Projects                                ',
+      action = 'Telescope projects',
+      shortcut = 'SPC f p'
+    },
+    {
+      icon = '  ',
+      desc = 'Recently files                          ',
+      action = 'Telescope oldfiles',
+      shortcut = 'SPC f o'
+    },
+    {
+      icon = '  ',
       desc = 'Find  File                              ',
       action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = 'SPC f f' },
+      shortcut = 'SPC f f'
+    },
+    {
+      icon = '  ',
+      desc = 'Update Plugins                          ',
+      action = 'PackerUpdate',
+      shortcut = 'SPC p u'
+    },
+    {
+      icon = '  ',
+      desc = 'Edit keybindings                        ',
+      action = 'edit ~/.config/nvim/lua/keymap/init.lua',
+      shortcut = 'SPC x x'
+    },
+    {
+      icon = '  ',
+      desc = 'Edit Projects                           ',
+      action = 'edit ~/.local/share/nvim/project_nvim/project_history',
+      shortcut = 'SPC x x'
+    },
   }
 end
 
