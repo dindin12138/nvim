@@ -39,6 +39,9 @@ map {
   { 'n', '<leader>8', cmd('BufferLineGoToBuffer 8'), opts(noremap, silent) },
   { 'n', '<leader>9', cmd('BufferLineGoToBuffer 9'), opts(noremap, silent) },
   -- lsp
+  { 'n', '<Leader>li', cmd('LspInfo'), opts(noremap, silent) },
+  { 'n', '<Leader>ll', cmd('LspLog'), opts(noremap, silent) },
+  { 'n', '<Leader>lr', cmd('LspRestart'), opts(noremap, silent) },
   -- { 'n', '<leader>rn', cmd('vim.lsp.buf.rename'), opts(noremap, silent) },
   -- { 'n', '<leader>ca', cmd('vim.lsp.buf.code_action'), opts(noremap, silent) },
   -- { 'n', '<leader>f', cmd('vim.lsp.buf.formatting'), opts(noremap, silent) },
