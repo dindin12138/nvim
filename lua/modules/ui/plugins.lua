@@ -11,6 +11,7 @@ plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
 plugin {
   'nvim-lualine/lualine.nvim',
+  event = "BufRead",
   config = conf.lualine,
   requires = 'kyazdani42/nvim-web-devicons'
 }
