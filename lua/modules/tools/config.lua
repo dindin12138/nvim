@@ -5,6 +5,7 @@ function config.telescope()
         vim.cmd [[packadd plenary.nvim]]
         vim.cmd [[packadd popup.nvim]]
         vim.cmd [[packadd telescope-fzy-native.nvim]]
+        vim.cmd [[packadd telescope-file-browser.nvim]]
         vim.cmd [[packadd telescope-env.nvim]]
         vim.cmd [[packadd project.nvim]]
     end
@@ -13,6 +14,14 @@ function config.telescope()
             -- Default configuration for telescope goes here:
             -- config_key = value,
             initial_mode = "insert",
+            layout_config = {
+                horizontal = { prompt_position = "top", results_width = 0.6 },
+                vertical = { mirror = false }
+            },
+            sorting_strategy = 'ascending',
+            file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
+            grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
+            qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
             mappings = {
                 i = {
                     -- map actions.which_key to <C-h> (default: <C-/>)
