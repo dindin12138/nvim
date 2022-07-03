@@ -1,7 +1,8 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.tools.config')
 
-plugin { 'nvim-telescope/telescope.nvim',
+plugin {
+  'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   config = conf.telescope,
   requires = {
@@ -13,3 +14,5 @@ plugin { 'nvim-telescope/telescope.nvim',
 }
 
 plugin { 'ahmedkhalf/project.nvim', config = conf.project }
+
+plugin { "dstein64/vim-startuptime", cmd = "StartupTime" }
