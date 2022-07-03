@@ -29,6 +29,6 @@ plugin {
   config = conf.nvim_bufferline,
   requires = {
     "kyazdani42/nvim-web-devicons",
-    "moll/vim-bbye"
+    { "moll/vim-bbye", cmd = 'Bdelete' }
   }
 }
