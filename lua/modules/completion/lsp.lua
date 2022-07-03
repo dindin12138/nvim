@@ -60,3 +60,26 @@ require('lspconfig')['sumneko_lua'].setup {
         },
     },
 }
+
+require('lspconfig')['clangd'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    args = {
+        "--background-index",
+        "-std=c++20",
+        "--clang-tidy",
+        "--clang-tidy-checks=bugprone-*, clang-analyzer-*, google-*, modernize-*, performance-*, portability-*, readability-*, -bugprone-too-small-loop-variable, -clang-analyzer-cplusplus.NewDelete, -clang-analyzer-cplusplus.NewDeleteLeaks, -modernize-use-nodiscard, -modernize-avoid-c-arrays, -readability-magic-numbers, -bugprone-branch-clone, -bugprone-signed-char-misuse, -bugprone-unhandled-self-assignment, -clang-diagnostic-implicit-int-float-conversion, -modernize-use-auto, -modernize-use-trailing-return-type, -readability-convert-member-functions-to-static, -readability-make-member-function-const, -readability-qualified-auto, -readability-redundant-access-specifiers,",
+        "--completion-style=detailed",
+        "--cross-file-rename=true",
+        "--header-insertion=iwyu",
+        "--pch-storage=memory",
+        "--function-arg-placeholders=false",
+        "--log=verbose",
+        "--ranking-model=decision_forest",
+        "--header-insertion-decorators",
+        "--fallback-style=Google",
+        "--all-scopes-completion",
+        "-j=12",
+        "--pretty",
+    },
+}
