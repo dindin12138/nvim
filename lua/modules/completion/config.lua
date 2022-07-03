@@ -1,7 +1,8 @@
-local config ={}
+local config = {}
 
 -- config server in this function
 function config.nvim_lsp()
+	require("modules.completion.lsp")
 end
 
 function config.nvim_cmp()
@@ -13,7 +14,7 @@ function config.nvim_cmp()
 			completion = cmp.config.window.bordered(),
 			documentation = cmp.config.window.bordered(),
 		}
-  })
+	})
 end
 
 function config.lua_snip()
@@ -24,7 +25,7 @@ function config.lua_snip()
 	})
 	require("luasnip.loaders.from_vscode").lazy_load()
 	require("luasnip.loaders.from_vscode").lazy_load({
-		paths = {'./snippets/' }
+		paths = { './snippets/' }
 	})
 end
 
