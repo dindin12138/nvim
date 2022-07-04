@@ -38,3 +38,8 @@ plugin {
   event = "BufRead",
   config = conf.indent_blankline
 }
+
+plugin {
+  'rcarriga/nvim-notify',
+  config = conf.notify
+}
