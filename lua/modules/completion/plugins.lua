@@ -5,7 +5,7 @@ plugin {
   'neovim/nvim-lspconfig',
   -- used filetype to lazyload lsp
   -- config your language filetype in here
-  -- ft = { 'lua', 'rust', 'c', 'cpp' },
+  ft = { 'lua', 'c', 'cpp' },
   config = conf.nvim_lsp
 }
 
@@ -32,4 +32,10 @@ plugin {
 plugin {
   'onsails/lspkind.nvim',
   config = conf.lspkind,
+}
+
+plugin {
+  'glepnir/lspsaga.nvim',
+  branch = "main",
+  cmd = 'Lspsaga'
 }

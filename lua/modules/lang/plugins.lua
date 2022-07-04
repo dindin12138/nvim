@@ -7,5 +7,3 @@ plugin {
   run = ':TSUpdate',
   config = conf.nvim_treesitter
 }
-
-plugin { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
