@@ -17,14 +17,4 @@ plugin { 'ahmedkhalf/project.nvim', config = conf.project }
 
 plugin { "dstein64/vim-startuptime", cmd = "StartupTime" }
 
-plugin {
-  'windwp/nvim-autopairs',
-  event = "BufRead",
-  config = conf.autopairs
-}
 
-plugin {
-  'numToStr/Comment.nvim',
-  event = "BufRead",
-  config = conf.comment
-}
