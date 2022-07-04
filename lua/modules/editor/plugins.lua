@@ -9,13 +9,19 @@ plugin {
 }
 
 plugin {
+    'p00f/nvim-ts-rainbow',
+    event = 'BufRead',
+    after = "nvim-treesitter"
+}
+
+plugin {
     'windwp/nvim-autopairs',
-    event = "BufRead",
+    event = 'BufRead',
     config = conf.autopairs
 }
 
 plugin {
     'numToStr/Comment.nvim',
-    event = "BufRead",
+    event = 'BufRead',
     config = conf.comment
 }
