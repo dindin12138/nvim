@@ -19,6 +19,5 @@ plugin { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
 plugin {
   'nathom/filetype.nvim',
-  opt = false,
   config = conf.filetype
 }
