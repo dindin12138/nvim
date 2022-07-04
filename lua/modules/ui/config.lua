@@ -263,4 +263,8 @@ function config.notify()
   vim.notify = require("notify")
 end
 
+function config.fidget()
+  require("fidget").setup({})
+end
+
 return config

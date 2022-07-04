@@ -43,3 +43,9 @@ plugin {
   'rcarriga/nvim-notify',
   config = conf.notify
 }
+
+plugin {
+  'j-hui/fidget.nvim',
+  event = "BufRead",
+  config = conf.fidget
+}
