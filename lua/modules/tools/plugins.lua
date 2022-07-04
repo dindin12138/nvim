@@ -21,3 +21,9 @@ plugin {
   'nathom/filetype.nvim',
   config = conf.filetype
 }
+
+plugin {
+  'Pocco81/AutoSave.nvim',
+  event = 'BufRead',
+  config = conf.autosave
+}
