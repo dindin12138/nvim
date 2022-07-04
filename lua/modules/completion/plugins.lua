@@ -24,7 +24,7 @@ plugin {
 
 plugin {
   'L3MON4D3/LuaSnip',
-  after = "nvim-cmp",
+  after = 'nvim-cmp',
   config = conf.lua_snip,
   requires = 'rafamadriz/friendly-snippets'
 }
@@ -36,6 +36,6 @@ plugin {
 
 plugin {
   'glepnir/lspsaga.nvim',
-  branch = "main",
+  branch = 'main',
   cmd = 'Lspsaga'
 }

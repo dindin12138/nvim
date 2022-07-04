@@ -11,7 +11,7 @@ plugin {
 plugin {
     'p00f/nvim-ts-rainbow',
     event = 'BufRead',
-    after = "nvim-treesitter"
+    after = 'nvim-treesitter'
 }
 
 plugin {

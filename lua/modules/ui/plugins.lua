@@ -25,17 +25,17 @@ plugin {
 
 plugin {
   'akinsho/bufferline.nvim',
-  event = "BufRead",
+  event = 'BufRead',
   config = conf.nvim_bufferline,
   requires = {
     "kyazdani42/nvim-web-devicons",
-    { "moll/vim-bbye", cmd = 'Bdelete' }
+    { 'moll/vim-bbye', cmd = 'Bdelete' }
   }
 }
 
 plugin {
   'lukas-reineke/indent-blankline.nvim',
-  event = "BufRead",
+  event = 'BufRead',
   config = conf.indent_blankline
 }
 
@@ -46,6 +46,6 @@ plugin {
 
 plugin {
   'j-hui/fidget.nvim',
-  event = "BufRead",
+  event = 'BufRead',
   config = conf.fidget
 }
