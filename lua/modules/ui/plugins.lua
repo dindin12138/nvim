@@ -32,3 +32,9 @@ plugin {
     { "moll/vim-bbye", cmd = 'Bdelete' }
   }
 }
+
+plugin {
+  'lukas-reineke/indent-blankline.nvim',
+  event = "BufRead",
+  config = conf.indent_blankline
+}
