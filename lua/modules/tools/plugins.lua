@@ -22,3 +22,9 @@ plugin {
   event = "BufRead",
   config = conf.autopairs
 }
+
+plugin {
+  'numToStr/Comment.nvim',
+  event = "BufRead",
+  config = conf.comment
+}
