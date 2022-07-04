@@ -15,6 +15,10 @@ plugin {
 
 plugin { 'ahmedkhalf/project.nvim', config = conf.project }
 
-plugin { "dstein64/vim-startuptime", cmd = "StartupTime" }
+plugin { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
-
+plugin {
+  'nathom/filetype.nvim',
+  opt = false,
+  config = conf.filetype
+}
