@@ -7,7 +7,7 @@ end
 
 function config.nvim_cmp()
 	local cmp = require("cmp")
-
+	local lspkind = require('lspkind')
 	cmp.setup({
 		-- Specify the snippet engine
 		snippet = {
@@ -43,9 +43,23 @@ function config.nvim_cmp()
 			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 			["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 		}),
+		-- https://github.com/onsails/lspkind.nvim
+		formatting = {
+			format = lspkind.cmp_format({
+				mode = 'symbol', -- show only symbol annotations
+				maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+				-- The function below will be called before any actual modifications from lspkind
+				-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+				before = function(entry, vim_item)
+					vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+					return vim_item
+				end
+			})
+		}
 	})
 
-	-- / Find patterns using buffer sources
+	-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 	cmp.setup.cmdline("/", {
 		mapping = cmp.mapping.preset.cmdline(),
 		sources = {
@@ -53,7 +67,7 @@ function config.nvim_cmp()
 		},
 	})
 
-	-- : Use path and cmdline sources in command line mode
+	-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 	cmp.setup.cmdline(":", {
 		mapping = cmp.mapping.preset.cmdline(),
 		sources = cmp.config.sources({
@@ -73,6 +87,58 @@ function config.lua_snip()
 	require("luasnip.loaders.from_vscode").lazy_load()
 	require("luasnip.loaders.from_vscode").lazy_load({
 		paths = { './snippets/' }
+	})
+end
+
+function config.lspkind()
+	require('lspkind').init({
+		-- DEPRECATED (use mode instead): enables text annotations
+		--
+		-- default: true
+		-- with_text = true,
+
+		-- defines how annotations are shown
+		-- default: symbol
+		-- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+		mode = 'symbol_text',
+
+		-- default symbol map
+		-- can be either 'default' (requires nerd-fonts font) or
+		-- 'codicons' for codicon preset (requires vscode-codicons font)
+		--
+		-- default: 'default'
+		preset = 'codicons',
+
+		-- override preset symbols
+		--
+		-- default: {}
+		symbol_map = {
+			Text = "",
+			Method = "",
+			Function = "",
+			Constructor = "",
+			Field = "ﰠ",
+			Variable = "",
+			Class = "ﴯ",
+			Interface = "",
+			Module = "",
+			Property = "ﰠ",
+			Unit = "塞",
+			Value = "",
+			Enum = "",
+			Keyword = "",
+			Snippet = "",
+			Color = "",
+			File = "",
+			Reference = "",
+			Folder = "",
+			EnumMember = "",
+			Constant = "",
+			Struct = "פּ",
+			Event = "",
+			Operator = "",
+			TypeParameter = ""
+		},
 	})
 end
 

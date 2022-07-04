@@ -28,3 +28,8 @@ plugin {
   -- config = conf.lua_snip
   requires = 'rafamadriz/friendly-snippets'
 }
+
+plugin {
+  'onsails/lspkind.nvim',
+  config = conf.lspkind,
+}
