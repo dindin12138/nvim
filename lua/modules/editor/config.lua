@@ -31,6 +31,24 @@ function config.nvim_treesitter()
             max_file_lines = nil, -- Do not enable for files with more than n lines, int
             -- colors = {}, -- table of hex strings
             -- termcolors = {} -- table of colour name strings
+            colors = {
+                "#d79921",
+                "#a4b9ef",
+                "#a89984",
+                "#b16286",
+                "#689d6a",
+                "#d65d0e",
+                "#458588",
+            },
+            termcolors = {
+                "Yellow",
+                "Black",
+                "Green",
+                "Blue",
+                "Magenta",
+                "Cyan",
+                "White",
+            },
         }
     }
 end
