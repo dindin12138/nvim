@@ -16,7 +16,6 @@ map {
     { 'n', "<C-s>", cmd('write'), opts(noremap) },
     { 'n', "W", cmd('write'), opts(noremap) },
     -- quit
-    { 'n', "q", cmd('q'), opts(noremap) },
     { 'n', "Q", cmd('qa!'), opts(noremap) },
     -- yank
     { 'n', "Y", 'y$', opts(noremap) },
