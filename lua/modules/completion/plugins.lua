@@ -40,3 +40,9 @@ plugin {
     branch = 'main',
     cmd = 'Lspsaga'
 }
+
+plugin {
+    'ray-x/lsp_signature.nvim',
+    event = 'BufRead',
+    config = conf.lsp_signature
+}
