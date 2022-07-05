@@ -28,12 +28,15 @@ function config.nvim_cmp()
         --     documentation = cmp.config.window.bordered(),
         -- },
         sources = cmp.config.sources({
-            { name = "nvim_lsp" },
+            { name = 'nvim_lsp' },
             -- { name = "vsnip" }, -- For vsnip users.
             { name = 'luasnip' }, -- For luasnip users.
             -- { name = 'ultisnips' },--For ultisnips users.
             -- { name = 'snippy' },-- For snippy users.
-        }, { { name = "buffer" }, { name = "path" } }),
+            { name = 'nvim_lua' }
+        }, { { name = 'buffer' },
+            { name = 'path' },
+        }),
         mapping = cmp.mapping.preset.insert({
             -- Occurrence of complements
             ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
