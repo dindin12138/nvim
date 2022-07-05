@@ -93,7 +93,7 @@ function config.dashboard()
     }
 end
 
-function config.nvim_bufferline()
+function config.bufferline()
     require('bufferline').setup {
         options = {
             always_show_bufferline = true,
@@ -261,10 +261,6 @@ function config.notify()
     })
 
     vim.notify = require("notify")
-end
-
-function config.fidget()
-    require("fidget").setup({})
 end
 
 return config

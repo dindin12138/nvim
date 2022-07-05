@@ -26,7 +26,7 @@ plugin {
 plugin {
     'akinsho/bufferline.nvim',
     event = 'BufRead',
-    config = conf.nvim_bufferline,
+    config = conf.bufferline,
     requires = {
         "kyazdani42/nvim-web-devicons",
         { 'moll/vim-bbye', cmd = 'Bdelete' }
@@ -44,8 +44,3 @@ plugin {
     config = conf.notify
 }
 
-plugin {
-    'j-hui/fidget.nvim',
-    event = 'BufRead',
-    config = conf.fidget
-}

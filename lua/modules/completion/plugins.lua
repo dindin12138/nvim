@@ -26,7 +26,7 @@ plugin {
 plugin {
     'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
-    config = conf.lua_snip,
+    config = conf.luasnip,
     requires = 'rafamadriz/friendly-snippets'
 }
 
