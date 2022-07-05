@@ -46,10 +46,11 @@ map {
     -- lspsaga
     { 'n', 'gr', cmd('Lspsaga rename'), opts(noremap, silent) },
     { 'n', 'ga', cmd('Lspsaga code_action'), opts(noremap, silent) },
-    { 'n', 'gd', cmd('Lspsaga preview_definition'), opts(noremap, silent) },
+    { 'n', 'gp', cmd('Lspsaga preview_definition'), opts(noremap, silent) },
+    { 'n', 'gd', cmd('lua vim.lsp.buf.definition()'), opts(noremap, silent) },
     { 'n', 'gh', cmd('Lspsaga hover_doc'), opts(noremap, silent) },
     { 'n', 'gl', cmd('Lspsaga lsp_finder'), opts(noremap, silent) },
-    { 'n', 'gp', cmd('Lspsaga show_line_diagnostics'), opts(noremap, silent) },
+    { 'n', 'ge', cmd('Lspsaga show_line_diagnostics'), opts(noremap, silent) },
     { 'n', 'gj', cmd('Lspsaga diagnostic_jump_next'), opts(noremap, silent) },
     { 'n', 'gk', cmd('Lspsaga diagnostic_jump_prev'), opts(noremap, silent) },
 }
