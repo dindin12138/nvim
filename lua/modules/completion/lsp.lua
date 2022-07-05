@@ -31,6 +31,15 @@ require('lspconfig')['sumneko_lua'].setup {
             telemetry = {
                 enable = false,
             },
+            format = {
+                enable = true,
+                -- Put format options here
+                -- NOTE: the value should be STRING!!
+                defaultConfig = {
+                    indent_style = "space",
+                    indent_size = "2",
+                }
+            },
         },
     },
 }
