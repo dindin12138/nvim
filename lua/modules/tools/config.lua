@@ -123,4 +123,8 @@ function config.autosave()
     )
 end
 
+function config.fidget()
+    require("fidget").setup({})
+end
+
 return config

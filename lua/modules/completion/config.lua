@@ -109,7 +109,7 @@ function config.nvim_cmp()
     })
 end
 
-function config.lua_snip()
+function config.luasnip()
     local ls = require('luasnip')
     ls.config.set_config({
         history = true,

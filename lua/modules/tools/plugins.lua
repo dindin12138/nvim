@@ -27,3 +27,9 @@ plugin {
     event = 'BufRead',
     config = conf.autosave
 }
+
+plugin {
+    'j-hui/fidget.nvim',
+    event = 'BufRead',
+    config = conf.fidget
+}
