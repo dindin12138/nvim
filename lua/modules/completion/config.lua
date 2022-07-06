@@ -33,7 +33,8 @@ function config.nvim_cmp()
             { name = 'luasnip' }, -- For luasnip users.
             -- { name = 'ultisnips' },--For ultisnips users.
             -- { name = 'snippy' },-- For snippy users.
-            { name = 'nvim_lua' }
+            { name = 'nvim_lua' },
+            { name = 'spell' }
         }, { { name = 'buffer' },
             { name = 'path' },
         }),
