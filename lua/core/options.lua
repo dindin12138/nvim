@@ -101,6 +101,8 @@ vim.opt.conceallevel   = 2;
 vim.opt.concealcursor  = "niv";
 vim.opt.autoread       = true;
 vim.opt.wildmenu       = true;
+vim.opt.spell          = true
+vim.opt.spelllang      = "en_us"
 
 if vim.loop.os_uname().sysname == 'Darwin' then
     vim.g.clipboard = {
