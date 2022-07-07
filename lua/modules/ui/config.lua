@@ -57,18 +57,18 @@ function config.dashboard()
         {
             icon = '  ',
             desc = 'Projects                                ',
-            action = 'Telescope projects',
+            action = 'Telescope Projects',
             shortcut = 'SPC f p'
         },
         {
             icon = '  ',
-            desc = 'Recently files                          ',
+            desc = 'Recently Files                          ',
             action = 'Telescope oldfiles',
             shortcut = 'SPC f o'
         },
         {
             icon = '  ',
-            desc = 'Find  File                              ',
+            desc = 'Find Files                              ',
             action = 'Telescope find_files find_command=rg,--hidden,--files',
             shortcut = 'SPC f f'
         },
@@ -80,7 +80,7 @@ function config.dashboard()
         },
         {
             icon = '  ',
-            desc = 'Edit keybindings                        ',
+            desc = 'Edit Keybindings                        ',
             action = 'edit ~/.config/nvim/lua/keymap/init.lua',
             shortcut = 'SPC x x'
         },
