@@ -31,7 +31,7 @@ end
 
 packer.startup({
   function(use)
-    use 'wbthomason/packer.nvim'
+    use({ 'wbthomason/packer.nvim' })
     -------------------- completion --------------------
     use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -48,7 +48,7 @@ packer.startup({
     -------------------- lang --------------------
     use({ "simrat39/rust-tools.nvim" })
     -------------------- tools --------------------
-    use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
     use({ "LinArcX/telescope-env.nvim" })
     use({ "ahmedkhalf/project.nvim" })
     use({ "dstein64/vim-startuptime" })
@@ -56,7 +56,7 @@ packer.startup({
     -------------------- ui --------------------
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "glepnir/dashboard-nvim" })
-    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+    use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
     use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
     use({ "lukas-reineke/indent-blankline.nvim" })
