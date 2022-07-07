@@ -1,6 +1,4 @@
 -- 自动安装 Packer.nvim
--- 插件安装目录
--- ~/.local/share/nvim/site/pack/packer/
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local paccker_bootstrap
@@ -33,67 +31,35 @@ end
 
 packer.startup({
   function(use)
-
-    -- Packer 可以管理自己本身
     use 'wbthomason/packer.nvim'
-
-    -------------------- plugins --------------------
-    -- nvim-tree
-    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-    -- bufferline
-    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
-    -- lualine
-    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-    -- use("arkav/lualine-lsp-progress")
-    -- telescope
-    use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
-    -- telescope extensions
-    use("LinArcX/telescope-env.nvim")
-    -- dashboard-nvim
-    use("glepnir/dashboard-nvim")
-    -- project
-    use("ahmedkhalf/project.nvim")
-    -- treesitter
+    -------------------- completion --------------------
+    use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
+    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+    use({ "onsails/lspkind-nvim" })
+    use({ "tami5/lspsaga.nvim" })
+    use({ "hrsh7th/nvim-cmp", requires = {
+      "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-vsnip", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline"
+    } })
+    use({ "hrsh7th/vim-vsnip" })
+    use({ "rafamadriz/friendly-snippets" })
+    -------------------- editor --------------------
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
-    -- tools
+    use({ "windwp/nvim-autopairs" })
+    -------------------- lang --------------------
+    use({ "simrat39/rust-tools.nvim" })
+    -------------------- tools --------------------
+    use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use({ "LinArcX/telescope-env.nvim" })
+    use({ "ahmedkhalf/project.nvim" })
     use({ "dstein64/vim-startuptime" })
     use({ "akinsho/toggleterm.nvim" })
-    use({ "windwp/nvim-autopairs" })
-
-    -------------------- LSP --------------------
-    -- lspconfig
-    use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
-    -- 补全引擎
-    use("hrsh7th/nvim-cmp")
-    -- snippet 引擎
-    use("hrsh7th/vim-vsnip")
-    -- 补全源
-    use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-    use("hrsh7th/cmp-path") -- { name = 'path' }
-    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
-
-    -- 常见编程语言代码段
-    use("rafamadriz/friendly-snippets")
-    -- 代码格式化
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-    use("simrat39/rust-tools.nvim")
-
-    -------------------- colorschemes --------------------
-    use("folke/tokyonight.nvim")
-    use("rebelot/kanagawa.nvim")
-    use("ful1e5/onedark.nvim")
-    use("shaunsingh/nord.nvim")
-    use("sainnhe/edge")
-    use({ "catppuccin/nvim", as = "catppuccin" })
-
     -------------------- ui --------------------
-    use("onsails/lspkind-nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
+    use({ "glepnir/dashboard-nvim" })
+    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
     use({ "lukas-reineke/indent-blankline.nvim" })
-    use({ "tami5/lspsaga.nvim" })
-
   end,
   config = {
     -- 并发数限制
