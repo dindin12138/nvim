@@ -39,6 +39,7 @@ plugin {
 plugin {
     'glepnir/lspsaga.nvim',
     branch = 'main',
+    commit = 'cce54c991a0e947ce3354bb4e3e7c1465e9de73d',
     cmd = 'Lspsaga'
 }
 
