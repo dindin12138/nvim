@@ -12,10 +12,6 @@ map {
     { 'n', '<Leader>pu', cmd('PackerUpdate'), opts(noremap, silent) },
     { 'n', '<Leader>pi', cmd('PackerInstall'), opts(noremap, silent) },
     { 'n', '<Leader>pc', cmd('PackerCompile'), opts(noremap, silent) },
-    -- dashboard
-    { 'n', '<Leader>n', cmd('DashboardNewFile'), opts(noremap, silent) },
-    { 'n', '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
-    { 'n', '<Leader>sl', cmd('SessionLoad'), opts(noremap, silent) },
     -- nvimtree
     { 'n', '<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent) },
     -- Telescope
