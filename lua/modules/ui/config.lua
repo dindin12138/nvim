@@ -57,7 +57,7 @@ function config.dashboard()
         {
             icon = '  ',
             desc = 'Projects                                ',
-            action = 'Telescope Projects',
+            action = 'Telescope projects',
             shortcut = 'SPC f p'
         },
         {
