@@ -39,7 +39,7 @@ plugin {
 plugin {
     'glepnir/lspsaga.nvim',
     branch = 'main',
-    commit = 'cce54c991a0e947ce3354bb4e3e7c1465e9de73d',
+    -- commit = 'cce54c991a0e947ce3354bb4e3e7c1465e9de73d',
     cmd = 'Lspsaga'
 }
 
@@ -47,4 +47,10 @@ plugin {
     'ray-x/lsp_signature.nvim',
     event = 'BufRead',
     config = conf.lsp_signature
+}
+
+plugin {
+    'stevearc/aerial.nvim',
+    after = 'nvim-lspconfig',
+    config = conf.aerial
 }
