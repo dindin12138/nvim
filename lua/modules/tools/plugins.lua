@@ -33,3 +33,9 @@ plugin {
     event = 'BufRead',
     config = conf.fidget
 }
+
+plugin {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufRead',
+    config = conf.gitsigns
+}
