@@ -1,10 +1,4 @@
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-	vim.notify("没有找到 nvim-treesitter")
-	return
-end
-
-treesitter.setup({
+require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all"
 	-- ensure_installed = { "c", "lua", "rust" },
 	ensure_installed = "all",

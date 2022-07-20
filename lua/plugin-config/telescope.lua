@@ -1,27 +1,32 @@
-local status, telescope = pcall(require, "telescope")
-if not status then
-	vim.notify("没有找到 telescope")
-	return
-end
-
-telescope.setup({
+require("telescope").setup({
 	defaults = {
-		-- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
 		initial_mode = "insert",
-		-- 窗口内快捷键
+		layout_config = {
+			horizontal = { prompt_position = "top", results_width = 0.6 },
+			vertical = { mirror = false }
+		},
+		sorting_strategy = 'ascending',
+		file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
+		grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
+		qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
 		mappings = require("keybindings").telescopeList,
 	},
 	pickers = {
-		-- 内置 pickers 配置
-		find_files = {
-			-- 查找文件换皮肤，支持的参数有： dropdown, cursor, ivy
-			-- theme = "dropdown",
-		},
+		-- Default configuration for builtin pickers goes here:
+		-- picker_name = {
+		--   picker_config_key = value,
+		--   ...
+		-- }
+		-- Now the picker_config_key will be applied every time you call this
+		-- builtin picker
 	},
 	extensions = {
-		-- 扩展插件配置
+		-- Your extension configuration goes here:
+		-- extension_name = {
+		--   extension_config_key = value,
+		-- }
+		-- please take a look at the readme of the extension you want to configure
 	},
 })
-
--- telescope extensions
-pcall(telescope.load_extension, "env")
+require('telescope').load_extension('env')
+require('telescope').load_extension('projects')

@@ -1,24 +1,19 @@
-local status, bufferline = pcall(require, "bufferline")
-if not status then
-	vim.notify("没有找到 bufferline")
-	return
-end
-
-bufferline.setup({
+require('bufferline').setup {
 	options = {
+		always_show_bufferline = true,
 		mode = "buffers",
 		numbers = "ordinal",
-		-- 关闭 Tab 的命令，这里使用 moll/vim-bbye 的 :Bdelete 命令
+		-- Command to close Buffer famiu/bufdelete.nvim :Bdelete
 		close_command = "Bdelete! %d",
 		right_mouse_command = "Bdelete! %d",
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
-		indicator_icon = "▎",
-		buffer_close_icon = "",
-		modified_icon = "●",
-		close_icon = "",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
+		indicator_icon = '▎',
+		buffer_close_icon = '',
+		modified_icon = '✥',
+		close_icon = '',
+		left_trunc_marker = '',
+		right_trunc_marker = '',
 		offsets = {
 			{
 				filetype = "NvimTree",
@@ -37,5 +32,5 @@ bufferline.setup({
 			end
 			return s
 		end,
-	},
-})
+	}
+}

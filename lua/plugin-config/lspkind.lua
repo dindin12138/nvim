@@ -1,10 +1,4 @@
-local status, lspkind = pcall(require, "lspkind")
-if not status then
-    vim.notify("没有找到 lspkind")
-    return
-end
-
-lspkind.init({
+require("lspkind").init({
     -- default: true
     -- with_text = true,
     -- defines how annotations are shown

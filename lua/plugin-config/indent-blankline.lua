@@ -1,13 +1,5 @@
-local status, ident_blankline = pcall(require, "indent_blankline")
-if not status then
-	vim.notify("没有找到 indent_blankline")
-	return
-end
-
-ident_blankline.setup({
-	-- 空行占位
+require("indent_blankline").setup({
 	space_char_blankline = " ",
-	-- 用 treesitter 判断上下文
 	show_current_context = true,
 	show_current_context_start = true,
 	context_patterns = {
@@ -35,7 +27,8 @@ ident_blankline.setup({
 		"lsp-installer",
 		"lspinfo",
 		"toggleterm",
+		"json",
+		"txt",
 	},
-	-- 竖线样式
 	char = "▏",
 })

@@ -1,12 +1,4 @@
-local status, nvim_tree = pcall(require, "nvim-tree")
-if not status then
-    vim.notify("没有找到 nvim-tree")
-    return
-end
-
--- 列表操作快捷键
-local list_keys = require('keybindings').nvimTreeList
-nvim_tree.setup({
+require("nvim-tree").setup({
     disable_netrw = true,
     hijack_netrw = true,
     open_on_setup = false,
@@ -17,7 +9,6 @@ nvim_tree.setup({
         enable = false,
         icons = { hint = "", info = "", warning = "", error = "" },
     },
-    -- project plugin 需要这样设置
     update_cwd = true,
     update_focused_file = {
         enable = true,
@@ -37,7 +28,7 @@ nvim_tree.setup({
         signcolumn = 'yes',
         mappings = {
             custom_only = false,
-            list = list_keys,
+            list = require('keybindings').nvimTreeList,
         },
     },
     trash = {
@@ -46,9 +37,7 @@ nvim_tree.setup({
     },
     actions = {
         open_file = {
-            -- 首次打开大小适配
             resize_window = true,
-            -- 打开文件时关闭
             quit_on_open = false,
         },
     },

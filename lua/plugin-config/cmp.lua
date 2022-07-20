@@ -1,9 +1,4 @@
-local status, cmp = pcall(require, "cmp")
-if not status then
-	vim.notify("没有找到 cmp")
-	return
-end
-
+local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup({
@@ -34,14 +29,14 @@ cmp.setup({
 	},
 })
 
--- / 查找模式使用 buffer 源
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline("/", {
 	sources = {
 		{ name = "buffer" },
 	},
 })
 
--- : 命令行模式中使用 path 和 cmdline 源.
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({
 		{ name = "path" },
