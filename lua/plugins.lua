@@ -11,7 +11,7 @@ require("packer").startup({
 		use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
 		use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 		use({ "onsails/lspkind-nvim" })
-		use({ "tami5/lspsaga.nvim" })
+		use({ "glepnir/lspsaga.nvim" })
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {

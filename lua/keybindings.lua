@@ -126,18 +126,21 @@ pluginKeys.telescopeList = {
 pluginKeys.mapLSP = function(mapbuf)
 	mapbuf("n", "gr", "<cmd>Lspsaga rename<CR>", opt)
 	mapbuf("n", "ga", "<cmd>Lspsaga code_action<CR>", opt)
+	mapbuf("n", "gp", "<cmd>Lspsaga preview_definition<CR>", opt)
 	mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
 	mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
 	mapbuf("n", "gl", "<cmd>Lspsaga lsp_finder<CR>", opt)
 	mapbuf("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
 	mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
 	mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-	mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+	mapbuf("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opt)
+	mapbuf("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opt)
 end
 
 -- LSP
 map("n", "<leader>li", ":LspInfo<CR>", opt)
 map("n", "<leader>lr", ":LspRestart<CR>", opt)
+map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
 
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)
@@ -165,5 +168,8 @@ pluginKeys.mapToggleTerm = function(toggleterm)
 	vim.keymap.set({ "n", "t" }, "<leader>th", toggleterm.toggle_horizontal)
 	vim.keymap.set({ "n", "t" }, "<leader>tg", toggleterm.toggle_lazygit)
 end
+
+-- startuptime
+map("n", "<leader>st", ":StartupTime<CR>", opt)
 
 return pluginKeys
