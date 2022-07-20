@@ -4,14 +4,21 @@ local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			require('luasnip').lsp_expand(args.body)
 		end,
 	},
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "vsnip" },
-		{ name = "buffer" },
-	}, { { name = "path" } }),
+		{ name = 'nvim_lsp' },
+		-- { name = "vsnip" }, -- For vsnip users.
+		{ name = 'luasnip' }, -- For luasnip users.
+		-- { name = 'ultisnips' },--For ultisnips users.
+		-- { name = 'snippy' },-- For snippy users.
+		{ name = 'nvim_lua' },
+		{ name = 'spell' },
+		{ name = 'buffer' }
+	}, {
+		{ name = 'path' },
+	}),
 	mapping = require("keybindings").cmp(cmp),
 	-- https://github.com/onsails/lspkind.nvim
 	formatting = {

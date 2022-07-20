@@ -16,18 +16,20 @@ require("packer").startup({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-vsnip",
 				"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-cmdline",
+				"hrsh7th/cmp-nvim-lua",
+				"f3fora/cmp-spell",
+				"saadparwaiz1/cmp_luasnip",
 			},
 		})
-		use({ "hrsh7th/vim-vsnip" })
-		use({ "rafamadriz/friendly-snippets" })
+		use({ "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets" })
 		-------------------- editor --------------------
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 		use({ "windwp/nvim-autopairs" })
 		use({ "p00f/nvim-ts-rainbow" })
+		use({ "numToStr/Comment.nvim" })
 		-------------------- lang --------------------
 		use({ "simrat39/rust-tools.nvim" })
 		-------------------- tools --------------------
