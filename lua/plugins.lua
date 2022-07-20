@@ -27,6 +27,7 @@ require("packer").startup({
 		-------------------- editor --------------------
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 		use({ "windwp/nvim-autopairs" })
+		use({ "p00f/nvim-ts-rainbow" })
 		-------------------- lang --------------------
 		use({ "simrat39/rust-tools.nvim" })
 		-------------------- tools --------------------
