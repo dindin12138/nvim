@@ -227,7 +227,9 @@ function config.lsp_signature()
 end
 
 function config.aerial()
-    require("aerial").setup({})
+    require("aerial").setup({
+        min_width = { 25, 0.13 },
+    })
 end
 
 return config
