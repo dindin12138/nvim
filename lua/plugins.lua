@@ -36,6 +36,7 @@ require("packer").startup({
 		use({ "dstein64/vim-startuptime" })
 		use({ "akinsho/toggleterm.nvim" })
 		use({ "nathom/filetype.nvim" })
+		use({ "lewis6991/gitsigns.nvim" })
 		-------------------- ui --------------------
 		use({ "catppuccin/nvim", as = "catppuccin" })
 		use({ "glepnir/dashboard-nvim" })
