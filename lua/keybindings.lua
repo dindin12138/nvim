@@ -88,7 +88,6 @@ pluginKeys.nvimTreeList = {
 
 -- bufferline
 map("n", "<C-n>", ":BufferLineCycleNext<CR>", opt)
---"moll/vim-bbye"
 map("n", "<leader>q", ":Bdelete!<CR>", opt)
 map("n", "<leader>x", ":BufferLinePickClose<CR>", opt)
 -- Leader + Number切换
