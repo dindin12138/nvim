@@ -30,7 +30,7 @@ plugin {
     config = conf.bufferline,
     requires = {
         'kyazdani42/nvim-web-devicons',
-        { 'moll/vim-bbye', cmd = 'Bdelete' }
+        { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }
     }
 }
 
