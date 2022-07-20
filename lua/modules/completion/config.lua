@@ -226,4 +226,8 @@ function config.lsp_signature()
     })
 end
 
+function config.aerial()
+    require("aerial").setup({})
+end
+
 return config

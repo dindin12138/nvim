@@ -52,4 +52,6 @@ map {
     { 'n', 'gk', cmd('Lspsaga diagnostic_jump_prev'), opts(noremap, silent) },
     { 'n', '<C-d>', cmd("lua require('lspsaga.action').smart_scroll_with_saga(1)"), opts(noremap, silent) },
     { 'n', '<C-u>', cmd("lua require('lspsaga.action').smart_scroll_with_saga(-1)"), opts(noremap, silent) },
+    -- aerial
+    { 'n', '<leader>o', cmd('AerialToggle! right'), opts(noremap, silent) }
 }
