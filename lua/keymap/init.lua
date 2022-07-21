@@ -21,6 +21,7 @@ map {
     { 'n', '<Leader>fo', cmd('Telescope oldfiles'), opts(noremap, silent) },
     { 'n', '<Leader>fe', cmd('Telescope env'), opts(noremap, silent) },
     { 'n', '<Leader>fp', cmd('Telescope projects'), opts(noremap, silent) },
+    { 'n', '<Leader>fs', cmd('Telescope session-lens search_session'), opts(noremap, silent) },
     -- buffer
     { 'n', '<C-n>', cmd('BufferLineCycleNext'), opts(noremap, silent) },
     { 'n', '<leader>q', cmd('Bdelete!'), opts(noremap, silent) },

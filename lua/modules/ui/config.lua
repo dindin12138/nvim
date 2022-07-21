@@ -56,6 +56,12 @@ function config.dashboard()
     db.custom_center = {
         {
             icon = '  ',
+            desc = 'Sessions                                ',
+            action = 'Telescope session-lens search_session',
+            shortcut = 'SPC f p'
+        },
+        {
+            icon = '  ',
             desc = 'Projects                                ',
             action = 'Telescope projects',
             shortcut = 'SPC f p'
@@ -75,8 +81,8 @@ function config.dashboard()
         {
             icon = '  ',
             desc = 'Update Plugins                          ',
-            action = 'PackerUpdate',
-            shortcut = 'SPC p u'
+            action = 'PackerSync',
+            shortcut = 'SPC p s'
         },
         {
             icon = '  ',
