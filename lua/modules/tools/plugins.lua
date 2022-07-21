@@ -9,7 +9,8 @@ plugin {
         { 'nvim-lua/popup.nvim', opt = true },
         { 'nvim-lua/plenary.nvim', opt = true },
         { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
-        { 'LinArcX/telescope-env.nvim', opt = true }
+        { 'LinArcX/telescope-env.nvim', opt = true },
+        { 'rmagatti/session-lens', opt = true }
     }
 }
 
