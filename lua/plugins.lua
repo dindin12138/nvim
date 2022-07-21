@@ -40,6 +40,8 @@ require("packer").startup({
 		use({ "akinsho/toggleterm.nvim" })
 		use({ "nathom/filetype.nvim" })
 		use({ "lewis6991/gitsigns.nvim" })
+		use({ "rmagatti/auto-session" })
+		use({ "rmagatti/session-lens" })
 		-------------------- ui --------------------
 		use({ "catppuccin/nvim", as = "catppuccin" })
 		use({ "glepnir/dashboard-nvim" })

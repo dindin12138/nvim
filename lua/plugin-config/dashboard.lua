@@ -19,6 +19,12 @@ db.custom_header = {
 db.custom_center = {
 	{
 		icon = '  ',
+		desc = 'Sessions                                ',
+		action = 'Telescope session-lens search_session',
+		shortcut = 'SPC f s'
+	},
+	{
+		icon = '  ',
 		desc = 'Projects                                ',
 		action = 'Telescope projects',
 		shortcut = 'SPC f p'

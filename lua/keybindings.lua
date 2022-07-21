@@ -101,12 +101,18 @@ map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", opt)
 map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", opt)
 map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opt)
 
+-- session
+map("n", "<Leader>ss", ":SaveSession<CR>", opt)
+map("n", "<Leader>sr", ":RestoreSession<CR>", opt)
+map("n", "<Leader>sd", ":DeleteSession<CR>", opt)
+
 -- Telescope
 map("n", "<Leader>ff", ":Telescope find_files<CR>", opt)
 map("n", "<Leader>fo", ":Telescope oldfiles<CR>", opt)
 map("n", "<Leader>fa", ":Telescope live_grep<CR>", opt)
 map("n", "<Leader>fp", ":Telescope projects<CR>", opt)
 map("n", "<Leader>fe", ":Telescope env<CR>", opt)
+map("n", "<Leader>fs", ":Telescope session-lens search_session<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
 	i = {
