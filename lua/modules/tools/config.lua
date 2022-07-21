@@ -9,6 +9,7 @@ function config.telescope()
         vim.cmd [[packadd project.nvim]]
         vim.cmd [[packadd auto-session]]
         vim.cmd [[packadd session-lens]]
+        vim.cmd [[packadd nvim-cmp]]
     end
     require('telescope').setup {
         defaults = {

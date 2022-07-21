@@ -3,15 +3,13 @@ local conf = require('modules.completion.config')
 
 plugin {
     'neovim/nvim-lspconfig',
-    -- used filetype to lazyload lsp
-    -- config your language filetype in here
     ft = { 'lua', 'c', 'cpp' },
     config = conf.nvim_lsp
 }
 
 plugin {
     'hrsh7th/nvim-cmp',
-    -- event = 'BufReadPre',
+    event = 'BufReadPre',
     config = conf.nvim_cmp,
     requires = {
         { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
@@ -28,7 +26,7 @@ plugin {
     'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
     config = conf.luasnip,
-    requires = 'rafamadriz/friendly-snippets'
+    requires = { 'rafamadriz/friendly-snippets', after = 'LuaSnip' }
 }
 
 plugin {
@@ -38,7 +36,6 @@ plugin {
 
 plugin {
     'glepnir/lspsaga.nvim',
-    -- commit = 'cce54c991a0e947ce3354bb4e3e7c1465e9de73d',
     cmd = 'Lspsaga'
 }
 
