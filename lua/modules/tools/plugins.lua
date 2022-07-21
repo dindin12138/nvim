@@ -39,3 +39,9 @@ plugin {
     event = 'BufRead',
     config = conf.gitsigns
 }
+
+plugin {
+    'rmagatti/auto-session',
+    cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
+    config = conf.auto_session
+}
