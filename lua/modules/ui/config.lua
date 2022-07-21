@@ -61,7 +61,7 @@ function config.dashboard()
             shortcut = 'SPC f p'
         },
         {
-            icon = '  ',
+            icon = '  ',
             desc = 'Projects                                ',
             action = 'Telescope projects',
             shortcut = 'SPC f p'
@@ -73,7 +73,7 @@ function config.dashboard()
             shortcut = 'SPC f o'
         },
         {
-            icon = '  ',
+            icon = '  ',
             desc = 'Find Files                              ',
             action = 'Telescope find_files find_command=rg,--hidden,--files',
             shortcut = 'SPC f f'
