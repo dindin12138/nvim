@@ -56,4 +56,8 @@ map {
     { 'n', '<leader>o', cmd('AerialToggle! right'), opts(noremap, silent) },
     -- startuptime
     { 'n', '<leader>st', cmd('StartupTime'), opts(noremap, silent) },
+    -- session
+    { 'n', '<leader>ss', cmd('SaveSession'), opts(noremap, silent) },
+    { 'n', '<leader>sr', cmd('RestoreSession'), opts(noremap, silent) },
+    { 'n', '<leader>sd', cmd('DeleteSession'), opts(noremap, silent) },
 }
