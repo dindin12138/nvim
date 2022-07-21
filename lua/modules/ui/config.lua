@@ -36,7 +36,7 @@ end
 function config.dashboard()
     local home = os.getenv('HOME')
     local db = require('dashboard')
-    db.session_directory = home .. '/.cache/nvim/session'
+    db.session_directory = home .. '/.cache/nvim/sessions'
     db.custom_header = {
         [[]],
         [[]],
@@ -97,6 +97,7 @@ function config.dashboard()
             shortcut = 'SPC x x'
         },
     }
+    db.custom_footer = { 'Talk is cheap. Show me the code.' }
 end
 
 function config.bufferline()
