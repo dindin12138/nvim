@@ -16,7 +16,8 @@ plugin {
 
 plugin {
     'windwp/nvim-autopairs',
-    event = 'BufRead',
+    -- event = 'BufRead',
+    after = 'nvim-cmp',
     config = conf.autopairs
 }
 
