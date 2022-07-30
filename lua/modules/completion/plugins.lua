@@ -3,8 +3,13 @@ local conf = require('modules.completion.config')
 
 plugin {
     'neovim/nvim-lspconfig',
-    ft = { 'lua', 'c', 'cpp' },
+    -- ft = { 'lua', 'c', 'cpp' },
     config = conf.nvim_lsp
+}
+
+plugin {
+    'williamboman/nvim-lsp-installer',
+    config = conf.nvim_lsp_installer
 }
 
 plugin {
