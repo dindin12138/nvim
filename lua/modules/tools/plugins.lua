@@ -23,11 +23,10 @@ plugin {
     config = conf.filetype
 }
 
-plugin {
-    'Pocco81/AutoSave.nvim',
-    event = 'BufRead',
-    config = conf.autosave
-}
+-- plugin {
+--     'Pocco81/auto-save.nvim',
+--     event = 'BufRead'
+-- }
 
 plugin {
     'j-hui/fidget.nvim',
