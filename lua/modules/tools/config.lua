@@ -7,8 +7,8 @@ function config.telescope()
         vim.cmd [[packadd telescope-fzy-native.nvim]]
         vim.cmd [[packadd telescope-env.nvim]]
         vim.cmd [[packadd project.nvim]]
-        vim.cmd [[packadd auto-session]]
-        vim.cmd [[packadd session-lens]]
+        -- vim.cmd [[packadd auto-session]]
+        -- vim.cmd [[packadd session-lens]]
         vim.cmd [[packadd nvim-cmp]]
     end
     require('telescope').setup {
@@ -70,7 +70,7 @@ function config.telescope()
     require('telescope').load_extension('fzy_native')
     require('telescope').load_extension('env')
     require('telescope').load_extension('projects')
-    require("telescope").load_extension("session-lens")
+    -- require("telescope").load_extension("session-lens")
 end
 
 function config.project()
@@ -174,20 +174,20 @@ function config.gitsigns()
     }
 end
 
-function config.auto_session()
-    require('auto-session').setup({
-        log_level = 'info',
-        auto_session_enable_last_session = false,
-        auto_session_root_dir = vim.fn.stdpath('data') .. "/sessions/",
-        auto_session_enabled = false,
-        auto_session_create_enabled = false,
-        auto_save_enabled = nil,
-        auto_restore_enabled = nil,
-        auto_session_suppress_dirs = nil,
-        auto_session_use_git_branch = nil,
-        -- the configs below are lua only
-        bypass_session_save_file_types = nil
-    })
-end
+-- function config.auto_session()
+--     require('auto-session').setup({
+--         log_level = 'info',
+--         auto_session_enable_last_session = false,
+--         auto_session_root_dir = vim.fn.stdpath('data') .. "/sessions/",
+--         auto_session_enabled = false,
+--         auto_session_create_enabled = false,
+--         auto_save_enabled = nil,
+--         auto_restore_enabled = nil,
+--         auto_session_suppress_dirs = nil,
+--         auto_session_use_git_branch = nil,
+--         -- the configs below are lua only
+--         bypass_session_save_file_types = nil
+--     })
+-- end
 
 return config
