@@ -82,7 +82,6 @@ function config.project()
         patterns = {
             "README.md",
             "Cargo.toml",
-            "package.json",
             ".sln",
             ".git",
             "_darcs",

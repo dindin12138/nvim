@@ -3,7 +3,7 @@ local conf = require('modules.completion.config')
 
 plugin {
     'neovim/nvim-lspconfig',
-    -- ft = { 'lua', 'c', 'cpp' },
+    ft = { 'lua', 'c', 'cpp', 'py', 'rs' },
     config = conf.nvim_lsp
 }
 
@@ -40,12 +40,12 @@ plugin {
 
 plugin {
     'glepnir/lspsaga.nvim',
-    cmd = 'Lspsaga'
+    cmd = 'Lspsaga',
 }
 
 plugin {
     'ray-x/lsp_signature.nvim',
-    event = 'BufRead',
+    after = "nvim-lspconfig",
     config = conf.lsp_signature
 }
 
