@@ -34,12 +34,12 @@ plugin {
 plugin {
     'onsails/lspkind.nvim',
     -- event = 'BufReadPost',
-    config = conf.lspkind,
+    config = conf.lspkind
 }
 
 plugin {
     'glepnir/lspsaga.nvim',
-    cmd = 'Lspsaga',
+    cmd = 'Lspsaga'
 }
 
 plugin {
