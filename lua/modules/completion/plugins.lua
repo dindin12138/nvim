@@ -33,7 +33,7 @@ plugin {
 
 plugin {
     'onsails/lspkind.nvim',
-    event = 'BufReadPost',
+    -- event = 'BufReadPost',
     config = conf.lspkind,
 }
 
