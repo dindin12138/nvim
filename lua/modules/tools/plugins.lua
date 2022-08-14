@@ -30,13 +30,13 @@ plugin {
 
 plugin {
     'j-hui/fidget.nvim',
-    event = 'BufRead',
+    event = 'BufReadPost',
     config = conf.fidget
 }
 
 plugin {
     'lewis6991/gitsigns.nvim',
-    event = 'BufRead',
+    event = { "BufReadPost", "BufNewFile" },
     config = conf.gitsigns
 }
 

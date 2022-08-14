@@ -12,7 +12,7 @@ plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
 plugin {
     'nvim-lualine/lualine.nvim',
-    event = 'BufRead',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = conf.lualine,
     requires = 'kyazdani42/nvim-web-devicons'
 }
@@ -26,7 +26,7 @@ plugin {
 
 plugin {
     'akinsho/bufferline.nvim',
-    event = 'BufRead',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = conf.bufferline,
     requires = {
         'kyazdani42/nvim-web-devicons',
@@ -36,7 +36,7 @@ plugin {
 
 plugin {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead',
+    event = 'BufReadPost',
     config = conf.indent_blankline
 }
 

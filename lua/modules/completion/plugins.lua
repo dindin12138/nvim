@@ -7,13 +7,11 @@ plugin {
     config = conf.nvim_lsp
 }
 
-plugin {
-    'williamboman/nvim-lsp-installer'
-}
+plugin { 'williamboman/nvim-lsp-installer' }
 
 plugin {
     'hrsh7th/nvim-cmp',
-    event = 'BufRead',
+    event = 'BufReadPost',
     config = conf.nvim_cmp,
     requires = {
         { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
@@ -30,11 +28,12 @@ plugin {
     'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
     config = conf.luasnip,
-    requires = { 'rafamadriz/friendly-snippets', after = 'LuaSnip' }
+    requires = { 'rafamadriz/friendly-snippets' }
 }
 
 plugin {
     'onsails/lspkind.nvim',
+    event = 'BufReadPost',
     config = conf.lspkind,
 }
 
