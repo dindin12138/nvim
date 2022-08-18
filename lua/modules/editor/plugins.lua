@@ -25,3 +25,10 @@ plugin {
     event = 'BufReadPost',
     config = conf.comment
 }
+
+plugin {
+    'phaazon/hop.nvim',
+    branch = 'v2',
+    event = "BufReadPost",
+    config = conf.hop
+}

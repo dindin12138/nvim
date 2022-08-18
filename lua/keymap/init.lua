@@ -57,6 +57,10 @@ map {
     { 'n', '<leader>o', cmd('AerialToggle! right'), opts(noremap, silent) },
     -- startuptime
     { 'n', '<leader>st', cmd('StartupTime'), opts(noremap, silent) },
+    -- hop
+    { 'n', '<Leader>w', cmd('HopWord'), opts(noremap, silent) },
+    { 'n', '<Leader>j', cmd('HopLine'), opts(noremap, silent) },
+    { 'n', '<Leader>c', cmd('HopChar1'), opts(noremap, silent) },
     -- session
     -- { 'n', '<leader>ss', cmd('SaveSession'), opts(noremap, silent) },
     -- { 'n', '<leader>sr', cmd('RestoreSession'), opts(noremap, silent) },

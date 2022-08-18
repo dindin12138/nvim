@@ -101,4 +101,8 @@ function config.comment()
     })
 end
 
+function config.hop()
+    require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+end
+
 return config
