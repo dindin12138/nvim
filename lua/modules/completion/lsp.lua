@@ -6,6 +6,20 @@ local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+    local map = vim.keymap.set
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    map("n", "gr", "<cmd>Lspsaga rename<CR>", bufopts)
+    map("n", "ga", "<cmd>Lspsaga code_action<CR>", bufopts)
+    map("n", "gp", "<cmd>Lspsaga preview_definition<CR>", bufopts)
+    map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
+    map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", bufopts)
+    map("n", "gl", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
+    map("n", "gs", "<cmd>Lspsaga signature_help<CR>", bufopts)
+    map("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
+    map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
+    map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
+    map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", bufopts)
+    map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", bufopts)
 end
 
 local lsp_flags = {
