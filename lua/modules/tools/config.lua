@@ -173,6 +173,13 @@ function config.gitsigns()
     }
 end
 
+function config.which_key()
+    local wk = require("which-key")
+    local mappings = require("keymap.pluginkey")
+    wk.setup {}
+    wk.register(mappings)
+end
+
 -- function config.auto_session()
 --     require('auto-session').setup({
 --         log_level = 'info',

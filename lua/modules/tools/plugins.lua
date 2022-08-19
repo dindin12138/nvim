@@ -40,6 +40,11 @@ plugin {
     config = conf.gitsigns
 }
 
+plugin {
+    'folke/which-key.nvim',
+    config = conf.which_key
+}
+
 -- plugin {
 --     'rmagatti/auto-session',
 --     cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
