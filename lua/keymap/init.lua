@@ -26,12 +26,12 @@ map {
     { 'n', "<C-j>", '<C-w>j', opts(noremap) },
     { 'n', "<C-k>", '<C-w>k', opts(noremap) },
     -- split
-    { 'n', "sl", cmd('vsp'), opts(noremap, silent) },
-    { 'n', "sj", cmd('sp'), opts(noremap, silent) },
-    { 'n', "sv", '<C-w>t<C-w>H', opts(noremap, silent) },
-    { 'n', "sh", '<C-w>t<C-w>K', opts(noremap, silent) },
-    { 'n', "sc", '<C-w>c', opts(noremap, silent) },
-    { 'n', "so", '<C-w>o', opts(noremap, silent) },
+    -- { 'n', "sl", cmd('vsp'), opts(noremap, silent) },
+    -- { 'n', "sj", cmd('sp'), opts(noremap, silent) },
+    -- { 'n', "sv", '<C-w>t<C-w>H', opts(noremap, silent) },
+    -- { 'n', "sh", '<C-w>t<C-w>K', opts(noremap, silent) },
+    -- { 'n', "sc", '<C-w>c', opts(noremap, silent) },
+    -- { 'n', "so", '<C-w>o', opts(noremap, silent) },
     -- resize
     { 'n', "<C-Left>", cmd('vertical resize -2'), opts(noremap, silent) },
     { 'n', "<C-Right>", cmd('vertical resize +2'), opts(noremap, silent) },

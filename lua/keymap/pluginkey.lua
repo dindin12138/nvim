@@ -121,7 +121,14 @@ local which_key = {
         e = { "show_line_diagnostics" },
         j = { "diagnostic_jump_next" },
         k = { "diagnostic_jump_prev" },
-    }
+    },
+    ["s"] = {
+        name = "split window",
+        v = { ":vsp<CR>", "vertical split window" },
+        h = { ":sp<CR>", "horizontal split window" },
+        c = { ":close<CR>", "close this window" },
+        o = { ":only<CR>", "close all but this window" },
+    },
 }
 
 return which_key
