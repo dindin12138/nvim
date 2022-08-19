@@ -99,6 +99,7 @@ local which_key = {
         l = {
             name = "LSP",
             i = { "<cmd>LspInfo<cr>", "LspInfo" },
+            I = { "<cmd>LspInstallInfo<cr>", "LspInstallInfo" },
             l = { "<cmd>LspLog<cr>", "LspLog" },
             r = { "<cmd>LspRestart<cr>", "LspRestart" },
             f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
