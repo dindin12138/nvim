@@ -7,7 +7,10 @@ plugin {
     config = conf.nvim_lsp
 }
 
-plugin { 'williamboman/nvim-lsp-installer' }
+plugin {
+    'williamboman/mason-lspconfig.nvim',
+    after = 'mason.nvim'
+}
 
 plugin {
     'hrsh7th/nvim-cmp',

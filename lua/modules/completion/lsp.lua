@@ -1,5 +1,5 @@
-local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -27,7 +27,7 @@ local lsp_flags = {
     debounce_text_changes = 150,
 }
 
-lsp_installer.setup({
+mason_lspconfig.setup({
     -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer", "sumneko_lua" }
     -- This setting has no relation with the `automatic_installation` setting.
     ensure_installed = { 'sumneko_lua', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls' },
@@ -40,15 +40,6 @@ lsp_installer.setup({
     --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
     --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
     automatic_installation = false,
-    ui = {
-        -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-        border = "rounded",
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
 })
 
 lspconfig['sumneko_lua'].setup {

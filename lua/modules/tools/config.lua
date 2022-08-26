@@ -105,26 +105,6 @@ function config.filetype()
     })
 end
 
--- function config.auto_save()
---     require("auto-save").setup(
---         {
---             enabled = true,
---             execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
---             events = { "InsertLeave" },
---             conditions = {
---                 exists = true,
---                 filename_is_not = {},
---                 filetype_is_not = {},
---                 modifiable = true
---             },
---             write_all_buffers = false,
---             on_off_commands = true,
---             clean_command_line_interval = 0,
---             debounce_delay = 135
---         }
---     )
--- end
-
 function config.fidget()
     require("fidget").setup({})
 end
@@ -179,6 +159,40 @@ function config.which_key()
     wk.setup {}
     wk.register(mappings)
 end
+
+function config.mason()
+    require("mason").setup({
+        ui = {
+            -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+            border = "rounded",
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
+            }
+        }
+    })
+end
+
+-- function config.auto_save()
+--     require("auto-save").setup(
+--         {
+--             enabled = true,
+--             execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+--             events = { "InsertLeave" },
+--             conditions = {
+--                 exists = true,
+--                 filename_is_not = {},
+--                 filetype_is_not = {},
+--                 modifiable = true
+--             },
+--             write_all_buffers = false,
+--             on_off_commands = true,
+--             clean_command_line_interval = 0,
+--             debounce_delay = 135
+--         }
+--     )
+-- end
 
 -- function config.auto_session()
 --     require('auto-session').setup({

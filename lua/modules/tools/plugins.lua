@@ -23,11 +23,6 @@ plugin {
     config = conf.filetype
 }
 
--- plugin {
---     'Pocco81/auto-save.nvim',
---     event = 'BufRead'
--- }
-
 plugin {
     'j-hui/fidget.nvim',
     event = 'BufReadPost',
@@ -44,6 +39,17 @@ plugin {
     'folke/which-key.nvim',
     config = conf.which_key
 }
+
+plugin {
+    'williamboman/mason.nvim',
+    -- cmd = 'Mason',
+    config = conf.mason
+}
+
+-- plugin {
+--     'Pocco81/auto-save.nvim',
+--     event = 'BufRead'
+-- }
 
 -- plugin {
 --     'rmagatti/auto-session',
