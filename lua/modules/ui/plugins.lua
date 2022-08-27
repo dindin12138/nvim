@@ -18,13 +18,6 @@ plugin {
 }
 
 plugin {
-    'kyazdani42/nvim-tree.lua',
-    cmd = 'NvimTreeToggle',
-    config = conf.nvim_tree,
-    requires = 'kyazdani42/nvim-web-devicons'
-}
-
-plugin {
     'akinsho/bufferline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
     config = conf.bufferline,

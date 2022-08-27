@@ -1,5 +1,70 @@
 local config = {}
 
+function config.nvim_tree()
+    require("nvim-tree").setup({
+        disable_netrw = true,
+        hijack_netrw = true,
+        open_on_setup = false,
+        ignore_ft_on_setup = { "dashboard" },
+        open_on_tab = false,
+        hijack_cursor = true,
+        diagnostics = {
+            enable = false,
+            icons = { hint = "", info = "", warning = "", error = "" },
+        },
+        -- project plugin
+        respect_buf_cwd = true,
+        update_cwd = true,
+        update_focused_file = {
+            enable = true,
+            update_cwd = true,
+        },
+        system_open = { cmd = nil, args = {} },
+        git = { enable = true, ignore = true, timeout = 500 },
+        filters = { dotfiles = false, custom = {} },
+        view = {
+            width = 30,
+            height = 30,
+            side = 'left',
+            hide_root_folder = false,
+            number = false,
+            relativenumber = false,
+            signcolumn = 'yes',
+            mappings = {
+                custom_only = false,
+                list = {
+                    -- Open a file or folder
+                    { key = { "l", "o", "<CR>" }, action = "edit" },
+                    -- Open the file in split screen
+                    { key = "v", action = "vsplit" },
+                    { key = "h", action = "split" },
+                    -- Show hidden files
+                    { key = "i", action = "toggle_git_ignored" },
+                    { key = ".", action = "toggle_dotfiles" },
+                    -- File operations
+                    { key = "<F5>", action = "refresh" },
+                    { key = "a", action = "create" },
+                    { key = "d", action = "remove" },
+                    { key = "r", action = "rename" },
+                    { key = "x", action = "cut" },
+                    { key = "y", action = "copy" },
+                    { key = "p", action = "paste" },
+                },
+            },
+        },
+        trash = {
+            cmd = "trash",
+            require_confirm = true,
+        },
+        actions = {
+            open_file = {
+                resize_window = true,
+                quit_on_open = false,
+            },
+        },
+    })
+end
+
 function config.telescope()
     if not packer_plugins['plenary.nvim'].loaded then
         vim.cmd [[packadd plenary.nvim]]
