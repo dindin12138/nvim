@@ -155,6 +155,7 @@ function config.project()
             ".svn",
             "Makefile",
         },
+        exclude_dirs = { "~/.local/*" }
     }
 end
 
