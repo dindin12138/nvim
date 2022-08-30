@@ -1,9 +1,5 @@
 local config = {}
 
-function config.catppuccin()
-    vim.cmd('colorscheme catppuccin')
-end
-
 function config.lualine()
     require("lualine").setup({
         options = {
