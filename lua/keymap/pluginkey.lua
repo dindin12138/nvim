@@ -12,11 +12,12 @@ local which_key = {
         f = {
             name = "Telescope",
             b = { "<cmd>Telescope buffers<cr>", "buffers" },
-            a = { "<cmd>Telescope live_grep<cr>", "live_grep" },
+            g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
             f = { "<cmd>Telescope find_files<cr>", "find_files" },
             o = { "<cmd>Telescope oldfiles<cr>", "oldfiles" },
             e = { "<cmd>Telescope env<cr>", "env" },
             p = { "<cmd>Telescope projects<cr>", "projects" },
+            h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
         },
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
         x = { "<cmd>BufferLinePickClose<cr>", "Buffer Pick Close" },
@@ -63,6 +64,8 @@ local which_key = {
         c = { ":close<CR>", "close this window" },
         o = { ":only<CR>", "close all but this window" },
     },
+    ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
+    ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" }
 }
 
 return which_key

@@ -67,7 +67,7 @@ map {
     -- { 'n', '<Leader>fp', cmd('Telescope projects'), opts(noremap, silent) },
     -- { 'n', '<Leader>fs', cmd('Telescope session-lens search_session'), opts(noremap, silent) },
     -- buffer
-    { 'n', '<C-n>', cmd('BufferLineCycleNext'), opts(noremap, silent) },
+    -- { 'n', '<C-n>', cmd('BufferLineCycleNext'), opts(noremap, silent) },
     -- { 'n', '<leader>q', cmd('Bdelete!'), opts(noremap, silent) },
     -- { 'n', '<leader>x', cmd('BufferLinePickClose'), opts(noremap, silent) },
     -- { 'n', '<leader>1', cmd('BufferLineGoToBuffer 1'), opts(noremap, silent) },
