@@ -1,4 +1,6 @@
 local which_key = {
+    ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
+    ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" },
     ["<leader>"] = {
         p = {
             name = "Packer",
@@ -64,8 +66,6 @@ local which_key = {
         c = { ":close<CR>", "close this window" },
         o = { ":only<CR>", "close all but this window" },
     },
-    ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
-    ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" }
 }
 
 return which_key
