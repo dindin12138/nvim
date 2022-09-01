@@ -256,14 +256,18 @@ function config.toggleterm()
         float_opts = {
             border = "single",
         },
-        -- function to run on opening the terminal
         on_open = function(term)
             vim.cmd("startinsert!")
             vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+            if vim.fn.mapcheck("<Esc>", "t") ~= "" then
+                vim.api.nvim_del_keymap("t", "<Esc>")
+            end
         end,
-        -- function to run on closing the terminal
-        on_close = function(term)
-            vim.cmd("Closing terminal")
+        on_close = function(_)
+            vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {
+                noremap = true,
+                silent = true,
+            })
         end,
     })
     local floaterm = Terminal:new({
