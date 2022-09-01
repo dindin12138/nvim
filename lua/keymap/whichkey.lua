@@ -20,6 +20,9 @@ local which_key = {
             e = { "<cmd>Telescope env<cr>", "env" },
             p = { "<cmd>Telescope projects<cr>", "projects" },
             h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
+            c = { "<cmd>Telescope git_commits<cr>", "git_commits" },
+            s = { "<cmd>Telescope git_status<cr>", "git_status" },
+            k = { "<cmd>Telescope keymaps<cr>", "keymaps" },
         },
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
         x = { "<cmd>BufferLinePickClose<cr>", "Buffer Pick Close" },
@@ -50,6 +53,12 @@ local which_key = {
         j = { "<cmd>HopLine<cr>", "HopLine" },
         c = { "<cmd>HopChar1<cr>", "HopChar1" },
         m = { "<cmd>Mason<cr>", "Mason" },
+        ["/"] = {
+            function()
+                require("Comment.api").toggle.linewise.current()
+            end,
+            "toggle comment",
+        },
     },
     ["g"] = {
         name = "lspsaga",
