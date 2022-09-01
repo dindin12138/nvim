@@ -39,6 +39,11 @@ local which_key = {
             r = { "<cmd>LspRestart<cr>", "LspRestart" },
             f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
         },
+        t = {
+            name = "Terminal",
+            g = { "<cmd>lua lazygit_toggle()<cr>", "LazyGit" },
+            f = { "<cmd>lua floaterm_toggle()<cr>", "Floaterm" },
+        },
         o = { "<cmd>AerialToggle! right<cr>", "Aerial" },
         s = { t = { "<cmd>StartupTime<cr>", "StartupTime" } },
         w = { "<cmd>HopWord<cr>", "HopWord" },

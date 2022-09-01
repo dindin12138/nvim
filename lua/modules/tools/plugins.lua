@@ -53,6 +53,12 @@ plugin {
     config = conf.mason
 }
 
+plugin {
+    'akinsho/toggleterm.nvim',
+    tag = 'v2.*',
+    config = conf.toggleterm
+}
+
 -- plugin {
 --     'Pocco81/auto-save.nvim',
 --     event = 'BufRead'

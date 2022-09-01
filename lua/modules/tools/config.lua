@@ -240,6 +240,45 @@ function config.mason()
     })
 end
 
+function config.toggleterm()
+    local toggleterm = require("toggleterm")
+    local Terminal = require("toggleterm.terminal").Terminal
+    toggleterm.setup({
+        open_mapping = [[<c-\>]],
+        start_in_insert = true,
+        direction = 'horizontal'
+    })
+
+    local lazygit = Terminal:new({
+        cmd = "lazygit",
+        dir = "git_dir",
+        direction = "float",
+        float_opts = {
+            border = "single",
+        },
+        -- function to run on opening the terminal
+        on_open = function(term)
+            vim.cmd("startinsert!")
+            vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+        end,
+        -- function to run on closing the terminal
+        on_close = function(term)
+            vim.cmd("Closing terminal")
+        end,
+    })
+    local floaterm = Terminal:new({
+        direction = 'float',
+    })
+
+    function floaterm_toggle()
+        floaterm:toggle()
+    end
+
+    function lazygit_toggle()
+        lazygit:toggle()
+    end
+end
+
 -- function config.auto_save()
 --     require("auto-save").setup(
 --         {

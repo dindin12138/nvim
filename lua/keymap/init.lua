@@ -51,6 +51,12 @@ map {
     { 'v', "K", ':m \'<-2<cr>gv=gv', opts(noremap, silent) },
     { 'v', "<", '<gv', opts(noremap, silent) },
     { 'v', ">", '>gv', opts(noremap, silent) },
+    -- terminal "t", "<leader>l", "<Cmd> wincmd l<CR>",
+    { 't', "<Esc>", '<C-\\><C-n>', opts(noremap, silent) },
+    { 't', "<C-h>", '<Cmd> wincmd h<CR>', opts(noremap, silent) },
+    { 't', "<C-j>", '<Cmd> wincmd j<CR>', opts(noremap, silent) },
+    { 't', "<C-k>", '<Cmd> wincmd k<CR>', opts(noremap, silent) },
+    { 't', "<C-l>", '<Cmd> wincmd l<CR>', opts(noremap, silent) },
     -- packer
     -- { 'n', '<Leader>ps', cmd('PackerSync'), opts(noremap, silent) },
     -- { 'n', '<Leader>pu', cmd('PackerUpdate'), opts(noremap, silent) },
