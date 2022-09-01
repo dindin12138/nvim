@@ -221,7 +221,7 @@ end
 
 function config.which_key()
     local wk = require("which-key")
-    local mappings = require("keymap.pluginkey")
+    local mappings = require("keymap.whichkey")
     wk.setup {}
     wk.register(mappings)
 end
