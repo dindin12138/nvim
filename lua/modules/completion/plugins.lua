@@ -53,6 +53,6 @@ plugin {
 
 plugin {
     'stevearc/aerial.nvim',
-    after = 'nvim-lspconfig',
+    cmd = 'AerialToggle',
     config = conf.aerial
 }

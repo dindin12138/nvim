@@ -29,6 +29,6 @@ plugin {
 plugin {
     'phaazon/hop.nvim',
     branch = 'v2',
-    event = "BufReadPost",
+    cmd = { 'HopWord', 'HopLine', 'HopChar1' },
     config = conf.hop
 }
