@@ -21,7 +21,7 @@ plugin {
     }
 }
 
-plugin { 'ahmedkhalf/project.nvim', config = conf.project }
+plugin { 'ahmedkhalf/project.nvim', cmd = 'Telescope', config = conf.project }
 
 plugin { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
