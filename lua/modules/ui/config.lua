@@ -1,32 +1,59 @@
 local config = {}
 
 function config.lualine()
-    require("lualine").setup({
+    local lualine = require('lualine')
+    local config = {
         options = {
             theme = "auto",
-            component_separators = { left = "|", right = "|" },
+            component_separators = { left = "", right = "" },
             -- https://github.com/ryanoasis/powerline-extra-symbols
             section_separators = { left = " ", right = "" },
         },
         sections = {
             lualine_a = { 'mode' },
-            lualine_b = { 'branch', 'diff', 'diagnostics' },
-            lualine_c = { 'filename' },
-            lualine_x = { 'encoding', 'fileformat', 'filetype' },
-            lualine_y = { 'progress' },
-            lualine_z = { 'location' }
+            lualine_b = { { 'filetype', icon_only = true }, 'filename' },
+            lualine_c = {
+                { 'branch', icon = ' ' },
+                { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } }
+            },
+            lualine_x = { 'diagnostics' },
+            lualine_y = { 'fileformat', 'encoding' },
+            lualine_z = { 'progress' }
         },
         inactive_sections = {
             lualine_a = {},
-            lualine_b = {},
-            lualine_c = { 'filename' },
+            lualine_b = { 'filename' },
+            lualine_c = {},
             lualine_x = { 'location' },
             lualine_y = {},
             lualine_z = {}
         },
         tabline = {},
-        extensions = { "nvim-tree", "toggleterm" },
+        extensions = { "nvim-tree", "toggleterm", "aerial" },
+    }
+
+    -- Inserts a component in lualine_x ot right section
+    table.insert(config.sections.lualine_x, {
+        -- Lsp server name .
+        function()
+            local msg = 'No Active Lsp'
+            local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+            local clients = vim.lsp.get_active_clients()
+            if next(clients) == nil then
+                return msg
+            end
+            for _, client in ipairs(clients) do
+                local filetypes = client.config.filetypes
+                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                    return client.name
+                end
+            end
+            return msg
+        end,
+        icon = '  LSP:'
     })
+
+    lualine.setup(config)
 end
 
 function config.dashboard()
