@@ -16,7 +16,7 @@ function config.lualine()
                 { 'branch', icon = ' ' },
                 { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } }
             },
-            lualine_x = { 'diagnostics' },
+            lualine_x = { { 'diagnostics', symbols = { error = ' ', warn = ' ', info = ' ', hint = 'ﯧ ' } } },
             lualine_y = { 'fileformat', 'encoding' },
             lualine_z = { 'progress' }
         },
@@ -50,7 +50,7 @@ function config.lualine()
             end
             return msg
         end,
-        icon = '  LSP:'
+        icon = '  LSP ~'
     })
 
     lualine.setup(config)

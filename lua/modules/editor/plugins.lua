@@ -32,3 +32,9 @@ plugin {
     cmd = { 'HopWord', 'HopLine', 'HopChar1' },
     config = conf.hop
 }
+
+plugin {
+    'folke/todo-comments.nvim',
+    event = 'BufReadPost',
+    config = conf.todo
+}
