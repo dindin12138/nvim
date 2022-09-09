@@ -8,17 +8,12 @@ plugin {
     requires = 'kyazdani42/nvim-web-devicons'
 }
 
+plugin { 'nvim-lua/plenary.nvim' }
+
 plugin {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
-    config = conf.telescope,
-    requires = {
-        { 'nvim-lua/popup.nvim', opt = true },
-        { 'nvim-lua/plenary.nvim', opt = true },
-        { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
-        { 'LinArcX/telescope-env.nvim', opt = true },
-        -- { 'rmagatti/session-lens', opt = true }
-    }
+    config = conf.telescope
 }
 
 plugin { 'ahmedkhalf/project.nvim', cmd = 'Telescope', config = conf.project }

@@ -17,7 +17,6 @@ local which_key = {
             g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
             f = { "<cmd>Telescope find_files<cr>", "find_files" },
             o = { "<cmd>Telescope oldfiles<cr>", "oldfiles" },
-            e = { "<cmd>Telescope env<cr>", "env" },
             p = { "<cmd>Telescope projects<cr>", "projects" },
             h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
             c = { "<cmd>Telescope git_commits<cr>", "git_commits" },

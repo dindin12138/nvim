@@ -66,16 +66,6 @@ function config.nvim_tree()
 end
 
 function config.telescope()
-    if not packer_plugins['plenary.nvim'].loaded then
-        vim.cmd [[packadd plenary.nvim]]
-        vim.cmd [[packadd popup.nvim]]
-        vim.cmd [[packadd telescope-fzy-native.nvim]]
-        vim.cmd [[packadd telescope-env.nvim]]
-        vim.cmd [[packadd project.nvim]]
-        -- vim.cmd [[packadd auto-session]]
-        -- vim.cmd [[packadd session-lens]]
-        vim.cmd [[packadd nvim-cmp]]
-    end
     require('telescope').setup {
         defaults = {
             -- Default configuration for telescope goes here:
@@ -111,31 +101,10 @@ function config.telescope()
                 }
             }
         },
-        pickers = {
-            -- Default configuration for builtin pickers goes here:
-            -- picker_name = {
-            --   picker_config_key = value,
-            --   ...
-            -- }
-            -- Now the picker_config_key will be applied every time you call this
-            -- builtin picker
-        },
-        extensions = {
-            -- Your extension configuration goes here:
-            -- extension_name = {
-            --   extension_config_key = value,
-            -- }
-            -- please take a look at the readme of the extension you want to configure
-            fzy_native = {
-                override_generic_sorter = false,
-                override_file_sorter = true
-            }
-        }
+        pickers = {},
+        extensions = {}
     }
-    require('telescope').load_extension('fzy_native')
-    require('telescope').load_extension('env')
     require('telescope').load_extension('projects')
-    -- require("telescope").load_extension("session-lens")
 end
 
 function config.project()
