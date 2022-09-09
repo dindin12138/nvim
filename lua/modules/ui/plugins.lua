@@ -4,8 +4,10 @@ local conf = require('modules.ui.config')
 plugin {
     'catppuccin/nvim',
     as = 'catppuccin',
-    commit = 'b5f2204b76320d04f618ea6643dce2edec67f915'
+    -- commit = 'b5f2204b76320d04f618ea6643dce2edec67f915'
 }
+
+plugin { 'navarasu/onedark.nvim' }
 
 plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
