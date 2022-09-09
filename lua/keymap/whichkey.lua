@@ -80,6 +80,13 @@ local which_key = {
         c = { ":close<CR>", "close this window" },
         o = { ":only<CR>", "close all but this window" },
     },
+    [""] = {
+        function()
+            require("Comment.api").toggle.linewise.current()
+        end,
+        "toggle comment",
+    },
+
 }
 
 return which_key
