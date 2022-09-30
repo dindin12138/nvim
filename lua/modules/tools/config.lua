@@ -24,7 +24,6 @@ function config.nvim_tree()
         filters = { dotfiles = false, custom = {} },
         view = {
             width = 30,
-            height = 30,
             side = 'left',
             hide_root_folder = false,
             number = false,
