@@ -10,7 +10,7 @@ local on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     map("n", "gr", "<cmd>Lspsaga rename<CR>", bufopts)
     map("n", "ga", "<cmd>Lspsaga code_action<CR>", bufopts)
-    map("n", "gp", "<cmd>Lspsaga preview_definition<CR>", bufopts)
+    map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", bufopts)
     map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
     map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", bufopts)
     map("n", "gl", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
