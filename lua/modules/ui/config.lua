@@ -196,7 +196,7 @@ end
 function config.notify()
     require("notify").setup({
         ---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-        stages = "slide",
+        stages = "fade",
         ---@usage Function called when a new window is opened, use for changing win settings/config
         on_open = nil,
         ---@usage Function called when a window is closed
@@ -319,7 +319,6 @@ function config.notify()
     vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
         vim.notify(method.message, severity[params.type])
     end
-
 end
 
 return config
