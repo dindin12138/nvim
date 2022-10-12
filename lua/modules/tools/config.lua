@@ -139,10 +139,6 @@ function config.filetype()
     })
 end
 
-function config.fidget()
-    require("fidget").setup({})
-end
-
 function config.gitsigns()
     require('gitsigns').setup {
         signs                        = {
