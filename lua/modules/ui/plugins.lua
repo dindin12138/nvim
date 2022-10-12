@@ -15,7 +15,7 @@ plugin {
     'nvim-lualine/lualine.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
     config = conf.lualine,
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'nvim-tree/nvim-web-devicons'
 }
 
 plugin {
@@ -23,7 +23,7 @@ plugin {
     event = { 'BufReadPost', 'BufNewFile' },
     config = conf.bufferline,
     requires = {
-        'kyazdani42/nvim-web-devicons',
+        'nvim-tree/nvim-web-devicons',
         { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }
     }
 }
