@@ -5,7 +5,7 @@ local mason_lspconfig = require("mason-lspconfig")
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+    vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }')
     local map = vim.keymap.set
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     map("n", "gr", "<cmd>Lspsaga rename<CR>", bufopts)
