@@ -21,11 +21,6 @@ plugin { 'ahmedkhalf/project.nvim', cmd = 'Telescope', config = conf.project }
 plugin { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
 plugin {
-    'nathom/filetype.nvim',
-    config = conf.filetype
-}
-
-plugin {
     'lewis6991/gitsigns.nvim',
     event = { "BufReadPost", "BufNewFile" },
     config = conf.gitsigns
