@@ -43,11 +43,6 @@ plugin {
     config = conf.toggleterm
 }
 
-plugin {
-    'nathom/filetype.nvim',
-    config = conf.filetype
-}
-
 -- plugin {
 --     'Pocco81/auto-save.nvim',
 --     event = 'BufRead'
