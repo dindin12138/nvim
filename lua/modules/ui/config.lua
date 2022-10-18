@@ -1,5 +1,11 @@
 local config = {}
 
+function config.catppuccin()
+    vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+    require("catppuccin").setup()
+    vim.api.nvim_command "colorscheme catppuccin"
+end
+
 function config.lualine()
     local lualine = require('lualine')
     local config = {

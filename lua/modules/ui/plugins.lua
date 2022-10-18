@@ -4,9 +4,8 @@ local conf = require('modules.ui.config')
 plugin {
     'catppuccin/nvim',
     as = 'catppuccin',
+    config = conf.catppuccin
 }
-
-plugin { 'navarasu/onedark.nvim' }
 
 plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
