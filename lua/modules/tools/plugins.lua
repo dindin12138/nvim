@@ -44,14 +44,3 @@ plugin {
     tag = 'v2.*',
     config = conf.toggleterm
 }
-
--- plugin {
---     'Pocco81/auto-save.nvim',
---     event = 'BufRead'
--- }
-
--- plugin {
---     'rmagatti/auto-session',
---     cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
---     config = conf.auto_session
--- }

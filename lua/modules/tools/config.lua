@@ -235,40 +235,4 @@ function config.toggleterm()
     end
 end
 
--- function config.auto_save()
---     require("auto-save").setup(
---         {
---             enabled = true,
---             execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
---             events = { "InsertLeave" },
---             conditions = {
---                 exists = true,
---                 filename_is_not = {},
---                 filetype_is_not = {},
---                 modifiable = true
---             },
---             write_all_buffers = false,
---             on_off_commands = true,
---             clean_command_line_interval = 0,
---             debounce_delay = 135
---         }
---     )
--- end
-
--- function config.auto_session()
---     require('auto-session').setup({
---         log_level = 'info',
---         auto_session_enable_last_session = false,
---         auto_session_root_dir = vim.fn.stdpath('data') .. "/sessions/",
---         auto_session_enabled = false,
---         auto_session_create_enabled = false,
---         auto_save_enabled = nil,
---         auto_restore_enabled = nil,
---         auto_session_suppress_dirs = nil,
---         auto_session_use_git_branch = nil,
---         -- the configs below are lua only
---         bypass_session_save_file_types = nil
---     })
--- end
-
 return config
