@@ -3,7 +3,8 @@ local conf = require('modules.editor.config')
 
 plugin {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufReadPost',
+    module = "nvim-treesitter",
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
     run = ':TSUpdate',
     config = conf.nvim_treesitter
 }

@@ -7,14 +7,17 @@ plugin {
     config = conf.nvim_lsp
 }
 
+plugin { 'williamboman/mason-lspconfig.nvim' }
+
 plugin {
-    'williamboman/mason-lspconfig.nvim',
-    after = 'mason.nvim'
+    'rafamadriz/friendly-snippets',
+    module = { "cmp", "cmp_nvim_lsp" },
+    event = "InsertEnter"
 }
 
 plugin {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    after = "friendly-snippets",
     config = conf.nvim_cmp,
     requires = {
         { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
@@ -30,8 +33,7 @@ plugin {
 plugin {
     'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
-    config = conf.luasnip,
-    requires = { 'rafamadriz/friendly-snippets' }
+    config = conf.luasnip
 }
 
 plugin {

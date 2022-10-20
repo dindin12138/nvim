@@ -8,21 +8,22 @@ plugin {
     requires = 'nvim-tree/nvim-web-devicons'
 }
 
-plugin { 'nvim-lua/plenary.nvim' }
+plugin { 'nvim-lua/plenary.nvim', module = "plenary" }
 
 plugin {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
+    after = 'project.nvim',
     config = conf.telescope
 }
 
-plugin { 'ahmedkhalf/project.nvim', cmd = 'Telescope', config = conf.project }
+plugin { 'ahmedkhalf/project.nvim', module = 'telescope', config = conf.project }
 
 plugin { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
 
 plugin {
     'lewis6991/gitsigns.nvim',
-    event = { "BufReadPost", "BufNewFile" },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = conf.gitsigns
 }
 
@@ -33,7 +34,8 @@ plugin {
 
 plugin {
     'williamboman/mason.nvim',
-    -- cmd = 'Mason',
+    module = 'mason',
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     config = conf.mason
 }
 

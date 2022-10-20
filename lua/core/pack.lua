@@ -45,7 +45,20 @@ function Packer:load_packer()
     packer.reset()
     local use = packer.use
     self:load_plugins()
-    use { "wbthomason/packer.nvim", opt = true }
+    use { "wbthomason/packer.nvim", cmd = {
+        "PackerSnapshot",
+        "PackerSnapshotRollback",
+        "PackerSnapshotDelete",
+        "PackerInstall",
+        "PackerUpdate",
+        "PackerSync",
+        "PackerClean",
+        "PackerCompile",
+        "PackerStatus",
+        "PackerProfile",
+        "PackerLoad",
+    } }
+
     for _, repo in ipairs(self.repos) do
         use(repo)
     end

@@ -9,26 +9,24 @@ plugin {
 
 plugin { 'glepnir/dashboard-nvim', config = conf.dashboard }
 
+plugin { 'nvim-tree/nvim-web-devicons', module = 'nvim-web-devicons' }
+
 plugin {
     'nvim-lualine/lualine.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
-    config = conf.lualine,
-    requires = 'nvim-tree/nvim-web-devicons'
+    config = conf.lualine
 }
 
 plugin {
     'akinsho/bufferline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
-    config = conf.bufferline,
-    requires = {
-        'nvim-tree/nvim-web-devicons',
-        { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }
-    }
+    requires = { 'famiu/bufdelete.nvim', cmd = 'Bdelete' },
+    config = conf.bufferline
 }
 
 plugin {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = conf.indent_blankline
 }
 
