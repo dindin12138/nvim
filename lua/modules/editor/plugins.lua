@@ -23,7 +23,7 @@ plugin {
 
 plugin {
     'numToStr/Comment.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = conf.comment
 }
 
@@ -36,6 +36,6 @@ plugin {
 
 plugin {
     'folke/todo-comments.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = conf.todo
 }
