@@ -1,3 +1,5 @@
+require('impatient')
+
 local vim       = vim
 local home      = os.getenv("HOME")
 -- remove check is windows because I only use mac or linux
