@@ -110,13 +110,13 @@ function config.dashboard()
         {
             icon = '  ',
             desc = 'Update Plugins                          ',
-            action = 'PackerSync',
+            action = 'Lazy sync',
             shortcut = 'SPC p s'
         },
         {
             icon = '  ',
             desc = 'Edit Keybindings                        ',
-            action = 'edit ~/.config/nvim/lua/keymap/init.lua',
+            action = 'edit ~/.config/nvim/lua/keymap/whichkey.lua',
             shortcut = 'SPC x x'
         },
         {

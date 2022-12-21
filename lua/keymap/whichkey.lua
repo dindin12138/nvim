@@ -40,7 +40,8 @@ local which_key = {
             l = { "<cmd>LspLog<cr>", "LspLog" },
             r = { "<cmd>LspRestart<cr>", "LspRestart" },
             f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-            h = { "<cmd>Lazy home<cr>", "Lazy home" }
+            h = { "<cmd>Lazy home<cr>", "Lazy home" },
+            s = { "<cmd>Lazy sync<cr>", "Lazy sync" }
         },
         t = {
             name = "Terminal",
