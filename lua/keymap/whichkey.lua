@@ -35,11 +35,12 @@ local which_key = {
         ["8"] = { "<cmd>BufferLineGoToBuffer 8<cr>", "Go To Buffer 8" },
         ["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Go To Buffer 9" },
         l = {
-            name = "LSP",
+            name = "LSP & Lazy",
             i = { "<cmd>LspInfo<cr>", "LspInfo" },
             l = { "<cmd>LspLog<cr>", "LspLog" },
             r = { "<cmd>LspRestart<cr>", "LspRestart" },
             f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+            h = { "<cmd>Lazy home<cr>", "Lazy home" }
         },
         t = {
             name = "Terminal",

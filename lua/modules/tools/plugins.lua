@@ -41,7 +41,7 @@ plugin {
 
 plugin {
     'akinsho/toggleterm.nvim',
-    tag = 'v2.*',
+    tag = '*',
     config = conf.toggleterm
 }
 

@@ -5,7 +5,7 @@ local opts = keymap.new_opts
 local cmd = keymap.cmd
 
 -- Use space as leader key
-vim.g.mapleader = " "
+-- vim.g.mapleader = " "
 
 -- usage example
 map {

@@ -1,7 +1,10 @@
-require('impatient')
+-- require('impatient')
+vim.g.mapleader = " "
 
-local vim       = vim
+require('core.lazy')
+
 --disable_distribution_plugins
+local vim                      = vim
 vim.g.loaded_gzip              = 1
 vim.g.loaded_tar               = 1
 vim.g.loaded_tarPlugin         = 1
@@ -21,9 +24,9 @@ vim.g.loaded_netrwPlugin       = 1
 vim.g.loaded_netrwSettings     = 1
 vim.g.loaded_netrwFileHandlers = 1
 
-local pack = require('core.pack')
+-- local pack = require('core.pack')
 
-pack.ensure_plugins()
+-- pack.ensure_plugins()
 require('core.options')
-pack.load_compile()
+-- pack.load_compile()
 require('keymap')
