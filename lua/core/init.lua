@@ -1,4 +1,3 @@
--- require('impatient')
 vim.g.mapleader = " "
 
 require('core.lazy')
