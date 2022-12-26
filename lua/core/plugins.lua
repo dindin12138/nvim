@@ -59,7 +59,6 @@ local M = {
         tag = '*',
         config = tools_config.toggleterm
     },
-    { 'lewis6991/impatient.nvim' },
     ---------- EDITOR ----------
     {
         'nvim-treesitter/nvim-treesitter',

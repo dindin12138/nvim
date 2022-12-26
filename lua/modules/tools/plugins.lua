@@ -44,5 +44,3 @@ plugin {
     tag = '*',
     config = conf.toggleterm
 }
-
-plugin { 'lewis6991/impatient.nvim' }
