@@ -16,7 +16,7 @@ local which_key = {
             s = { "<cmd>Telescope git_status<cr>", "git_status" },
             k = { "<cmd>Telescope keymaps<cr>", "keymaps" }
         },
-        j = { "<cmd>HopChar1<cr>", "HopChar1" },
+        j = { "<cmd>HopChar2<cr>", "HopChar2" },
         l = {
             name = "Lsp Config & Lazy",
             i = { "<cmd>LspInfo<cr>", "LspInfo" },

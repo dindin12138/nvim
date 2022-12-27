@@ -32,7 +32,8 @@ local M = {
     { 'p00f/nvim-ts-rainbow', event = 'BufReadPost' },
     { 'windwp/nvim-autopairs', event = "InsertEnter", config = editor_config.autopairs },
     { 'numToStr/Comment.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = editor_config.comment },
-    { 'phaazon/hop.nvim', branch = 'v2', cmd = { 'HopWord', 'HopLine', 'HopChar1' }, config = editor_config.hop },
+    { 'phaazon/hop.nvim', branch = 'v2', cmd = { 'HopWord', 'HopLine', 'HopChar1', 'HopChar2' },
+        config = editor_config.hop },
     { 'folke/todo-comments.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = editor_config.todo },
     ---------------------------------------- COMPLETION ----------------------------------------
     { 'neovim/nvim-lspconfig', ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh' },

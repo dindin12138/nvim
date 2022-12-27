@@ -43,7 +43,7 @@ local lsp_flags = { debounce_text_changes = 150 }
 
 mason_lspconfig.setup({
     ensure_installed = { 'sumneko_lua', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls' },
-    automatic_installation = false,
+    automatic_installation = false
 })
 
 lspconfig['sumneko_lua'].setup {
@@ -64,8 +64,8 @@ lspconfig['sumneko_lua'].setup {
             telemetry = {
                 enable = false,
             }
-        },
-    },
+        }
+    }
 }
 
 lspconfig['clangd'].setup {
@@ -87,8 +87,8 @@ lspconfig['clangd'].setup {
         "--fallback-style=Google",
         "--all-scopes-completion",
         "-j=12",
-        "--pretty",
-    },
+        "--pretty"
+    }
 }
 
 lspconfig['pyright'].setup {
@@ -102,7 +102,7 @@ lspconfig['pyright'].setup {
                 useLibraryCodeForTypes = true
             }
         }
-    },
+    }
 }
 
 lspconfig['jsonls'].setup { on_attach = on_attach, flags = lsp_flags }
@@ -112,8 +112,7 @@ lspconfig['rust_analyzer'].setup { on_attach = on_attach, flags = lsp_flags }
 local diagnostic_icon = function()
     vim.diagnostic.config({
         virtual_text = true,
-        signs = true,
-        -- update_in_insert = true,
+        signs = true
     })
     local signs = { Error = " ", Warn = " ", Hint = "ﯧ ", Info = " " }
     for type, icon in pairs(signs) do
