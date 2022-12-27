@@ -1,9 +1,6 @@
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }')
     local map = vim.keymap.set
@@ -23,22 +20,11 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-    -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
 
 mason_lspconfig.setup({
-    -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer", "sumneko_lua" }
-    -- This setting has no relation with the `automatic_installation` setting.
     ensure_installed = { 'sumneko_lua', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls' },
-
-    -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
-    -- This setting has no relation with the `ensure_installed` setting.
-    -- Can either be:
-    --   - false: Servers are not automatically installed.
-    --   - true: All servers set up via lspconfig are automatically installed.
-    --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
-    --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
     automatic_installation = false,
 })
 
@@ -48,19 +34,15 @@ lspconfig['sumneko_lua'].setup {
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
                 globals = { 'vim' },
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
                 enable = false,
             }

@@ -1,6 +1,5 @@
 local config = {}
 
--- config server in this function
 function config.nvim_lsp()
     require("modules.completion.lsp")
 end
@@ -39,14 +38,9 @@ function config.nvim_cmp()
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
     cmp.setup({
-        -- Specify the snippet engine
         snippet = {
-            -- REQUIRED - you must specify a snippet engine
             expand = function(args)
-                -- vim.fn["vsnip#anonymous"](args.body)     -- For `vsnip` users.
-                require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                -- vim.fn["UltiSnips#Anon"](args.body)      -- For `ultisnips` users.
-                -- require'snippy'.expand_snippet(args.body)-- For `snippy` users.
+                require('luasnip').lsp_expand(args.body)
             end,
         },
         window = {
@@ -55,10 +49,7 @@ function config.nvim_cmp()
         },
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
-            -- { name = "vsnip" }, -- For vsnip users.
-            { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' },--For ultisnips users.
-            -- { name = 'snippy' },-- For snippy users.
+            { name = 'luasnip' },
             { name = 'nvim_lua' },
             { name = 'spell' },
             { name = 'buffer' }
@@ -66,9 +57,7 @@ function config.nvim_cmp()
             { name = 'path' },
         }),
         mapping = cmp.mapping.preset.insert({
-            -- Occurrence of complements
             ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-            -- Cancel
             ["<A-,>"] = cmp.mapping({
                 i = cmp.mapping.abort(),
                 c = cmp.mapping.close()
@@ -102,7 +91,6 @@ function config.nvim_cmp()
                 end
             end, { "i", "s" }),
         }),
-        -- https://github.com/onsails/lspkind.nvim
         formatting = {
             format = function(_, vim_item)
                 vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
@@ -111,7 +99,6 @@ function config.nvim_cmp()
         }
     })
 
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
@@ -119,7 +106,6 @@ function config.nvim_cmp()
         },
     })
 
-    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({

@@ -147,14 +147,7 @@ end
 
 function config.notify()
     require("notify").setup({
-        stages = "static",
-        icons = {
-            ERROR = "",
-            WARN = "",
-            INFO = "",
-            DEBUG = "",
-            TRACE = "✎",
-        },
+        stages = "static"
     })
 
     vim.notify = require("notify")
