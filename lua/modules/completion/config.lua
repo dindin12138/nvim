@@ -133,9 +133,11 @@ function config.lsp_signature()
 end
 
 function config.aerial()
-    require("aerial").setup({
-        min_width = { 25, 0.13 },
-    })
+    require("aerial").setup()
+end
+
+function config.symbols_outline()
+    require("symbols-outline").setup()
 end
 
 return config
