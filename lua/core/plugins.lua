@@ -20,8 +20,7 @@ local M = {
     },
     {
         'lukas-reineke/indent-blankline.nvim',
-        event = { 'BufReadPost', 'BufNewFile' },
-        config = ui_config.indent_blankline
+        event = { 'BufReadPost', 'BufNewFile' }
     },
     { 'rcarriga/nvim-notify', config = ui_config.notify },
     ---------- TOOLS ----------

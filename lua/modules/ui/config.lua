@@ -1,7 +1,6 @@
 local config = {}
 
 function config.catppuccin()
-    vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
     require("catppuccin").setup()
     vim.api.nvim_command "colorscheme catppuccin"
 end
@@ -10,9 +9,7 @@ function config.lualine()
     local lualine = require('lualine')
     local config = {
         options = {
-            theme = "auto",
             component_separators = { left = "", right = "" },
-            -- https://github.com/ryanoasis/powerline-extra-symbols
             section_separators = { left = " ", right = "" },
         },
         sections = {
@@ -34,7 +31,6 @@ function config.lualine()
             lualine_y = {},
             lualine_z = {}
         },
-        tabline = {},
         extensions = { "nvim-tree", "toggleterm", "aerial" },
     }
 
@@ -63,9 +59,7 @@ function config.lualine()
 end
 
 function config.dashboard()
-    local home = os.getenv('HOME')
     local db = require('dashboard')
-    db.session_directory = home .. '/.cache/nvim/sessions'
     db.custom_header = {
         [[]],
         [[]],
@@ -83,12 +77,6 @@ function config.dashboard()
         [[]],
     }
     db.custom_center = {
-        -- {
-        --     icon = '  ',
-        --     desc = 'Sessions                                ',
-        --     action = 'Telescope session-lens search_session',
-        --     shortcut = 'SPC f p'
-        -- },
         {
             icon = '  ',
             desc = 'Projects                                ',
@@ -132,14 +120,9 @@ end
 function config.bufferline()
     require('bufferline').setup {
         options = {
-            always_show_bufferline = true,
-            mode = "buffers",
             numbers = "ordinal",
-            -- Command to close Buffer moll/vim-bbye :Bdelete
             close_command = "Bdelete! %d",
             right_mouse_command = "Bdelete! %d",
-            left_mouse_command = "buffer %d",
-            middle_mouse_command = nil,
             offsets = {
                 {
                     filetype = "NvimTree",
@@ -162,48 +145,9 @@ function config.bufferline()
     }
 end
 
-function config.indent_blankline()
-    require("indent_blankline").setup({
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = true,
-        context_patterns = {
-            "class",
-            "function",
-            "method",
-            "element",
-            "^if",
-            "^while",
-            "^for",
-            "^object",
-            "^table",
-            "block",
-            "arguments",
-        },
-        -- :echo &filetype
-        filetype_exclude = {
-            "dashboard",
-            "packer",
-            "terminal",
-            "help",
-            "log",
-            "markdown",
-            "TelescopePrompt",
-            "lsp-installer",
-            "lspinfo",
-            "toggleterm",
-            "json",
-            "txt",
-        },
-        char = "▏",
-    })
-end
-
 function config.notify()
     require("notify").setup({
-        --- Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
         stages = "static",
-        --- Icons for the different levels
         icons = {
             ERROR = "",
             WARN = "",
