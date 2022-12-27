@@ -1,8 +1,28 @@
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
+
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }')
+    if client.server_capabilities.documentHighlightProvider then
+        vim.api.nvim_create_augroup('lsp_document_highlight', {
+            clear = false
+        })
+        vim.api.nvim_clear_autocmds({
+            buffer = bufnr,
+            group = 'lsp_document_highlight',
+        })
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            group = 'lsp_document_highlight',
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            group = 'lsp_document_highlight',
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+        })
+    end
     local map = vim.keymap.set
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     map("n", "gr", "<cmd>Lspsaga rename<CR>", bufopts)
@@ -19,9 +39,7 @@ local on_attach = function(client, bufnr)
     map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", bufopts)
 end
 
-local lsp_flags = {
-    debounce_text_changes = 150,
-}
+local lsp_flags = { debounce_text_changes = 150 }
 
 mason_lspconfig.setup({
     ensure_installed = { 'sumneko_lua', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls' },
@@ -87,15 +105,9 @@ lspconfig['pyright'].setup {
     },
 }
 
-lspconfig['jsonls'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+lspconfig['jsonls'].setup { on_attach = on_attach, flags = lsp_flags }
 
-lspconfig['rust_analyzer'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+lspconfig['rust_analyzer'].setup { on_attach = on_attach, flags = lsp_flags }
 
 local diagnostic_icon = function()
     vim.diagnostic.config({
