@@ -2,14 +2,7 @@ local which_key = {
     ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
     ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" },
     ["<leader>"] = {
-        p = {
-            name = "Packer",
-            c = { "<cmd>PackerCompile<cr>", "Compile" },
-            i = { "<cmd>PackerInstall<cr>", "Install" },
-            s = { "<cmd>PackerSync<cr>", "Sync" },
-            S = { "<cmd>PackerStatus<cr>", "Status" },
-            u = { "<cmd>PackerUpdate<cr>", "Update" },
-        },
+        d = { "<cmd>TroubleToggle<cr>", "Trouble" },
         e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
         f = {
             name = "Telescope",
@@ -21,9 +14,35 @@ local which_key = {
             h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
             c = { "<cmd>Telescope git_commits<cr>", "git_commits" },
             s = { "<cmd>Telescope git_status<cr>", "git_status" },
-            k = { "<cmd>Telescope keymaps<cr>", "keymaps" },
+            k = { "<cmd>Telescope keymaps<cr>", "keymaps" }
+        },
+        j = { "<cmd>HopChar1<cr>", "HopChar1" },
+        l = {
+            name = "Lsp Config & Lazy",
+            i = { "<cmd>LspInfo<cr>", "LspInfo" },
+            l = { "<cmd>LspLog<cr>", "LspLog" },
+            r = { "<cmd>LspRestart<cr>", "LspRestart" },
+            f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+            h = { "<cmd>Lazy home<cr>", "Lazy home" },
+            s = { "<cmd>Lazy sync<cr>", "Lazy sync" }
+        },
+        m = { "<cmd>Mason<cr>", "Mason" },
+        o = { "<cmd>AerialToggle! right<cr>", "Aerial" },
+        p = {
+            name = "Packer",
+            c = { "<cmd>PackerCompile<cr>", "Compile" },
+            i = { "<cmd>PackerInstall<cr>", "Install" },
+            s = { "<cmd>PackerSync<cr>", "Sync" },
+            S = { "<cmd>PackerStatus<cr>", "Status" },
+            u = { "<cmd>PackerUpdate<cr>", "Update" }
         },
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
+        s = { t = { "<cmd>StartupTime<cr>", "StartupTime" } },
+        t = {
+            name = "Terminal",
+            g = { "<cmd>lua lazygit_toggle()<cr>", "LazyGit" },
+            f = { "<cmd>lua floaterm_toggle()<cr>", "Floaterm" }
+        },
         x = { "<cmd>BufferLinePickClose<cr>", "Buffer Pick Close" },
         ["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Go To Buffer 1" },
         ["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Go To Buffer 2" },
@@ -34,35 +53,15 @@ local which_key = {
         ["7"] = { "<cmd>BufferLineGoToBuffer 7<cr>", "Go To Buffer 7" },
         ["8"] = { "<cmd>BufferLineGoToBuffer 8<cr>", "Go To Buffer 8" },
         ["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Go To Buffer 9" },
-        l = {
-            name = "LSP & Lazy",
-            i = { "<cmd>LspInfo<cr>", "LspInfo" },
-            l = { "<cmd>LspLog<cr>", "LspLog" },
-            r = { "<cmd>LspRestart<cr>", "LspRestart" },
-            f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-            h = { "<cmd>Lazy home<cr>", "Lazy home" },
-            s = { "<cmd>Lazy sync<cr>", "Lazy sync" }
-        },
-        t = {
-            name = "Terminal",
-            g = { "<cmd>lua lazygit_toggle()<cr>", "LazyGit" },
-            f = { "<cmd>lua floaterm_toggle()<cr>", "Floaterm" },
-        },
-        o = { "<cmd>AerialToggle! right<cr>", "Aerial" },
-        s = { t = { "<cmd>StartupTime<cr>", "StartupTime" } },
-        w = { "<cmd>HopWord<cr>", "HopWord" },
-        j = { "<cmd>HopLine<cr>", "HopLine" },
-        c = { "<cmd>HopChar1<cr>", "HopChar1" },
-        m = { "<cmd>Mason<cr>", "Mason" },
         ["/"] = {
             function()
                 require("Comment.api").toggle.linewise.current()
             end,
-            "toggle comment",
-        },
+            "toggle comment"
+        }
     },
     ["g"] = {
-        name = "lspsaga",
+        name = "LSP",
         r = { "rename" },
         a = { "code_action" },
         p = { "peek_definition" },
@@ -72,21 +71,15 @@ local which_key = {
         s = { "signature_help" },
         e = { "show_line_diagnostics" },
         j = { "diagnostic_jump_next" },
-        k = { "diagnostic_jump_prev" },
+        k = { "diagnostic_jump_prev" }
     },
     ["s"] = {
         name = "split window",
         v = { ":vsp<CR>", "vertical split window" },
         h = { ":sp<CR>", "horizontal split window" },
         c = { ":close<CR>", "close this window" },
-        o = { ":only<CR>", "close all but this window" },
-    },
-    -- [""] = {
-    --     function()
-    --         require("Comment.api").toggle.linewise.current()
-    --     end,
-    --     "toggle comment",
-    -- },
+        o = { ":only<CR>", "close all but this window" }
+    }
 }
 
 return which_key

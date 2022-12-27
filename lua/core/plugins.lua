@@ -46,6 +46,8 @@ local M = {
     { 'glepnir/lspsaga.nvim', cmd = 'Lspsaga' },
     { 'ray-x/lsp_signature.nvim', event = "InsertEnter", config = completion_config.lsp_signature },
     { 'stevearc/aerial.nvim', cmd = 'AerialToggle', config = completion_config.aerial },
-    { 'simrat39/symbols-outline.nvim', cmd = 'SymbolsOutline', config = completion_config.symbols_outline }
+    { 'simrat39/symbols-outline.nvim', cmd = 'SymbolsOutline', config = completion_config.symbols_outline },
+    { 'folke/trouble.nvim', cmd = 'TroubleToggle', dependencies = 'nvim-tree/nvim-web-devicons',
+        config = completion_config.trouble }
 }
 return M
