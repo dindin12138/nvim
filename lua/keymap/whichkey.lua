@@ -27,7 +27,7 @@ local which_key = {
             t = { "<cmd>TroubleToggle<cr>", "Trouble" }
         },
         m = { "<cmd>Mason<cr>", "Mason" },
-        o = { "<cmd>AerialToggle! right<cr>", "Aerial" },
+        o = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
         p = {
             name = "Packer",
             c = { "<cmd>PackerCompile<cr>", "Compile" },

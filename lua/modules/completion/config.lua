@@ -132,10 +132,6 @@ function config.lsp_signature()
     require('lsp_signature').setup()
 end
 
-function config.aerial()
-    require("aerial").setup()
-end
-
 function config.symbols_outline()
     require("symbols-outline").setup()
 end
