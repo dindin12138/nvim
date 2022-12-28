@@ -2,7 +2,6 @@ local which_key = {
     ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
     ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" },
     ["<leader>"] = {
-        d = { "<cmd>TroubleToggle<cr>", "Trouble" },
         e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
         f = {
             name = "Telescope",
@@ -24,7 +23,8 @@ local which_key = {
             r = { "<cmd>LspRestart<cr>", "LspRestart" },
             f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
             h = { "<cmd>Lazy home<cr>", "Lazy home" },
-            s = { "<cmd>Lazy sync<cr>", "Lazy sync" }
+            s = { "<cmd>Lazy sync<cr>", "Lazy sync" },
+            t = { "<cmd>TroubleToggle<cr>", "Trouble" }
         },
         m = { "<cmd>Mason<cr>", "Mason" },
         o = { "<cmd>AerialToggle! right<cr>", "Aerial" },

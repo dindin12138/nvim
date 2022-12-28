@@ -12,6 +12,7 @@ local M = {
     { 'rcarriga/nvim-notify', config = ui_config.notify },
     { 'akinsho/bufferline.nvim', event = { 'BufReadPost', 'BufNewFile' },
         dependencies = { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }, config = ui_config.bufferline, },
+    { 'SmiteshP/nvim-navic', ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh' }, config = ui_config.navic },
     ---------------------------------------- TOOLS ----------------------------------------
     { 'nvim-tree/nvim-tree.lua', cmd = 'NvimTreeToggle', config = tools_config.nvim_tree,
         dependencies = 'nvim-tree/nvim-web-devicons' },
@@ -45,7 +46,8 @@ local M = {
             'hrsh7th/cmp-nvim-lua', 'f3fora/cmp-spell', 'saadparwaiz1/cmp_luasnip', } },
     { 'L3MON4D3/LuaSnip', event = "InsertEnter", config = completion_config.luasnip },
     { 'glepnir/lspsaga.nvim', cmd = 'Lspsaga' },
-    { 'ray-x/lsp_signature.nvim', event = "InsertEnter", config = completion_config.lsp_signature },
+    { 'ray-x/lsp_signature.nvim', ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh' },
+        config = completion_config.lsp_signature },
     { 'stevearc/aerial.nvim', cmd = 'AerialToggle', config = completion_config.aerial },
     { 'simrat39/symbols-outline.nvim', cmd = 'SymbolsOutline', config = completion_config.symbols_outline },
     { 'folke/trouble.nvim', cmd = 'TroubleToggle', dependencies = 'nvim-tree/nvim-web-devicons',
