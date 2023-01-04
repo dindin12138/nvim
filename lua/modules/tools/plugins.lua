@@ -19,8 +19,6 @@ plugin {
 
 plugin { 'ahmedkhalf/project.nvim', module = 'telescope', config = conf.project }
 
-plugin { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
-
 plugin {
     'lewis6991/gitsigns.nvim',
     event = { 'BufReadPost', 'BufNewFile' },

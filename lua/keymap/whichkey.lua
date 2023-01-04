@@ -37,7 +37,6 @@ local which_key = {
             u = { "<cmd>PackerUpdate<cr>", "Update" }
         },
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
-        s = { t = { "<cmd>StartupTime<cr>", "StartupTime" } },
         t = {
             name = "Terminal",
             g = { "<cmd>lua lazygit_toggle()<cr>", "LazyGit" },

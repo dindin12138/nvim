@@ -19,7 +19,6 @@ local M = {
     { 'nvim-telescope/telescope.nvim', cmd = 'Telescope', dependencies = 'nvim-lua/plenary.nvim',
         config = tools_config.telescope },
     { 'ahmedkhalf/project.nvim', config = tools_config.project },
-    { 'dstein64/vim-startuptime', cmd = 'StartupTime' },
     { 'lewis6991/gitsigns.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = tools_config.gitsigns },
     { 'folke/which-key.nvim', config = tools_config.which_key },
     { 'williamboman/mason.nvim',
