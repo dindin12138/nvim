@@ -16,4 +16,41 @@ require("lazy").setup("core.plugins", {
         -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
         border = "rounded",
     },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "matchit",
+                "matchparen",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+                "netrw",
+                "netrwSettings",
+                "netrwFileHandlers",
+                "zip",
+                "tar",
+                "getscript",
+                "getscriptPlugin",
+                "vimball",
+                "vimballPlugin",
+                "2html_plugin",
+                "logipat",
+                "rrhelper",
+                "spellfile_plugin",
+                "man",
+                "tutor_mode_plugin",
+                "remote_plugins",
+                "shada_plugin",
+                "filetype",
+                "syntax",
+                "ftplugin",
+                "ftindent",
+                "spellfile",
+                "editorconfig"
+            },
+        }
+    }
 })
