@@ -1,7 +1,7 @@
-local ui_config = require('modules.ui.config')
-local tools_config = require('modules.tools.config')
-local editor_config = require('modules.editor.config')
-local completion_config = require('modules.completion.config')
+local ui_config = require('plugins.ui')
+local tools_config = require('plugins.tools')
+local editor_config = require('plugins.editor')
+local completion_config = require('plugins.completion')
 local M = {
     ---------------------------------------- UI ----------------------------------------
     { 'catppuccin/nvim', name = 'catppuccin', config = ui_config.catppuccin },
