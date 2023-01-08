@@ -12,7 +12,7 @@ local M = {
     { 'rcarriga/nvim-notify', config = ui_config.notify },
     { 'akinsho/bufferline.nvim', event = { 'BufReadPost', 'BufNewFile' },
         dependencies = { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }, config = ui_config.bufferline, },
-    { 'SmiteshP/nvim-navic', ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh' }, config = ui_config.navic },
+    -- { 'SmiteshP/nvim-navic', ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh' }, config = ui_config.navic },
     ---------------------------------------- TOOLS ----------------------------------------
     { 'nvim-tree/nvim-tree.lua', cmd = 'NvimTreeToggle', config = tools_config.nvim_tree,
         dependencies = 'nvim-tree/nvim-web-devicons' },

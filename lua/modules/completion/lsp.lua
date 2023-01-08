@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
-local navic = require("nvim-navic")
+-- local navic = require("nvim-navic")
 
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -24,9 +24,9 @@ local on_attach = function(client, bufnr)
             callback = vim.lsp.buf.clear_references,
         })
     end
-    if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-    end
+    -- if client.server_capabilities.documentSymbolProvider then
+    --     navic.attach(client, bufnr)
+    -- end
     local map = vim.keymap.set
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     map("n", "gr", "<cmd>Lspsaga rename<CR>", bufopts)
