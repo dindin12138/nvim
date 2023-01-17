@@ -37,7 +37,6 @@ local normal_key = {
             c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
             s = { "<cmd>Telescope git_status<cr>", "Git status" },
             k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-            t = { "<cmd>Telescope themes<cr>", "Themes" }
         },
         j = { "<cmd>HopChar2<cr>", "HopChar2" },
         l = {

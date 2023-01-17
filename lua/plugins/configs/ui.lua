@@ -104,7 +104,7 @@ function config.dashboard()
         {
             icon = '  ',
             desc = 'Edit Keybindings                        ',
-            action = 'edit ~/.config/nvim/lua/keymap/whichkey.lua',
+            action = 'edit ~/.config/nvim/lua/core/keymap.lua',
             shortcut = 'SPC x x'
         },
         {
