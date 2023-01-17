@@ -124,8 +124,6 @@ local visual_key = {
     [">"] = { ">gv", "Visual move right" },
 }
 
-local wk = require("which-key")
-wk.register(normal_key, { mode = "n" })
-wk.register(terminal_key, { mode = "t" })
-wk.register(insert_key, { mode = "i" })
-wk.register(visual_key, { mode = "v" })
+local whick_key = { normal_key, terminal_key, insert_key, visual_key }
+
+return whick_key

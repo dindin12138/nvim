@@ -93,7 +93,12 @@ function config.gitsigns()
 end
 
 function config.which_key()
-    require("keymap.whichkey")
+    local wk = require("which-key")
+    local whick_key = require("keymap.whichkey")
+    wk.register(whick_key[1], { mode = "n" })
+    wk.register(whick_key[2], { mode = "t" })
+    wk.register(whick_key[3], { mode = "i" })
+    wk.register(whick_key[4], { mode = "v" })
 end
 
 function config.mason()

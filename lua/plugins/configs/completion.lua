@@ -1,7 +1,7 @@
 local config = {}
 
 function config.nvim_lsp()
-    require("plugins.lsp")
+    require("plugins.configs.lsp")
 end
 
 function config.nvim_cmp()
