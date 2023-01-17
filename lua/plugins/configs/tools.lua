@@ -94,11 +94,11 @@ end
 
 function config.which_key()
     local wk = require("which-key")
-    local whick_key = require("keymap.whichkey")
-    wk.register(whick_key[1], { mode = "n" })
-    wk.register(whick_key[2], { mode = "t" })
-    wk.register(whick_key[3], { mode = "i" })
-    wk.register(whick_key[4], { mode = "v" })
+    local keymap = require("core.keymap")
+    wk.register(keymap[1], { mode = "n" })
+    wk.register(keymap[2], { mode = "t" })
+    wk.register(keymap[3], { mode = "i" })
+    wk.register(keymap[4], { mode = "v" })
 end
 
 function config.mason()

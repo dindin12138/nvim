@@ -124,6 +124,6 @@ local visual_key = {
     [">"] = { ">gv", "Visual move right" },
 }
 
-local whick_key = { normal_key, terminal_key, insert_key, visual_key }
+local keymap = { normal_key, terminal_key, insert_key, visual_key }
 
-return whick_key
+return keymap
