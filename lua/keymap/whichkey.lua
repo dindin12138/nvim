@@ -5,15 +5,15 @@ local which_key = {
         e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
         f = {
             name = "Telescope",
-            b = { "<cmd>Telescope buffers<cr>", "buffers" },
-            g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
-            f = { "<cmd>Telescope find_files<cr>", "find_files" },
-            o = { "<cmd>Telescope oldfiles<cr>", "oldfiles" },
-            p = { "<cmd>Telescope projects<cr>", "projects" },
-            h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
-            c = { "<cmd>Telescope git_commits<cr>", "git_commits" },
-            s = { "<cmd>Telescope git_status<cr>", "git_status" },
-            k = { "<cmd>Telescope keymaps<cr>", "keymaps" }
+            b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+            g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+            f = { "<cmd>Telescope find_files<cr>", "Find files" },
+            o = { "<cmd>Telescope oldfiles<cr>", "Oldfiles" },
+            p = { "<cmd>Telescope projects<cr>", "Projects" },
+            h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
+            c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
+            s = { "<cmd>Telescope git_status<cr>", "Git status" },
+            k = { "<cmd>Telescope keymaps<cr>", "Keymaps" }
         },
         j = { "<cmd>HopChar2<cr>", "HopChar2" },
         l = {
@@ -61,23 +61,23 @@ local which_key = {
     },
     ["g"] = {
         name = "LSP",
-        r = { "rename" },
-        a = { "code_action" },
-        p = { "peek_definition" },
-        d = { "definition" },
-        h = { "hover_doc" },
-        l = { "lsp_finder" },
-        s = { "signature_help" },
-        e = { "show_line_diagnostics" },
-        j = { "diagnostic_jump_next" },
-        k = { "diagnostic_jump_prev" }
+        n = { "Rename" },
+        a = { "Code action" },
+        d = { "Definition" },
+        D = { "Declaration" },
+        h = { "Hover" },
+        s = { "Signature help" },
+        r = { "References" },
+        e = { "Open float diagnostics" },
+        j = { "Goto next diagnostic" },
+        k = { "Goto prev diagnostic" }
     },
     ["s"] = {
         name = "split window",
-        v = { ":vsp<CR>", "vertical split window" },
-        h = { ":sp<CR>", "horizontal split window" },
-        c = { ":close<CR>", "close this window" },
-        o = { ":only<CR>", "close all but this window" }
+        v = { ":vsp<CR>", "Vertical split window" },
+        h = { ":sp<CR>", "Horizontal split window" },
+        c = { ":close<CR>", "Close this window" },
+        o = { ":only<CR>", "Close all but this window" }
     }
 }
 
