@@ -36,7 +36,8 @@ local normal_key = {
             h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
             c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
             s = { "<cmd>Telescope git_status<cr>", "Git status" },
-            k = { "<cmd>Telescope keymaps<cr>", "Keymaps" }
+            k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+            t = { "<cmd>Telescope themes<cr>", "Themes" }
         },
         j = { "<cmd>HopChar2<cr>", "HopChar2" },
         l = {
@@ -113,8 +114,12 @@ local terminal_key = {
 }
 
 local insert_key = {
-    ["<C-h>"] = { "<ESC>I", "Move to head of line" },
-    ["<C-l>"] = { "<ESC>A", "Move to end of line" }
+    ["<C-b>"] = { "<ESC>I", "Move to beginning of line" },
+    ["<C-e>"] = { "<End>", "Move to end of line" },
+    ["<C-h>"] = { "<Left>", "Move to beginning of line" },
+    ["<C-j>"] = { "<Down>", "Move to end of line" },
+    ["<C-k>"] = { "<Up>", "Move to beginning of line" },
+    ["<C-l>"] = { "<Right>", "Move to end of line" }
 }
 
 local visual_key = {
@@ -122,6 +127,10 @@ local visual_key = {
     ["K"] = { ":m \'<-2<cr>gv=gv", "Visual move up" },
     ["<"] = { "<gv", "Visual move left" },
     [">"] = { ">gv", "Visual move right" },
+    ["<leader>/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+        "Toggle comment" },
+    ["<C-/>"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+        "Toggle comment" }
 }
 
 local keymap = { normal_key, terminal_key, insert_key, visual_key }
