@@ -59,8 +59,6 @@ local on_attach = function(client, bufnr)
     map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", bufopts)
 end
 
-local lsp_flags = { debounce_text_changes = 150 }
-
 mason_lspconfig.setup({
     ensure_installed = { 'sumneko_lua', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls' },
     automatic_installation = false
@@ -68,7 +66,6 @@ mason_lspconfig.setup({
 
 lspconfig['sumneko_lua'].setup {
     on_attach = on_attach,
-    flags = lsp_flags,
     settings = {
         Lua = {
             runtime = {
@@ -90,7 +87,6 @@ lspconfig['sumneko_lua'].setup {
 
 lspconfig['clangd'].setup {
     on_attach = on_attach,
-    flags = lsp_flags,
     args = {
         "--background-index",
         "-std=c++20",
@@ -113,7 +109,6 @@ lspconfig['clangd'].setup {
 
 lspconfig['pyright'].setup {
     on_attach = on_attach,
-    flags = lsp_flags,
     settings = {
         python = {
             analysis = {
@@ -125,9 +120,9 @@ lspconfig['pyright'].setup {
     }
 }
 
-lspconfig['jsonls'].setup { on_attach = on_attach, flags = lsp_flags }
+lspconfig['jsonls'].setup { on_attach = on_attach }
 
-lspconfig['rust_analyzer'].setup { on_attach = on_attach, flags = lsp_flags }
+lspconfig['rust_analyzer'].setup { on_attach = on_attach }
 
 local diagnostic_icon = function()
     vim.diagnostic.config({
