@@ -1,49 +1,16 @@
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
-vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-
-local border = {
-    { "🭽", "FloatBorder" },
-    { "▔", "FloatBorder" },
-    { "🭾", "FloatBorder" },
-    { "▕", "FloatBorder" },
-    { "🭿", "FloatBorder" },
-    { "▁", "FloatBorder" },
-    { "🭼", "FloatBorder" },
-    { "▏", "FloatBorder" },
-}
-
--- To instead override globally
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or border
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }')
     if client.server_capabilities.documentHighlightProvider then
-        vim.api.nvim_create_augroup('lsp_document_highlight', {
-            clear = false
-        })
-        vim.api.nvim_clear_autocmds({
-            buffer = bufnr,
-            group = 'lsp_document_highlight',
-        })
-        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-            group = 'lsp_document_highlight',
-            buffer = bufnr,
-            callback = vim.lsp.buf.document_highlight,
-        })
-        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            group = 'lsp_document_highlight',
-            buffer = bufnr,
-            callback = vim.lsp.buf.clear_references,
-        })
+        vim.api.nvim_create_augroup('lsp_document_highlight', { clear = false })
+        vim.api.nvim_clear_autocmds({ buffer = bufnr, group = 'lsp_document_highlight', })
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' },
+            { group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.document_highlight, })
+        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' },
+            { group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.clear_references, })
     end
     local map = vim.keymap.set
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -124,6 +91,30 @@ lspconfig['jsonls'].setup { on_attach = on_attach }
 
 lspconfig['rust_analyzer'].setup { on_attach = on_attach }
 
+local float_border = function()
+    vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+    vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+    local border = {
+        { "🭽", "FloatBorder" },
+        { "▔", "FloatBorder" },
+        { "🭾", "FloatBorder" },
+        { "▕", "FloatBorder" },
+        { "🭿", "FloatBorder" },
+        { "▁", "FloatBorder" },
+        { "🭼", "FloatBorder" },
+        { "▏", "FloatBorder" },
+    }
+
+    -- To instead override globally
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or border
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
+end
+
 local diagnostic_icon = function()
     vim.diagnostic.config({
         virtual_text = true,
@@ -135,5 +126,7 @@ local diagnostic_icon = function()
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 end
+
+float_border()
 
 diagnostic_icon()
