@@ -62,12 +62,12 @@ local normal_key = {
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
         t = {
             name = "Terminal",
-            f = { function() require("nvterm.terminal").toggle "float" end, "toggle floating term" },
-            h = { function() require("nvterm.terminal").toggle "horizontal" end, "toggle horizontal term" },
-            v = { function() require("nvterm.terminal").toggle "vertical" end, "toggle vertical term" },
+            f = { function() require("nvterm.terminal").toggle "float" end, "Toggle floating term" },
+            h = { function() require("nvterm.terminal").toggle "horizontal" end, "Toggle horizontal term" },
+            v = { function() require("nvterm.terminal").toggle "vertical" end, "Toggle vertical term" },
         },
-        h = { function() require("nvterm.terminal").new "horizontal" end, "new horizontal term" },
-        v = { function() require("nvterm.terminal").new "vertical" end, "new vertical term" },
+        h = { function() require("nvterm.terminal").new "horizontal" end, "New horizontal term" },
+        v = { function() require("nvterm.terminal").new "vertical" end, "New vertical term" },
         x = { "<cmd>BufferLinePickClose<cr>", "Buffer Pick Close" },
         ["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Go To Buffer 1" },
         ["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Go To Buffer 2" },
@@ -78,8 +78,9 @@ local normal_key = {
         ["7"] = { "<cmd>BufferLineGoToBuffer 7<cr>", "Go To Buffer 7" },
         ["8"] = { "<cmd>BufferLineGoToBuffer 8<cr>", "Go To Buffer 8" },
         ["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Go To Buffer 9" },
-        ["/"] = { function() require("Comment.api").toggle.linewise.current() end, "toggle comment" }
+        ["/"] = { function() require("Comment.api").toggle.linewise.current() end, "Toggle comment" }
     },
+    ["<C-/>"] = { function() require("Comment.api").toggle.linewise.current() end, "Toggle comment" },
     ["g"] = {
         name = "LSP",
         n = { "Rename" },
@@ -104,9 +105,9 @@ local terminal_key = {
     ["<leader>"] = {
         t = {
             name = "Terminal",
-            f = { function() require("nvterm.terminal").toggle "float" end, "toggle floating term" },
-            h = { function() require("nvterm.terminal").toggle "horizontal" end, "toggle horizontal term" },
-            v = { function() require("nvterm.terminal").toggle "vertical" end, "toggle vertical term" },
+            f = { function() require("nvterm.terminal").toggle "float" end, "Toggle floating term" },
+            h = { function() require("nvterm.terminal").toggle "horizontal" end, "Toggle horizontal term" },
+            v = { function() require("nvterm.terminal").toggle "vertical" end, "Toggle vertical term" },
         }
     }
 }
