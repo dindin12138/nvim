@@ -1,6 +1,27 @@
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
--- local navic = require("nvim-navic")
+
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+local border = {
+    { "🭽", "FloatBorder" },
+    { "▔", "FloatBorder" },
+    { "🭾", "FloatBorder" },
+    { "▕", "FloatBorder" },
+    { "🭿", "FloatBorder" },
+    { "▁", "FloatBorder" },
+    { "🭼", "FloatBorder" },
+    { "▏", "FloatBorder" },
+}
+
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or border
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -24,23 +45,8 @@ local on_attach = function(client, bufnr)
             callback = vim.lsp.buf.clear_references,
         })
     end
-    -- if client.server_capabilities.documentSymbolProvider then
-    --     navic.attach(client, bufnr)
-    -- end
     local map = vim.keymap.set
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    -- map("n", "gr", "<cmd>Lspsaga rename<CR>", bufopts)
-    -- map("n", "ga", "<cmd>Lspsaga code_action<CR>", bufopts)
-    -- map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", bufopts)
-    -- map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
-    -- map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", bufopts)
-    -- map("n", "gl", "<cmd>Lspsaga lsp_finder<CR>", bufopts)
-    -- map("n", "gs", "<cmd>Lspsaga signature_help<CR>", bufopts)
-    -- map("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts)
-    -- map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts)
-    -- map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts)
-    -- map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", bufopts)
-    -- map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", bufopts)
     map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
     map("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
     map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
