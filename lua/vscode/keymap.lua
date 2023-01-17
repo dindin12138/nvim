@@ -7,6 +7,8 @@ map("n", "J", "5j", opt)
 map("n", "K", "5k", opt)
 map("n", "L", "5l", opt)
 
+map("n", "W", ":call VSCodeNotify('workbench.action.files.save')<CR>", opt)
+
 map("n", "<C-h>", ":call VSCodeNotify('workbench.action.navigateLeft')<CR>", opt)
 map("n", "<C-j>", ":call VSCodeNotify('workbench.action.navigateDown')<CR>", opt)
 map("n", "<C-k>", ":call VSCodeNotify('workbench.action.navigateUp')<CR>", opt)
@@ -22,6 +24,8 @@ map("n", "<TAB>", ":call VSCodeNotify('workbench.action.nextEditor')<CR>", opt)
 -- map("n", "<leader>e", ":call VSCodeNotify('workbench.view.explorer')<CR>", opt)
 map("n", "<leader>ff", ":call VSCodeNotify('workbench.action.quickOpen')<CR>", opt)
 map("n", "<leader>j", "<CMD>HopChar2<CR>", opt)
+map("n", "<leader>t", ":call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>", opt)
+map("n", "<leader>p", ":call VSCodeNotify('workbench.actions.view.problems')<CR>", opt)
 
 map("n", "<leader>lf", ":call VSCodeNotify('editor.action.formatDocument')<CR>", opt)
 
