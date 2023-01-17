@@ -1,4 +1,27 @@
-local which_key = {
+local normal_key = {
+    ["W"] = { "<cmd>write<cr>", "Save" },
+    ["<C-s>"] = { "<cmd>write<cr>", "Save" },
+    ["Q"] = { "<cmd>qa<cr>", "Quit" },
+    ["s"] = {
+        name = "split window",
+        v = { ":vsp<cr>", "Vertical split window" },
+        h = { ":sp<cr>", "Horizontal split window" },
+        c = { ":close<cr>", "Close this window" },
+        o = { ":only<cr>", "Close all but this window" }
+    },
+    ["<C-h>"] = { "<C-w>h", "Move to left window" },
+    ["<C-j>"] = { "<C-w>j", "Move to down window" },
+    ["<C-k>"] = { "<C-w>k", "Move to up window" },
+    ["<C-l>"] = { "<C-w>l", "Move to right window" },
+    ["<C-Left>"] = { "<cmd>vertical resize -2<cr>", "Resize window" },
+    ["<C-Down>"] = { "<cmd>resize +2<cr>", "Resize window" },
+    ["<C-Up>"] = { "<cmd>resize -2<cr>", "Resize window" },
+    ["<C-Right>"] = { "<cmd>vertical resize +2<cr>", "Resize window" },
+    ["s="] = { "<C-w>=", "Resize window" },
+    ["H"] = { "5h", "Fast move" },
+    ["J"] = { "5j", "Fast move" },
+    ["K"] = { "5k", "Fast move" },
+    ["L"] = { "5l", "Fast move" },
     ["<Tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
     ["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" },
     ["<leader>"] = {
@@ -39,9 +62,12 @@ local which_key = {
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
         t = {
             name = "Terminal",
-            g = { "<cmd>lua lazygit_toggle()<cr>", "LazyGit" },
-            f = { "<cmd>lua floaterm_toggle()<cr>", "Floaterm" }
+            f = { function() require("nvterm.terminal").toggle "float" end, "toggle floating term" },
+            h = { function() require("nvterm.terminal").toggle "horizontal" end, "toggle horizontal term" },
+            v = { function() require("nvterm.terminal").toggle "vertical" end, "toggle vertical term" },
         },
+        h = { function() require("nvterm.terminal").new "horizontal" end, "new horizontal term" },
+        v = { function() require("nvterm.terminal").new "vertical" end, "new vertical term" },
         x = { "<cmd>BufferLinePickClose<cr>", "Buffer Pick Close" },
         ["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Go To Buffer 1" },
         ["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Go To Buffer 2" },
@@ -52,12 +78,7 @@ local which_key = {
         ["7"] = { "<cmd>BufferLineGoToBuffer 7<cr>", "Go To Buffer 7" },
         ["8"] = { "<cmd>BufferLineGoToBuffer 8<cr>", "Go To Buffer 8" },
         ["9"] = { "<cmd>BufferLineGoToBuffer 9<cr>", "Go To Buffer 9" },
-        ["/"] = {
-            function()
-                require("Comment.api").toggle.linewise.current()
-            end,
-            "toggle comment"
-        }
+        ["/"] = { function() require("Comment.api").toggle.linewise.current() end, "toggle comment" }
     },
     ["g"] = {
         name = "LSP",
@@ -71,14 +92,39 @@ local which_key = {
         e = { "Open float diagnostics" },
         j = { "Goto next diagnostic" },
         k = { "Goto prev diagnostic" }
-    },
-    ["s"] = {
-        name = "split window",
-        v = { ":vsp<CR>", "Vertical split window" },
-        h = { ":sp<CR>", "Horizontal split window" },
-        c = { ":close<CR>", "Close this window" },
-        o = { ":only<CR>", "Close all but this window" }
     }
 }
 
-return which_key
+local terminal_key = {
+    ["<Esc>"] = { "<C-\\><C-n>", "Exit terminal mode" },
+    ["<C-h>"] = { "<cmd>wincmd h<cr>", "Move to left window" },
+    ["<C-j>"] = { "<cmd>wincmd j<cr>", "Move to down window" },
+    ["<C-k>"] = { "<cmd>wincmd k<cr>", "Move to up window" },
+    ["<C-l>"] = { "<cmd>wincmd l<cr>", "Move to right window" },
+    ["<leader>"] = {
+        t = {
+            name = "Terminal",
+            f = { function() require("nvterm.terminal").toggle "float" end, "toggle floating term" },
+            h = { function() require("nvterm.terminal").toggle "horizontal" end, "toggle horizontal term" },
+            v = { function() require("nvterm.terminal").toggle "vertical" end, "toggle vertical term" },
+        }
+    }
+}
+
+local insert_key = {
+    ["<C-h>"] = { "<ESC>I", "Move to head of line" },
+    ["<C-l>"] = { "<ESC>A", "Move to end of line" }
+}
+
+local visual_key = {
+    ["J"] = { ":m \'>+1<cr>gv=gv", "Visual move down" },
+    ["K"] = { ":m \'<-2<cr>gv=gv", "Visual move up" },
+    ["<"] = { "<gv", "Visual move left" },
+    [">"] = { ">gv", "Visual move right" },
+}
+
+local wk = require("which-key")
+wk.register(normal_key, { mode = "n" })
+wk.register(terminal_key, { mode = "t" })
+wk.register(insert_key, { mode = "i" })
+wk.register(visual_key, { mode = "v" })

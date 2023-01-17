@@ -23,7 +23,7 @@ local M = {
     { 'williamboman/mason.nvim',
         cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
         config = tools_config.mason },
-    -- { 'akinsho/toggleterm.nvim', config = tools_config.toggleterm },
+    { 'NvChad/nvterm', lazy = true, config = tools_config.nvterm },
     ---------------------------------------- EDITOR ----------------------------------------
     { 'nvim-treesitter/nvim-treesitter',
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },

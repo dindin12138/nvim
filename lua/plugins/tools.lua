@@ -93,10 +93,7 @@ function config.gitsigns()
 end
 
 function config.which_key()
-    local wk = require("which-key")
-    local mappings = require("keymap.whichkey")
-    wk.setup {}
-    wk.register(mappings)
+    require("keymap.whichkey")
 end
 
 function config.mason()
@@ -153,6 +150,10 @@ function config.toggleterm()
     function lazygit_toggle()
         lazygit:toggle()
     end
+end
+
+function config.nvterm()
+    require("nvterm").setup()
 end
 
 return config
