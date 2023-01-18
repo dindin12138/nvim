@@ -13,7 +13,7 @@ function config.lualine()
             section_separators = { left = " ", right = "" },
         },
         sections = {
-            lualine_a = { 'mode' },
+            lualine_a = { { 'mode', icon = '' } },
             lualine_b = { { 'filetype', icon_only = true }, 'filename' },
             lualine_c = {
                 { 'branch', icon = ' ' },
