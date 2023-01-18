@@ -53,14 +53,6 @@ M.normal_key = {
         },
         m = { "<cmd>Mason<cr>", "Mason" },
         o = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
-        p = {
-            name = "Packer",
-            c = { "<cmd>PackerCompile<cr>", "Compile" },
-            i = { "<cmd>PackerInstall<cr>", "Install" },
-            s = { "<cmd>PackerSync<cr>", "Sync" },
-            S = { "<cmd>PackerStatus<cr>", "Status" },
-            u = { "<cmd>PackerUpdate<cr>", "Update" }
-        },
         q = { "<cmd>Bdelete!<cr>", "Bdelete" },
         t = {
             name = "Terminal",
