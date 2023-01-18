@@ -95,10 +95,10 @@ end
 function config.which_key()
     local wk = require("which-key")
     local keymap = require("core.keymap")
-    wk.register(keymap[1], { mode = "n" })
-    wk.register(keymap[2], { mode = "t" })
-    wk.register(keymap[3], { mode = "i" })
-    wk.register(keymap[4], { mode = "v" })
+    wk.register(keymap.normal_key, { mode = "n" })
+    wk.register(keymap.insert_key, { mode = "i" })
+    wk.register(keymap.visual_key, { mode = "v" })
+    wk.register(keymap.terminal_key, { mode = "t" })
 end
 
 function config.mason()

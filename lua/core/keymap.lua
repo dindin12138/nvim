@@ -1,4 +1,6 @@
-local normal_key = {
+local M = {}
+
+M.normal_key = {
     ["W"] = { "<cmd>write<cr>", "Save" },
     ["<C-s>"] = { "<cmd>write<cr>", "Save" },
     ["Q"] = { "<cmd>qa<cr>", "Quit" },
@@ -96,7 +98,27 @@ local normal_key = {
     }
 }
 
-local terminal_key = {
+M.insert_key = {
+    ["<C-b>"] = { "<ESC>I", "Move to beginning of line" },
+    ["<C-e>"] = { "<End>", "Move to end of line" },
+    ["<C-h>"] = { "<Left>", "Move to beginning of line" },
+    ["<C-j>"] = { "<Down>", "Move to end of line" },
+    ["<C-k>"] = { "<Up>", "Move to beginning of line" },
+    ["<C-l>"] = { "<Right>", "Move to end of line" }
+}
+
+M.visual_key = {
+    ["J"] = { ":m \'>+1<cr>gv=gv", "Visual move down" },
+    ["K"] = { ":m \'<-2<cr>gv=gv", "Visual move up" },
+    ["<"] = { "<gv", "Visual move left" },
+    [">"] = { ">gv", "Visual move right" },
+    ["<leader>/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+        "Toggle comment" },
+    ["<C-/>"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+        "Toggle comment" }
+}
+
+M.terminal_key = {
     ["<Esc>"] = { "<C-\\><C-n>", "Exit terminal mode" },
     ["<C-h>"] = { "<cmd>wincmd h<cr>", "Move to left window" },
     ["<C-j>"] = { "<cmd>wincmd j<cr>", "Move to down window" },
@@ -112,26 +134,4 @@ local terminal_key = {
     }
 }
 
-local insert_key = {
-    ["<C-b>"] = { "<ESC>I", "Move to beginning of line" },
-    ["<C-e>"] = { "<End>", "Move to end of line" },
-    ["<C-h>"] = { "<Left>", "Move to beginning of line" },
-    ["<C-j>"] = { "<Down>", "Move to end of line" },
-    ["<C-k>"] = { "<Up>", "Move to beginning of line" },
-    ["<C-l>"] = { "<Right>", "Move to end of line" }
-}
-
-local visual_key = {
-    ["J"] = { ":m \'>+1<cr>gv=gv", "Visual move down" },
-    ["K"] = { ":m \'<-2<cr>gv=gv", "Visual move up" },
-    ["<"] = { "<gv", "Visual move left" },
-    [">"] = { ">gv", "Visual move right" },
-    ["<leader>/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-        "Toggle comment" },
-    ["<C-/>"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-        "Toggle comment" }
-}
-
-local keymap = { normal_key, terminal_key, insert_key, visual_key }
-
-return keymap
+return M
