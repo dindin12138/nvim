@@ -59,67 +59,45 @@ function config.lualine()
 end
 
 function config.dashboard()
-    local db = require('dashboard')
-    db.custom_header = {
-        [[]],
-        [[]],
-        [[]],
-        [[]],
-        [[]],
-        [[]],
-        [[]],
-        [[]],
-        [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
-        [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
-        [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
-        [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
-        [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
-        [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-        [[]],
-        [[]],
-    }
-    db.custom_center = {
-        {
-            icon = '  ',
-            desc = 'Projects                                ',
-            action = 'Telescope projects',
-            shortcut = 'SPC f p'
-        },
-        {
-            icon = '  ',
-            desc = 'Recently Files                          ',
-            action = 'Telescope oldfiles',
-            shortcut = 'SPC f o'
-        },
-        {
-            icon = '  ',
-            desc = 'Find Files                              ',
-            action = 'Telescope find_files find_command=rg,--hidden,--files',
-            shortcut = 'SPC f f'
-        },
-        {
-            icon = '  ',
-            desc = 'Update Plugins                          ',
-            action = 'Lazy sync',
-            shortcut = 'SPC l s'
-        },
-        {
-            icon = '  ',
-            desc = 'Edit Keybindings                        ',
-            action = 'edit ~/.config/nvim/lua/core/keymap.lua',
-            shortcut = 'SPC x x'
-        },
-        {
-            icon = '  ',
-            desc = 'Edit Projects                           ',
-            action = 'edit ~/.local/share/nvim/project_nvim/project_history',
-            shortcut = 'SPC x x'
-        },
-    }
-    db.custom_footer = {
-        [[]],
-        [[Talk is cheap. Show me the code.]],
-    }
+    require('dashboard').setup({
+        theme = 'doom',
+        config = {
+            header = {
+                [[]],
+                [[]],
+                [[]],
+                [[]],
+                [[]],
+                [[]],
+                [[]],
+                [[]],
+                [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+                [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+                [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+                [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+                [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+                [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+                [[]],
+                [[]],
+            },
+            center = {
+                { icon = '  ', icon_hi = 'Title', desc = 'Projects                                ',
+                    desc_hi = 'String', key = 'p', key_hi = 'Number', action = 'Telescope projects' },
+                { icon = '  ', icon_hi = 'Title', desc = 'Recently Files                          ',
+                    desc_hi = 'String', key = 'o', key_hi = 'Number', action = 'Telescope oldfiles' },
+                { icon = '  ', icon_hi = 'Title', desc = 'Find Files                              ',
+                    desc_hi = 'String', key = 'f', key_hi = 'Number', action = 'Telescope find_files' },
+                { icon = '  ', icon_hi = 'Title', desc = 'Update Plugins                          ',
+                    desc_hi = 'String', key = 's', key_hi = 'Number', action = 'Lazy sync', },
+                { icon = '  ', icon_hi = 'Title', desc = 'Edit Dotfiles                           ',
+                    desc_hi = 'String', key = 'c', key_hi = 'Number', action = 'edit ~/.config/nvim/lua/core/keymap.lua' },
+            },
+            footer = {
+                [[]],
+                [[Talk is cheap. Show me the code.]],
+            }
+        }
+    })
 end
 
 function config.bufferline()
