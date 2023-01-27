@@ -93,17 +93,17 @@ M.normal_key = {
 M.insert_key = {
     ["<C-b>"] = { "<ESC>I", "Move to beginning of line" },
     ["<C-e>"] = { "<End>", "Move to end of line" },
-    ["<C-h>"] = { "<Left>", "Move to beginning of line" },
-    ["<C-j>"] = { "<Down>", "Move to end of line" },
-    ["<C-k>"] = { "<Up>", "Move to beginning of line" },
-    ["<C-l>"] = { "<Right>", "Move to end of line" }
+    ["<C-h>"] = { "<Left>", "Move Left" },
+    ["<C-j>"] = { "<Down>", "Move Down" },
+    ["<C-k>"] = { "<Up>", "Move Up" },
+    ["<C-l>"] = { "<Right>", "Move Right" }
 }
 
 M.visual_key = {
-    ["J"] = { ":m \'>+1<cr>gv=gv", "Visual move down" },
-    ["K"] = { ":m \'<-2<cr>gv=gv", "Visual move up" },
-    ["<"] = { "<gv", "Visual move left" },
-    [">"] = { ">gv", "Visual move right" },
+    ["J"] = { ":m \'>+1<cr>gv=gv", "Select down" },
+    ["K"] = { ":m \'<-2<cr>gv=gv", "Select up" },
+    ["<"] = { "<gv", "Select left" },
+    [">"] = { ">gv", "Select right" },
     ["<leader>/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
         "Toggle comment" },
     ["<C-/>"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
