@@ -3,7 +3,6 @@ local config = {}
 function config.nvim_tree()
     require("nvim-tree").setup({
         disable_netrw = true,
-        ignore_ft_on_setup = { "dashboard" },
         hijack_cursor = true,
         respect_buf_cwd = true,
         update_cwd = true,

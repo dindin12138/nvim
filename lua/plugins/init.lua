@@ -5,8 +5,7 @@ local completion_config = require('plugins.configs.completion')
 local M = {
     ---------------------------------------- UI ----------------------------------------
     { 'catppuccin/nvim', name = 'catppuccin', config = ui_config.catppuccin },
-    { 'glepnir/dashboard-nvim', event = 'VimEnter', dependencies = 'nvim-tree/nvim-web-devicons',
-        config = ui_config.dashboard },
+    { 'glepnir/dashboard-nvim', dependencies = 'nvim-tree/nvim-web-devicons', config = ui_config.dashboard },
     { 'nvim-tree/nvim-web-devicons', lazy = true },
     { 'nvim-lualine/lualine.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = ui_config.lualine },
     { 'lukas-reineke/indent-blankline.nvim', event = { 'BufReadPost', 'BufNewFile' } },
