@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
 end
 
 mason_lspconfig.setup({
-    ensure_installed = { 'lua_ls', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls' },
+    ensure_installed = { 'lua_ls', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls', 'gopls' },
     automatic_installation = false
 })
 
@@ -90,6 +90,8 @@ lspconfig['pyright'].setup {
 lspconfig['jsonls'].setup { on_attach = on_attach }
 
 lspconfig['rust_analyzer'].setup { on_attach = on_attach }
+
+lspconfig['gopls'].setup { on_attach = on_attach }
 
 local float_border = function()
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
