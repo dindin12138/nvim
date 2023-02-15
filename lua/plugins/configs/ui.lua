@@ -17,7 +17,7 @@ function config.lualine()
             lualine_b = { { 'filetype', icon_only = true }, 'filename' },
             lualine_c = {
                 { 'branch', icon = ' ' },
-                { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } }
+                { 'diff',   symbols = { added = ' ', modified = ' ', removed = ' ' } }
             },
             lualine_x = { { 'diagnostics', symbols = { error = ' ', warn = ' ', info = ' ', hint = 'ﯧ ' } } },
             lualine_y = { 'fileformat', 'encoding' },
