@@ -81,16 +81,16 @@ function config.dashboard()
                 [[]],
             },
             center = {
-                { icon = '  ', icon_hi = 'Title', desc = 'Projects                                ',
-                    desc_hi = 'String', key = 'p', key_hi = 'Number', action = 'Telescope projects' },
-                { icon = '  ', icon_hi = 'Title', desc = 'Recently Files                          ',
-                    desc_hi = 'String', key = 'o', key_hi = 'Number', action = 'Telescope oldfiles' },
-                { icon = '  ', icon_hi = 'Title', desc = 'Find Files                              ',
-                    desc_hi = 'String', key = 'f', key_hi = 'Number', action = 'Telescope find_files' },
-                { icon = '  ', icon_hi = 'Title', desc = 'Update Plugins                          ',
-                    desc_hi = 'String', key = 's', key_hi = 'Number', action = 'Lazy sync', },
-                { icon = '  ', icon_hi = 'Title', desc = 'Edit Dotfiles                           ',
-                    desc_hi = 'String', key = 'c', key_hi = 'Number', action = 'edit ~/.config/nvim/lua/core/keymap.lua' },
+                { icon = '  ', icon_hl = 'Title', desc = 'Projects                                ',
+                    desc_hl = 'String', key = 'p', key_hl = 'Number', action = 'Telescope projects' },
+                { icon = '  ', icon_hl = 'Title', desc = 'Recently Files                          ',
+                    desc_hl = 'String', key = 'o', key_hl = 'Number', action = 'Telescope oldfiles' },
+                { icon = '  ', icon_hl = 'Title', desc = 'Find Files                              ',
+                    desc_hl = 'String', key = 'f', key_hl = 'Number', action = 'Telescope find_files' },
+                { icon = '  ', icon_hl = 'Title', desc = 'Update Plugins                          ',
+                    desc_hl = 'String', key = 's', key_hl = 'Number', action = 'Lazy sync', },
+                { icon = '  ', icon_hl = 'Title', desc = 'Edit Dotfiles                           ',
+                    desc_hl = 'String', key = 'c', key_hl = 'Number', action = 'edit ~/.config/nvim/lua/core/keymap.lua' },
             },
             footer = {
                 [[]],
@@ -213,11 +213,11 @@ function config.notify()
             })
         elseif val.kind == "end" and notif_data then
             notif_data.notification =
-            vim.notify(val.message and format_message(val.message) or "Complete", "info", {
-                icon = "",
-                replace = notif_data.notification,
-                timeout = 3000,
-            })
+                vim.notify(val.message and format_message(val.message) or "Complete", "info", {
+                    icon = "",
+                    replace = notif_data.notification,
+                    timeout = 3000,
+                })
 
             notif_data.spinner = nil
         end
