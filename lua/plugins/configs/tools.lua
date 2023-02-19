@@ -19,17 +19,17 @@ function config.nvim_tree()
                 custom_only = false,
                 list = {
                     { key = { "l", "o", "<CR>" }, action = "edit" },
-                    { key = "v", action = "vsplit" },
-                    { key = "h", action = "split" },
-                    { key = "i", action = "toggle_git_ignored" },
-                    { key = ".", action = "toggle_dotfiles" },
-                    { key = "<F5>", action = "refresh" },
-                    { key = "a", action = "create" },
-                    { key = "d", action = "remove" },
-                    { key = "r", action = "rename" },
-                    { key = "x", action = "cut" },
-                    { key = "y", action = "copy" },
-                    { key = "p", action = "paste" },
+                    { key = "v",                  action = "vsplit" },
+                    { key = "h",                  action = "split" },
+                    { key = "i",                  action = "toggle_git_ignored" },
+                    { key = ".",                  action = "toggle_dotfiles" },
+                    { key = "<F5>",               action = "refresh" },
+                    { key = "a",                  action = "create" },
+                    { key = "d",                  action = "remove" },
+                    { key = "r",                  action = "rename" },
+                    { key = "x",                  action = "cut" },
+                    { key = "y",                  action = "copy" },
+                    { key = "p",                  action = "paste" },
                 },
             },
         },
@@ -154,10 +154,6 @@ function config.toggleterm()
     function lazygit_toggle()
         lazygit:toggle()
     end
-end
-
-function config.nvterm()
-    require("nvterm").setup()
 end
 
 return config

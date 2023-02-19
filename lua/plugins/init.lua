@@ -24,7 +24,6 @@ local M = {
     { 'ahmedkhalf/project.nvim', config = tools_config.project },
     { 'lewis6991/gitsigns.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = tools_config.gitsigns },
     { 'folke/which-key.nvim',    config = tools_config.which_key },
-    { 'NvChad/nvterm',           lazy = true,                             config = tools_config.nvterm },
     ---------------------------------------- EDITOR ----------------------------------------
     { 'nvim-treesitter/nvim-treesitter',
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },

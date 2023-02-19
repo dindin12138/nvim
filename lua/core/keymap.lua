@@ -116,14 +116,14 @@ M.terminal_key = {
     ["<C-j>"] = { "<cmd>wincmd j<cr>", "Move to down window" },
     ["<C-k>"] = { "<cmd>wincmd k<cr>", "Move to up window" },
     ["<C-l>"] = { "<cmd>wincmd l<cr>", "Move to right window" },
-    ["<leader>"] = {
-        t = {
-            name = "Terminal",
-            f = { function() require("nvterm.terminal").toggle "float" end, "Toggle floating term" },
-            h = { function() require("nvterm.terminal").toggle "horizontal" end, "Toggle horizontal term" },
-            v = { function() require("nvterm.terminal").toggle "vertical" end, "Toggle vertical term" },
-        }
-    }
+    -- ["<leader>"] = {
+    --     t = {
+    --         name = "Terminal",
+    --         f = { function() require("nvterm.terminal").toggle "float" end, "Toggle floating term" },
+    --         h = { function() require("nvterm.terminal").toggle "horizontal" end, "Toggle horizontal term" },
+    --         v = { function() require("nvterm.terminal").toggle "vertical" end, "Toggle vertical term" },
+    --     }
+    -- }
 }
 
 return M
