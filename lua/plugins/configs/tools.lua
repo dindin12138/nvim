@@ -114,20 +114,19 @@ function config.mason()
 end
 
 function config.toggleterm()
-    local toggleterm = require("toggleterm")
-    local Terminal = require("toggleterm.terminal").Terminal
-    toggleterm.setup({
+    require("toggleterm").setup({
         open_mapping = [[<c-\>]],
         start_in_insert = true,
         direction = 'horizontal'
     })
+    local Terminal = require("toggleterm.terminal").Terminal
 
     local lazygit = Terminal:new({
         cmd = "lazygit",
         dir = "git_dir",
         direction = "float",
         float_opts = {
-            border = "single",
+            border = "curved",
         },
         on_open = function(term)
             vim.cmd("startinsert!")
@@ -136,7 +135,7 @@ function config.toggleterm()
                 vim.api.nvim_del_keymap("t", "<Esc>")
             end
         end,
-        on_close = function(_)
+        on_close = function(term)
             vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {
                 noremap = true,
                 silent = true,
@@ -144,14 +143,18 @@ function config.toggleterm()
         end,
     })
     local floaterm = Terminal:new({
+        -- dir = "git_dir",
         direction = 'float',
+        float_opts = {
+            border = "curved",
+        },
     })
 
-    function floaterm_toggle()
+    function _floaterm_toggle()
         floaterm:toggle()
     end
 
-    function lazygit_toggle()
+    function _lazygit_toggle()
         lazygit:toggle()
     end
 end
