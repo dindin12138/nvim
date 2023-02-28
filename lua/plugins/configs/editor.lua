@@ -64,10 +64,6 @@ function config.comment()
     require('Comment').setup()
 end
 
-function config.hop()
-    require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
-end
-
 function config.todo()
     require("todo-comments").setup {}
 end

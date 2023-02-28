@@ -25,12 +25,11 @@ local M = {
     { 'lewis6991/gitsigns.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = tools_config.gitsigns },
     { 'folke/which-key.nvim',    config = tools_config.which_key },
     { 'akinsho/toggleterm.nvim', version = '*',                           config = tools_config.toggleterm },
+    { 'ggandor/leap.nvim',       config = tools_config.leap },
     ---------------------------------------- EDITOR ----------------------------------------
     { 'nvim-treesitter/nvim-treesitter',
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
         build = ':TSUpdate', config = editor_config.nvim_treesitter },
-    { 'phaazon/hop.nvim', branch = 'v2', cmd = { 'HopWord', 'HopLine', 'HopChar1', 'HopChar2' },
-        config = editor_config.hop, },
     { 'p00f/nvim-ts-rainbow',              event = 'BufReadPost' },
     { 'windwp/nvim-autopairs',             event = "InsertEnter",                   config = editor_config.autopairs },
     { 'numToStr/Comment.nvim',             event = { 'BufReadPost', 'BufNewFile' }, config = editor_config.comment },
