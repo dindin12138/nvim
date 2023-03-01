@@ -5,30 +5,30 @@ local completion_config = require('plugins.configs.completion')
 local M = {
     ---------------------------------------- UI ----------------------------------------
     { 'nvim-tree/nvim-web-devicons',         lazy = true },
+    { 'stevearc/dressing.nvim',              event = { 'BufReadPost', 'BufNewFile' }, config = ui_config.dressing },
     { 'nvim-lualine/lualine.nvim',           event = { 'BufReadPost', 'BufNewFile' }, config = ui_config.lualine },
     { 'lukas-reineke/indent-blankline.nvim', event = { 'BufReadPost', 'BufNewFile' } },
     { 'rcarriga/nvim-notify',                config = ui_config.notify },
     { 'catppuccin/nvim',                     name = 'catppuccin',                     config = ui_config.catppuccin },
-    { 'glepnir/dashboard-nvim', event = 'VimEnter', dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = ui_config.dashboard },
+    { 'glepnir/dashboard-nvim',              event = 'VimEnter',                      config = ui_config.dashboard },
     { 'akinsho/bufferline.nvim', event = { 'BufReadPost', 'BufNewFile' },
         dependencies = { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }, config = ui_config.bufferline, },
     ---------------------------------------- TOOLS ----------------------------------------
-    { 'nvim-tree/nvim-tree.lua', cmd = 'NvimTreeToggle', config = tools_config.nvim_tree,
-        dependencies = 'nvim-tree/nvim-web-devicons' },
-    { 'nvim-telescope/telescope.nvim', cmd = 'Telescope', dependencies = 'nvim-lua/plenary.nvim',
-        config = tools_config.telescope },
+    { 'nvim-lua/plenary.nvim',         lazy = true },
+    { 'nvim-tree/nvim-tree.lua',       cmd = 'NvimTreeToggle', config = tools_config.nvim_tree },
+    { 'nvim-telescope/telescope.nvim', cmd = 'Telescope',      config = tools_config.telescope },
     { 'williamboman/mason.nvim',
         cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
         config = tools_config.mason, },
     { 'ahmedkhalf/project.nvim', config = tools_config.project },
     { 'lewis6991/gitsigns.nvim', event = { 'BufReadPost', 'BufNewFile' }, config = tools_config.gitsigns },
-    { 'folke/which-key.nvim',    config = tools_config.which_key },
+    { 'folke/which-key.nvim',    event = "VeryLazy",                      config = tools_config.which_key },
     { 'akinsho/toggleterm.nvim', version = '*',                           config = tools_config.toggleterm },
     { 'ggandor/leap.nvim',       config = tools_config.leap },
     ---------------------------------------- EDITOR ----------------------------------------
     { 'nvim-treesitter/nvim-treesitter',
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
+        event = { "BufReadPost", "BufNewFile" },
         build = ':TSUpdate', config = editor_config.nvim_treesitter },
     { 'p00f/nvim-ts-rainbow',              event = 'BufReadPost' },
     { 'windwp/nvim-autopairs',             event = "InsertEnter",                   config = editor_config.autopairs },
@@ -45,7 +45,6 @@ local M = {
     { 'simrat39/symbols-outline.nvim', cmd = 'SymbolsOutline', config = completion_config.symbols_outline },
     { 'ray-x/lsp_signature.nvim', ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh' },
         config = completion_config.lsp_signature },
-    { 'folke/trouble.nvim', cmd = 'TroubleToggle', dependencies = 'nvim-tree/nvim-web-devicons',
-        config = completion_config.trouble }
+    { 'folke/trouble.nvim', cmd = { 'TroubleToggle', 'Trouble' }, config = completion_config.trouble }
 }
 return M

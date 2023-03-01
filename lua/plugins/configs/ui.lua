@@ -5,6 +5,10 @@ function config.catppuccin()
     vim.api.nvim_command "colorscheme catppuccin"
 end
 
+function config.dressing()
+    require('dressing').setup({})
+end
+
 function config.lualine()
     local lualine = require('lualine')
     local config = {
