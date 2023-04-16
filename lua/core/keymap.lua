@@ -40,7 +40,7 @@ M.normal_key = {
             i = { "<cmd>LspInfo<cr>", "LspInfo" },
             l = { "<cmd>LspLog<cr>", "LspLog" },
             r = { "<cmd>LspRestart<cr>", "LspRestart" },
-            f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+            f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
             h = { "<cmd>Lazy home<cr>", "Lazy home" },
             s = { "<cmd>Lazy sync<cr>", "Lazy sync" },
             t = { "<cmd>TroubleToggle<cr>", "Trouble" },

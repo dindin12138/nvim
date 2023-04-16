@@ -12,9 +12,9 @@ function config.nvim_tree()
         },
         git = { enable = false, ignore = false },
         filters = { dotfiles = true },
+        renderer = { root_folder_label = false },
         view = {
             width = 25,
-            hide_root_folder = true,
             mappings = {
                 custom_only = false,
                 list = {
