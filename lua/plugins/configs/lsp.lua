@@ -31,7 +31,7 @@ mason_lspconfig.setup({
     automatic_installation = false
 })
 
-lspconfig['lua_ls'].setup {
+lspconfig.lua_ls.setup {
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -52,7 +52,7 @@ lspconfig['lua_ls'].setup {
     }
 }
 
-lspconfig['clangd'].setup {
+lspconfig.clangd.setup {
     on_attach = on_attach,
     args = {
         "--background-index",
@@ -74,9 +74,9 @@ lspconfig['clangd'].setup {
     }
 }
 
-lspconfig['cmake'].setup { on_attach = on_attach }
+lspconfig.cmake.setup { on_attach = on_attach }
 
-lspconfig['pyright'].setup {
+lspconfig.pyright.setup {
     on_attach = on_attach,
     settings = {
         python = {
@@ -89,11 +89,11 @@ lspconfig['pyright'].setup {
     }
 }
 
-lspconfig['jsonls'].setup { on_attach = on_attach }
+lspconfig.jsonls.setup { on_attach = on_attach }
 
-lspconfig['rust_analyzer'].setup { on_attach = on_attach }
+lspconfig.rust_analyzer.setup { on_attach = on_attach }
 
-lspconfig['gopls'].setup { on_attach = on_attach }
+lspconfig.gopls.setup { on_attach = on_attach }
 
 local float_border = function()
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
