@@ -12,7 +12,7 @@ function config.nvim_cmp()
         Function = "",
         Constructor = "",
         Field = "ﰠ",
-        Variable = "",
+        Variable = "󰀫",
         Class = "ﴯ",
         Interface = "",
         Module = "",
