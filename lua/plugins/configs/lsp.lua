@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
 end
 
 mason_lspconfig.setup({
-    ensure_installed = { 'lua_ls', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'jsonls', 'gopls', 'cmake' },
+    ensure_installed = { 'lua_ls', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'gopls', 'cmake' },
     automatic_installation = false
 })
 
