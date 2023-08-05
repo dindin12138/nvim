@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local mason_lspconfig = require("mason-lspconfig")
+require("mason-lspconfig").setup()
 
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -25,11 +25,6 @@ local on_attach = function(client, bufnr)
     map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", bufopts)
     map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", bufopts)
 end
-
-mason_lspconfig.setup({
-    ensure_installed = { 'lua_ls', 'clangd', 'rust_analyzer', 'pyright', 'bashls', 'gopls', 'cmake' },
-    automatic_installation = false
-})
 
 lspconfig.lua_ls.setup {
     on_attach = on_attach,
