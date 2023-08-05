@@ -1,9 +1,36 @@
 local lspconfig = require("lspconfig")
 require("mason-lspconfig").setup()
 
+-- Use LspAttach autocommand to only map the following keys after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local map = vim.keymap.set
+        local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+        map("n", "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", bufopts)
+        map("n", "gn", "<CMD>lua vim.lsp.buf.rename()<CR>", bufopts)
+        map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", bufopts)
+        map("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", bufopts)
+        map("n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", bufopts)
+        map("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", bufopts)
+        map("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", bufopts)
+        map("n", "ge", "<CMD>lua vim.diagnostic.open_float()<CR>", bufopts)
+        map("n", "gj", "<CMD>lua vim.diagnostic.goto_next()<CR>", bufopts)
+        map("n", "gk", "<CMD>lua vim.diagnostic.goto_prev()<CR>", bufopts)
+    end,
+})
+
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }')
+
+    -- Highlight symbol under cursor
     if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_create_augroup('lsp_document_highlight', { clear = false })
         vim.api.nvim_clear_autocmds({ buffer = bufnr, group = 'lsp_document_highlight', })
@@ -12,18 +39,6 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' },
             { group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.clear_references, })
     end
-    local map = vim.keymap.set
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
-    map("n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", bufopts)
-    map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", bufopts)
-    map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", bufopts)
-    map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
-    map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", bufopts)
-    map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
-    map("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
-    map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", bufopts)
-    map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", bufopts)
 end
 
 lspconfig.lua_ls.setup {
@@ -87,6 +102,8 @@ lspconfig.pyright.setup {
 lspconfig.rust_analyzer.setup { on_attach = on_attach }
 
 lspconfig.gopls.setup { on_attach = on_attach }
+
+lspconfig.bashls.setup { on_attach = on_attach }
 
 local float_border = function()
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
