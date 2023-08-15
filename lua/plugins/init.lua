@@ -25,6 +25,7 @@ return {
     },
     {
         'rcarriga/nvim-notify',
+        event = 'VeryLazy',
         opts = { stages = "static" },
         config = function(_, opts)
             require("notify").setup(opts)
@@ -98,6 +99,7 @@ return {
     },
     {
         'ahmedkhalf/project.nvim',
+        -- event = 'VeryLazy',
         opts = require("plugins.configs.project"),
         config = function(_, opts)
             require("project_nvim").setup(opts)
@@ -122,7 +124,6 @@ return {
     },
     {
         "folke/flash.nvim",
-        event = "VeryLazy",
         opts = {},
         -- stylua: ignore
         keys = {
@@ -198,9 +199,16 @@ return {
         lazy = true,
     },
     {
+        'folke/neodev.nvim',
+        lazy = true,
+        opt = {}
+    },
+    {
         'neovim/nvim-lspconfig',
         ft = { 'lua', 'c', 'cpp', 'python', 'rust', 'json', 'sh', 'go' },
         config = function()
+            require("neodev").setup()
+            require("mason-lspconfig").setup()
             require("plugins.configs.lsp")
         end
     },

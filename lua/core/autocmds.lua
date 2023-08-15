@@ -1,9 +1,9 @@
 -- Automatically saves edits to the buffer
-vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-    pattern = { "*" },
-    command = "silent! wall",
-    nested = true,
-})
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+--     pattern = { "*" },
+--     command = "silent! wall",
+--     nested = true,
+-- })
 
 -- Reopen the buffer to restore the cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
