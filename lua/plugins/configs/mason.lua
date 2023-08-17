@@ -8,6 +8,7 @@ return {
         },
     },
     ensure_installed = {
+        -- LSP
         'lua-language-server',
         'clangd',
         'rust-analyzer',
@@ -15,5 +16,6 @@ return {
         'bash-language-server',
         'gopls',
         'cmake-language-server',
+        -- Formatter
     }
 }

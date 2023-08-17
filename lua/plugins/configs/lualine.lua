@@ -41,5 +41,5 @@ return {
         lualine_y = {},
         lualine_z = {}
     },
-    extensions = { "nvim-tree", "toggleterm", "aerial", "symbols-outline" },
+    extensions = { "neo-tree", "nvim-tree", "toggleterm", "aerial", "symbols-outline" },
 }
