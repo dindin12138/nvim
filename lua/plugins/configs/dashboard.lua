@@ -39,7 +39,7 @@ return {
                 action = 'Telescope oldfiles'
             },
             {
-                icon = '  ',
+                icon = '󰥨  ',
                 icon_hl = 'Title',
                 desc = 'Find Files                              ',
                 desc_hl = 'String',
