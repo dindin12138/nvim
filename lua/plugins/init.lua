@@ -235,7 +235,7 @@ return {
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-nvim-lua',
             'f3fora/cmp-spell',
-            'saadparwaiz1/cmp_luasnip',
+            'saadparwaiz1/cmp_luasnip'
         },
         config = function()
             require("plugins.configs.nvim-cmp")
