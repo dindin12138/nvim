@@ -3,35 +3,36 @@
 ## Structure
 
 ```
-├── init.lua
 ├── ftplugin
-│   ├── c.lua
-│   └── cpp.lua
+│  ├── c.lua
+│  └── cpp.lua
 ├── lua
-│   ├── core
-│   │   ├── init.lua
-│   │   ├── keymap.lua
-│   │   ├── lazy.lua
-│   │   └── options.lua
-│   ├── plugins
-│   │   ├── configs
-│   │   │   ├── completion.lua
-│   │   │   ├── editor.lua
-│   │   │   ├── lsp.lua
-│   │   │   ├── tools.lua
-│   │   │   └── ui.lua
-│   │   └── init.lua
-│   └── vscode
-│       ├── config.lua
-│       ├── init.lua
-│       ├── keymap.lua
-│       ├── options.lua
-│       └── plugins.lua
-└── snippets
-    ├── lua.json
-    └── package.json
+│  ├── core
+│  │  ├── autocmds.lua
+│  │  ├── init.lua
+│  │  ├── keymap.lua
+│  │  ├── lazy.lua
+│  │  └── options.lua
+│  └── plugins
+│     ├── configs
+│     │  ├── bufferline.lua
+│     │  ├── dashboard.lua
+│     │  ├── gitsigns.lua
+│     │  ├── lsp.lua
+│     │  ├── lualine.lua
+│     │  ├── mason.lua
+│     │  ├── nvim-cmp.lua
+│     │  ├── nvim-treesitter.lua
+│     │  ├── project.lua
+│     │  └── telescope.lua
+│     └── init.lua
+├── snippets
+│  ├── lua.json
+│  └── package.json
+├── init.lua
+├── lazy-lock.json
+└── README.md
 ```
-
 ## Acknowledgement
 
 - [glepnir/dope](https://github.com/glepnir/dope)
