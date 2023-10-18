@@ -13,9 +13,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = require("plugins")
-
-require("lazy").setup(plugins, {
+require("lazy").setup("plugins", {
     ui = {
         -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
         border = "rounded",
@@ -49,8 +47,8 @@ require("lazy").setup(plugins, {
                 "optwin",
                 "compiler",
                 "bugreport",
-                "ftplugin"
-            }
-        }
-    }
+                "ftplugin",
+            },
+        },
+    },
 })
