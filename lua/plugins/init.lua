@@ -5,7 +5,19 @@ return {
   },
   {
     "stevearc/dressing.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    lazy = true,
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -50,7 +62,7 @@ return {
     "akinsho/bufferline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-      { "famiu/bufdelete.nvim",       cmd = "Bdelete" },
+      { "famiu/bufdelete.nvim", cmd = "Bdelete" },
       { "nvim-tree/nvim-web-devicons" },
     },
     opts = require("plugins.configs.bufferline"),
@@ -112,7 +124,7 @@ return {
   },
   {
     "ahmedkhalf/project.nvim",
-    -- event = 'VeryLazy',
+    -- event = "VeryLazy",
     opts = require("plugins.configs.project"),
     config = function(_, opts)
       require("project_nvim").setup(opts)
@@ -140,35 +152,14 @@ return {
     opts = {},
     -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      {
-        "S",
-        mode = { "n", "o", "x" },
-        function() require("flash").treesitter() end,
-        desc =
-        "Flash Treesitter"
-      },
-      {
-        "r",
-        mode = "o",
-        function() require("flash").remote() end,
-        desc =
-        "Remote Flash"
-      },
-      {
-        "R",
-        mode = { "o", "x" },
-        function() require("flash").treesitter_search() end,
-        desc =
-        "Treesitter Search"
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function() require("flash").toggle() end,
-        desc =
-        "Toggle Flash Search"
-      },
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end,
+                                                                                                  desc =
+        "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc =
+      "Toggle Flash Search" },
     },
   },
   {
@@ -193,17 +184,10 @@ return {
   },
   {
     "numToStr/Comment.nvim",
+    -- stylua: ignore
     keys = {
-      {
-        "<C-/>",
-        function() require("Comment.api").toggle.linewise.current() end,
-        desc = "Toggle comment",
-      },
-      {
-        "<leader>/",
-        function() require("Comment.api").toggle.linewise.current() end,
-        desc = "Toggle comment",
-      },
+      { "<C-/>",     function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
+      { "<leader>/", function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
     },
     config = true,
   },
@@ -281,13 +265,9 @@ return {
     dependencies = { "mason.nvim" },
     lazy = true,
     cmd = "ConformInfo",
+    -- stylua: ignore
     keys = {
-      {
-        "<leader>lf",
-        function() require("conform").format() end,
-        mode = { "n" },
-        desc = "Format",
-      },
+      { "<leader>lf", function() require("conform").format() end, mode = { "n" }, desc = "Format" },
     },
     opts = require("plugins.configs.conform"),
   },
