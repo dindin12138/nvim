@@ -48,13 +48,13 @@ return {
         action = "Telescope find_files",
       },
       {
-        icon = "  ",
+        icon = "󰒲  ",
         icon_hl = "Title",
-        desc = "Update Plugins                          ",
+        desc = "Lazy                                    ",
         desc_hl = "String",
-        key = "s",
+        key = "l",
         key_hl = "Number",
-        action = "Lazy sync",
+        action = "Lazy",
       },
       {
         icon = "  ",

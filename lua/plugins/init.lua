@@ -22,18 +22,14 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = "nvim-tree/nvim-web-devicons",
     opts = require("plugins.configs.lualine"),
-  },
-  {
-    "j-hui/fidget.nvim",
-    tag = "legacy",
-    event = "LspAttach",
-    opts = {},
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
+    main = "ibl",
+    opts = require("plugins.configs.indent-blankline"),
   },
   {
     "rcarriga/nvim-notify",
@@ -63,7 +59,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       { "famiu/bufdelete.nvim", cmd = "Bdelete" },
-      { "nvim-tree/nvim-web-devicons" },
+      "nvim-tree/nvim-web-devicons",
     },
     opts = require("plugins.configs.bufferline"),
   },
@@ -77,7 +73,7 @@ return {
     cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
     opts = {
@@ -92,11 +88,26 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        enabled = vim.fn.executable("make") == 1,
+      },
+    },
     opts = require("plugins.configs.telescope"),
     config = function(_, opts)
       require("telescope").setup(opts)
       require("telescope").load_extension("projects")
+      require("telescope").load_extension("fzf")
+    end,
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    opts = require("plugins.configs.project"),
+    config = function(_, opts)
+      require("project_nvim").setup(opts)
     end,
   },
   {
@@ -123,14 +134,6 @@ return {
     end,
   },
   {
-    "ahmedkhalf/project.nvim",
-    -- event = "VeryLazy",
-    opts = require("plugins.configs.project"),
-    config = function(_, opts)
-      require("project_nvim").setup(opts)
-    end,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = require("plugins.configs.gitsigns"),
@@ -140,11 +143,11 @@ return {
     event = "VeryLazy",
     config = function()
       local wk = require("which-key")
-      local keymap = require("core.keymap")
-      wk.register(keymap.normal_key, { mode = "n" })
-      wk.register(keymap.insert_key, { mode = "i" })
-      wk.register(keymap.visual_key, { mode = "v" })
-      wk.register(keymap.terminal_key, { mode = "t" })
+      local keymaps = require("core.keymaps")
+      wk.register(keymaps.normal_key, { mode = "n" })
+      wk.register(keymaps.insert_key, { mode = "i" })
+      wk.register(keymaps.visual_key, { mode = "v" })
+      wk.register(keymaps.terminal_key, { mode = "t" })
     end,
   },
   {
@@ -155,11 +158,8 @@ return {
       { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
       { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
       { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end,
-                                                                                                  desc =
-        "Treesitter Search" },
-      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc =
-      "Toggle Flash Search" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
   {
@@ -215,6 +215,12 @@ return {
     end,
   },
   {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {},
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -266,9 +272,7 @@ return {
     lazy = true,
     cmd = "ConformInfo",
     -- stylua: ignore
-    keys = {
-      { "<leader>lf", function() require("conform").format() end, mode = { "n" }, desc = "Format" },
-    },
+    keys = { { "<leader>lf", function() require("conform").format() end, mode = { "n" }, desc = "Format" } },
     opts = require("plugins.configs.conform"),
   },
 }
