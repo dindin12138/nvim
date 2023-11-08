@@ -16,6 +16,7 @@ return {
     "bash-language-server",
     "gopls",
     "cmake-language-server",
+    "sqlls",
     -- Formatter
     "stylua",
     "clang-format",
@@ -23,6 +24,8 @@ return {
     "gofumpt",
     "black",
     "shfmt",
-    "jq"
+    "jq",
+    "prettierd",
+    "sql-formatter",
   },
 }

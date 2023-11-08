@@ -195,7 +195,7 @@ return {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    opts = require("plugins.configs.todo-comments")
+    opts = require("plugins.configs.todo-comments"),
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -208,7 +208,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    ft = { "lua", "c", "cpp", "python", "rust", "json", "sh", "go" },
+    ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql" },
     config = function()
       require("neodev").setup()
       require("mason-lspconfig").setup()
@@ -260,7 +260,7 @@ return {
   },
   {
     "ray-x/lsp_signature.nvim",
-    ft = { "lua", "c", "cpp", "python", "rust", "json", "sh", "go" },
+    ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql" },
     config = true,
   },
   {

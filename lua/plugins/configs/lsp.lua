@@ -77,6 +77,8 @@ lspconfig.gopls.setup({ on_attach = on_attach })
 
 lspconfig.bashls.setup({ on_attach = on_attach })
 
+lspconfig.sqlls.setup({ on_attach = on_attach })
+
 local float_border = function()
   local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
   function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
