@@ -11,7 +11,7 @@ return {
       { "diff", symbols = { added = " ", modified = " ", removed = " " } },
     },
     lualine_x = {
-      { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "ﯧ " } },
+      { "diagnostics", symbols = { error = " ", warn = " ", info = "󰋼 ", hint = "󰛩 " } },
       {
         function()
           local msg = "No Active Lsp"

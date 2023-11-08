@@ -231,6 +231,7 @@ return {
       "hrsh7th/cmp-nvim-lua",
       "f3fora/cmp-spell",
       "saadparwaiz1/cmp_luasnip",
+      "onsails/lspkind.nvim",
     },
     config = function()
       require("plugins.configs.nvim-cmp")
