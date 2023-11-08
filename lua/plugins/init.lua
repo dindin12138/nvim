@@ -193,8 +193,9 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    config = true,
+    opts = require("plugins.configs.todo-comments")
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -203,7 +204,7 @@ return {
   {
     "folke/neodev.nvim",
     lazy = true,
-    opt = {},
+    opts = {},
   },
   {
     "neovim/nvim-lspconfig",
