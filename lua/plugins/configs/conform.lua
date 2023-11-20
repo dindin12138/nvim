@@ -13,5 +13,6 @@ return {
     javascript = { "prettierd" },
     typescript = { "prettierd" },
     sql = { "sql_formatter" },
+    zsh = { "beautysh" },
   },
 }

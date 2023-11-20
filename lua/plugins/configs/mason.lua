@@ -27,5 +27,6 @@ return {
     "jq",
     "prettierd",
     "sql-formatter",
+    "beautysh",
   },
 }

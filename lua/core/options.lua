@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
@@ -62,6 +60,10 @@ if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"
   opt.shortmess:append({ C = true })
 end
+
+-- Set Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
