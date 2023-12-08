@@ -15,6 +15,10 @@ local on_attach = function(client, bufnr)
       { group = "lsp_document_highlight", buffer = bufnr, callback = vim.lsp.buf.clear_references }
     )
   end
+  -- Disable hover in favor of Pyright
+  if client.name == "ruff_lsp" then
+    client.server_capabilities.hoverProvider = false
+  end
 end
 
 lspconfig.lua_ls.setup({
@@ -67,6 +71,16 @@ lspconfig.pyright.setup({
         diagnosticMode = "workspace",
         useLibraryCodeForTypes = true,
       },
+    },
+  },
+})
+
+lspconfig.ruff_lsp.setup({
+  on_attach = on_attach,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
     },
   },
 })

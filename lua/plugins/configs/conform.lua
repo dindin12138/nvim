@@ -5,7 +5,7 @@ return {
     cpp = { "clang_format" },
     rust = { "rustfmt" },
     go = { "gofumpt" },
-    python = { "black" },
+    -- python = { "black" },
     sh = { "shfmt" },
     json = { "jq" },
     html = { "prettierd" },
