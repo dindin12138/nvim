@@ -158,7 +158,7 @@ return {
   {
     "folke/flash.nvim",
     opts = {},
-    -- stylua: ignore
+    -- stylua: ignore start
     keys = {
       { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
       { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
@@ -166,6 +166,7 @@ return {
       { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
+    -- stylua: ignore end
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -189,11 +190,12 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    -- stylua: ignore
+    -- stylua: ignore start
     keys = {
       { "<C-/>",     function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
       { "<leader>/", function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
     },
+    -- stylua: ignore end
     config = true,
   },
   {
@@ -281,5 +283,15 @@ return {
     -- stylua: ignore
     keys = { { "<leader>lf", function() require("conform").format() end, mode = { "n" }, desc = "Format" } },
     opts = require("plugins.configs.conform"),
+  },
+  {
+    "Saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      src = {
+        cmp = { enabled = true },
+      },
+    },
   },
 }

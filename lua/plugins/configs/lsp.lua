@@ -85,6 +85,24 @@ lspconfig.ruff_lsp.setup({
   },
 })
 
+-- lspconfig.pylsp.setup({
+--   on_attach = on_attach,
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = { enabled = false },
+--         pylint = { enabled = false },
+--         pyflakes = { enabled = false },
+--         mccabe = { enabled = false },
+--         pydocstyle = { enabled = false },
+--         autopep8 = { enabled = false },
+--         yapf = { enabled = false },
+--         flake8 = { enabled = false },
+--       },
+--     },
+--   },
+-- })
+
 lspconfig.rust_analyzer.setup({ on_attach = on_attach })
 
 lspconfig.gopls.setup({ on_attach = on_attach })
