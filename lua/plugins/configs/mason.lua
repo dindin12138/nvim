@@ -16,7 +16,7 @@ return {
     "ruff-lsp",
     "bash-language-server",
     "gopls",
-    "cmake-language-server",
+    "neocmakelsp",
     "sqlls",
     -- Formatter
     "stylua",
