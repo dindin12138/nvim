@@ -1,142 +1,157 @@
-local M = {}
+-- Wrapper around vim.keymap.set that will
+-- not create a keymap if a lazy key handler exists.
+-- It will also set `silent` to true by default.
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  local modes = type(mode) == "string" and { mode } or mode
 
-M.normal_key = {
-  ["W"] = { "<CMD>write<CR><Esc>", "Save file" },
-  ["<C-s>"] = { "<CMD>write<CR><Esc>", "Save file" },
-  ["Q"] = { "<CMD>qa<CR>", "Quit" },
-  ["<C-h>"] = { "<C-w>h", "Go to left window" },
-  ["<C-j>"] = { "<C-w>j", "Go to down window" },
-  ["<C-k>"] = { "<C-w>k", "Go to up window" },
-  ["<C-l>"] = { "<C-w>l", "Go to right window" },
-  ["<C-Left>"] = { "<CMD>vertical resize -2<CR>", "Decrease window width" },
-  ["<C-Down>"] = { "<CMD>resize +2<CR>", "Decrease window height" },
-  ["<C-Up>"] = { "<CMD>resize -2<CR>", "Increase window height" },
-  ["<C-Right>"] = { "<CMD>vertical resize +2<CR>", "Increase window width" },
-  ["s="] = { "<C-w>=", "Resize window" },
-  ["H"] = { "5h", "Fast left" },
-  ["J"] = { "5j", "Fast down" },
-  ["K"] = { "5k", "Fast up" },
-  ["L"] = { "5l", "Fast right" },
-  ["<Tab>"] = { "<CMD>BufferLineCycleNext<CR>", "Next buffer" },
-  ["<S-Tab>"] = { "<CMD>BufferLineCyclePrev<CR>", "Prev buffer" },
-  ["<Esc>"] = { "<CMD>noh<CR><Esc>", "Escape and clear hlsearch" },
-  ["<leader>"] = {
-    c = { ":close<CR>", "Close this window" },
-    e = { "<CMD>Neotree toggle<CR>", "Explorer" },
-    f = {
-      name = "Telescope",
-      b = { "<CMD>Telescope buffers<CR>", "Buffers" },
-      g = { "<CMD>Telescope live_grep<CR>", "Live grep" },
-      f = { "<CMD>Telescope find_files<CR>", "Find files" },
-      a = { "<CMD>Telescope find_files follow=true no_ignore=true hidden=true<CR>", "Find all files" },
-      o = { "<CMD>Telescope oldfiles<CR>", "Oldfiles" },
-      p = { "<CMD>Telescope projects<CR>", "Projects" },
-      h = { "<CMD>Telescope help_tags<CR>", "Help page" },
-      c = { "<CMD>Telescope git_commits<CR>", "Git commits" },
-      s = { "<CMD>Telescope git_status<CR>", "Git status" },
-      k = { "<CMD>Telescope keymaps<CR>", "Keymaps" },
-    },
-    l = {
-      name = "Lsp Config & Lazy",
-      i = { "<CMD>LspInfo<CR>", "LspInfo" },
-      l = { "<CMD>LspLog<CR>", "LspLog" },
-      r = { "<CMD>LspRestart<CR>", "LspRestart" },
-      f = {
-        function()
-          require("conform").format()
-        end,
-        "Format",
-      },
-      z = { "<CMD>Lazy<CR>", "Lazy" },
-      s = { "<CMD>Lazy sync<CR>", "Lazy sync" },
-      t = { "<CMD>TroubleToggle<CR>", "Trouble" },
-      o = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" },
-    },
-    m = { "<CMD>Mason<CR>", "Mason" },
-    o = { ":only<CR>", "Close all but this window" },
-    q = { "<CMD>Bdelete!<CR>", "Bdelete" },
-    s = {
-      name = "Split window",
-      v = { ":vsp<CR>", "Vertical split window" },
-      h = { ":sp<CR>", "Horizontal split window" },
-    },
-    t = {
-      name = "Terminal",
-      f = { "<CMD>lua _floaterm_toggle()<CR>", "Toggle floating terminal" },
-      l = { "<CMD>lua _lazygit_toggle()<CR>", "Toggle lazygit terminal" },
-      h = { "<CMD>ToggleTerm<CR>", "Toggle horizontal terminal" },
-    },
-    x = { "<CMD>BufferLinePickClose<CR>", "Buffer Pick Close" },
-    ["1"] = { "<CMD>BufferLineGoToBuffer 1<CR>", "Go To Buffer 1" },
-    ["2"] = { "<CMD>BufferLineGoToBuffer 2<CR>", "Go To Buffer 2" },
-    ["3"] = { "<CMD>BufferLineGoToBuffer 3<CR>", "Go To Buffer 3" },
-    ["4"] = { "<CMD>BufferLineGoToBuffer 4<CR>", "Go To Buffer 4" },
-    ["5"] = { "<CMD>BufferLineGoToBuffer 5<CR>", "Go To Buffer 5" },
-    ["6"] = { "<CMD>BufferLineGoToBuffer 6<CR>", "Go To Buffer 6" },
-    ["7"] = { "<CMD>BufferLineGoToBuffer 7<CR>", "Go To Buffer 7" },
-    ["8"] = { "<CMD>BufferLineGoToBuffer 8<CR>", "Go To Buffer 8" },
-    ["9"] = { "<CMD>BufferLineGoToBuffer 9<CR>", "Go To Buffer 9" },
-    ["/"] = {
-      function()
-        require("Comment.api").toggle.linewise.current()
-      end,
-      "Toggle comment",
-    },
-  },
-  ["<C-/>"] = {
-    function()
-      require("Comment.api").toggle.linewise.current()
-    end,
-    "Toggle comment",
-  },
-  ["g"] = {
-    name = "LSP",
-    n = { "Rename" },
-    a = { "Code action" },
-    d = { "Definition" },
-    D = { "Declaration" },
-    h = { "Hover" },
-    s = { "Signature help" },
-    r = { "References" },
-    e = { "Open float diagnostics" },
-    j = { "Goto next diagnostic" },
-    k = { "Goto prev diagnostic" },
-  },
-}
+  ---@param m string
+  modes = vim.tbl_filter(function(m)
+    return not (keys.have and keys:have(lhs, m))
+  end, modes)
 
-M.insert_key = {
-  ["<Esc>"] = { "<CMD>noh<CR><Esc>", "Escape and clear hlsearch" },
-  ["<C-s>"] = { "<CMD>write<CR><Esc>", "Save file" },
-  ["<C-b>"] = { "<Esc>I", "Move to beginning of line" },
-  ["<C-e>"] = { "<End>", "Move to end of line" },
-  ["<C-h>"] = { "<Left>", "Move Left" },
-  ["<C-j>"] = { "<Down>", "Move Down" },
-  ["<C-k>"] = { "<Up>", "Move Up" },
-  ["<C-l>"] = { "<Right>", "Move Right" },
-}
+  -- do not create the keymap if a lazy keys handler exists
+  if #modes > 0 then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      ---@diagnostic disable-next-line: no-unknown
+      opts.remap = nil
+    end
+    vim.keymap.set(modes, lhs, rhs, opts)
+  end
+end
 
-M.visual_key = {
-  ["<C-s>"] = { "<CMD>write<CR><Esc>", "Save file" },
-  ["J"] = { ":m '>+1<CR>gv=gv", "Select down" },
-  ["K"] = { ":m '<-2<CR>gv=gv", "Select up" },
-  ["<"] = { "<gv", "Select left" },
-  [">"] = { ">gv", "Select right" },
-  ["<leader>/"] = {
-    "<Esc><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-    "Toggle comment",
-  },
-  ["<C-/>"] = {
-    "<Esc><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-    "Toggle comment",
-  },
-}
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
-M.terminal_key = {
-  ["<Esc>"] = { "<C-\\><C-n>", "Exit terminal mode" },
-  ["<C-h>"] = { "<CMD>wincmd h<CR>", "Move to left window" },
-  ["<C-j>"] = { "<CMD>wincmd j<CR>", "Move to down window" },
-  ["<C-k>"] = { "<CMD>wincmd k<CR>", "Move to up window" },
-  ["<C-l>"] = { "<CMD>wincmd l<CR>", "Move to right window" },
-}
+-- Move to window using the <ctrl> hjkl keys
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
-return M
+-- quick move
+map("n", "<S-j>", "5j", { desc = "Fast down" })
+map("n", "<S-k>", "5k", { desc = "Fast up" })
+map("i", "<C-b>", "<esc>I", { desc = "Move to beginning of line" })
+map("i", "<C-e>", "<end>", { desc = "Move to end of line" })
+map("i", "<C-h>", "<Left>", { desc = "Move Left" })
+map("i", "<C-j>", "<Down>", { desc = "Move Down" })
+map("i", "<C-k>", "<Up>", { desc = "Move Up" })
+map("i", "<C-l>", "<Right>", { desc = "Move Right" })
+
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
+-- windows
+map("n", "<leader>sj", "<C-W>s", { desc = "Split window below", remap = true })
+map("n", "<leader>sl", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- Move Lines
+-- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+-- map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+-- map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+-- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<S-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- buffers
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "<leader>q", "<cmd>Bdelete!<cr>", { desc = "Delete buffer" })
+map("n", "<leader>x", "<cmd>BufferLinePickClose<cr>", { desc = "Close the selected buffer" })
+
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+map({ "i", "x", "n", "s" }, "W", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+-- quit quickly
+map("n", "Q", "<cmd>qa<cr>", { desc = "Quit all" })
+
+-- better indenting
+map("v", "<", "<gv", { desc = "Indent forward" })
+map("v", ">", ">gv", { desc = "Indent backward" })
+
+-- lazy
+map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- Terminal Mappings
+map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+-- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+-- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+
+-- comment
+map("n", "<leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comment" })
+map("n", "<C-/>", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comment" })
+map(
+  "v",
+  "<leader>/",
+  "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+  { desc = "Toggle comment" }
+)
+map(
+  "v",
+  "<C-/>",
+  "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+  { desc = "Toggle comment" }
+)
+
+-- close
+map("n", "<leader>c", "<cmd>close<cr>", { desc = "Close this window" })
+
+-- Neotree
+map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Explorer NeoTree" })
+
+-- Telescope
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+map(
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
+  { desc = "Find all files" }
+)
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Oldfiles" })
+map("n", "<leader>fp", "<cmd>Telescope projects<cr>", { desc = "Projects" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help page" })
+map("n", "<leader>fc", "<cmd>Telescope git_commits<cr>", { desc = "Git commits" })
+map("n", "<leader>fs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
+map("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
+
+-- LSP
+map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LspInfo" })
+map("n", "<leader>ll", "<cmd>LspLog<cr>", { desc = "LspLog" })
+map("n", "<leader>lr", "<cmd>LspRestart<cr>", { desc = "LspRestart" })
+map("n", "<leader>lf", function()
+  require("conform").format()
+end, { desc = "Format" })
+map("n", "<leader>lt", "<cmd>TroubleToggle<cr>", { desc = "Trouble" })
+map("n", "<leader>lo", "<cmd>SymbolsOutline<cr>", { desc = "SymbolsOutline" })
+
+-- lazy
+map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- Mason
+map("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Mason" })

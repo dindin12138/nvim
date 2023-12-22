@@ -96,6 +96,14 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
+        "ahmedkhalf/project.nvim",
+        event = "VeryLazy",
+        opts = require("plugins.configs.project"),
+        config = function(_, opts)
+          require("project_nvim").setup(opts)
+        end,
+      },
+      {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         enabled = vim.fn.executable("make") == 1,
@@ -108,13 +116,7 @@ return {
       require("telescope").load_extension("fzf")
     end,
   },
-  {
-    "ahmedkhalf/project.nvim",
-    opts = require("plugins.configs.project"),
-    config = function(_, opts)
-      require("project_nvim").setup(opts)
-    end,
-  },
+
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
@@ -145,14 +147,23 @@ return {
   },
   {
     "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
+    -- event = "VeryLazy",
+    keys = "<leader>",
+    opts = {
+      window = {
+        border = "rounded",
+      },
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>f"] = { name = "+Telescope" },
+        ["<leader>s"] = { name = "+Split" },
+        ["<leader>l"] = { name = "+LSP/Lazy" },
+      },
+    },
+    config = function(_, opts)
       local wk = require("which-key")
-      local keymaps = require("core.keymaps")
-      wk.register(keymaps.normal_key, { mode = "n" })
-      wk.register(keymaps.insert_key, { mode = "i" })
-      wk.register(keymaps.visual_key, { mode = "v" })
-      wk.register(keymaps.terminal_key, { mode = "t" })
+      wk.setup(opts)
+      wk.register(opts.defaults)
     end,
   },
   {
@@ -281,7 +292,8 @@ return {
     lazy = true,
     cmd = "ConformInfo",
     -- stylua: ignore
-    keys = { { "<leader>lf", function() require("conform").format() end, mode = { "n" }, desc = "Format" } },
+    -- keys = { { mode = { "n" }, "<leader>lf", function() require("conform").format() end, desc = "Format" } },
+    keys = { "<leader>lf" },
     opts = require("plugins.configs.conform"),
   },
   {
