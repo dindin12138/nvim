@@ -59,16 +59,31 @@ return {
       {
         icon = "  ",
         icon_hl = "Title",
-        desc = "Edit Dotfiles                           ",
+        desc = "Config                                  ",
         desc_hl = "String",
         key = "c",
         key_hl = "Number",
         action = "edit ~/.config/nvim/lua/core/lazy.lua",
       },
+      {
+        icon = "  ",
+        icon_hl = "Title",
+        desc = "Quit                                    ",
+        desc_hl = "String",
+        key = "q",
+        key_hl = "Number",
+        action = "qa",
+      },
     },
-    footer = {
-      [[]],
-      [[Talk is cheap. Show me the code.]],
-    },
+    footer = function()
+      local stats = require("lazy").stats()
+      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+      return {
+        "",
+        "Talk is cheap. Show me the code.",
+        "",
+        "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
+      }
+    end,
   },
 }
