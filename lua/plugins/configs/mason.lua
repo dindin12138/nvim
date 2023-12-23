@@ -24,7 +24,7 @@ return {
     "gofumpt",
     "shfmt",
     "jq",
-    "prettierd",
+    "prettier",
     "sql-formatter",
     "beautysh",
   },
