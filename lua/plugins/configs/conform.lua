@@ -3,7 +3,7 @@ return {
     lua = { "stylua" },
     c = { "clang_format" },
     cpp = { "clang_format" },
-    rust = { "rustfmt" },
+    -- rust = { "rustfmt" },
     go = { "gofumpt" },
     -- python = { "black" },
     sh = { "shfmt" },

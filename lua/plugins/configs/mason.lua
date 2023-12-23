@@ -21,7 +21,7 @@ return {
     -- Formatter
     "stylua",
     "clang-format",
-    "rustfmt",
+    -- "rustfmt",
     "gofumpt",
     -- "black",
     "shfmt",
