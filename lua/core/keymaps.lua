@@ -148,7 +148,6 @@ map("n", "<leader>lf", function()
   require("conform").format()
 end, { desc = "Format" })
 map("n", "<leader>lt", "<cmd>TroubleToggle<cr>", { desc = "Trouble" })
-map("n", "<leader>lo", "<cmd>SymbolsOutline<cr>", { desc = "SymbolsOutline" })
 map("n", "<leader>la", "<cmd>AerialToggle<cr>", { desc = "AerialToggle" })
 
 -- lazy
