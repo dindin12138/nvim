@@ -7,34 +7,44 @@
 │  ├── c.lua
 │  ├── cpp.lua
 │  └── lua.lua
+├── init.lua
+├── lazy-lock.json
 ├── lua
 │  ├── core
 │  │  ├── autocmds.lua
+│  │  ├── icons.lua
 │  │  ├── init.lua
 │  │  ├── keymaps.lua
 │  │  ├── lazy.lua
 │  │  └── options.lua
 │  └── plugins
-│     ├── configs
-│     │  ├── bufferline.lua
-│     │  ├── conform.lua
-│     │  ├── dashboard.lua
-│     │  ├── gitsigns.lua
-│     │  ├── indent-blankline.lua
-│     │  ├── lsp.lua
-│     │  ├── lualine.lua
-│     │  ├── mason.lua
-│     │  ├── nvim-cmp.lua
-│     │  ├── nvim-treesitter.lua
-│     │  ├── project.lua
-│     │  ├── telescope.lua
-│     │  └── todo-comments.lua
-│     └── init.lua
+│     ├── aerial.lua
+│     ├── bufferline.lua
+│     ├── catppuccin.lua
+│     ├── cmake-tools.lua
+│     ├── Comment.lua
+│     ├── conform.lua
+│     ├── crates.lua
+│     ├── dashboard.lua
+│     ├── dressing.lua
+│     ├── flash.lua
+│     ├── gitsigns.lua
+│     ├── indent-blankline.lua
+│     ├── lualine.lua
+│     ├── mason.lua
+│     ├── neo-tree.lua
+│     ├── nvim-autopairs.lua
+│     ├── nvim-cmp.lua
+│     ├── nvim-lspconfig.lua
+│     ├── nvim-notify.lua
+│     ├── nvim-treesitter.lua
+│     ├── telescope.lua
+│     ├── todo-comments.lua
+│     ├── trouble.lua
+│     └── which-key.lua
+├── README.md
 ├── snippets
 │  ├── lua.json
 │  └── package.json
-├── init.lua
-├── lazy-lock.json
-├── README.md
 └── stylua.toml
 ```
