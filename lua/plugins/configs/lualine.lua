@@ -1,17 +1,34 @@
+local icons = require("core.icons")
+
 return {
   options = {
     component_separators = { left = "", right = "" },
-    section_separators = { left = " ", right = "" },
+    section_separators = { left = icons.misc.SeparatorLeft, right = icons.misc.SeparatorRight },
   },
   sections = {
-    lualine_a = { { "mode", icon = "" } },
+    lualine_a = { { "mode", icon = icons.misc.Vim } },
     lualine_b = { { "filetype", icon_only = true }, "filename" },
     lualine_c = {
-      { "branch", icon = " " },
-      { "diff", symbols = { added = " ", modified = " ", removed = " " } },
+      { "branch", icon = icons.git.Branch },
+      {
+        "diff",
+        symbols = {
+          added = icons.git.Add,
+          modified = icons.git.Change,
+          removed = icons.git.Delete,
+        },
+      },
     },
     lualine_x = {
-      { "diagnostics", symbols = { error = " ", warn = " ", info = "󰋼 ", hint = "󰛩 " } },
+      {
+        "diagnostics",
+        symbols = {
+          error = icons.diagnostics.Error,
+          warn = icons.diagnostics.Warn,
+          info = icons.diagnostics.Info,
+          hint = icons.diagnostics.Hint,
+        },
+      },
       {
         function()
           local msg = "No Active Lsp"
@@ -28,7 +45,7 @@ return {
           end
           return msg
         end,
-        icon = "  LSP ~",
+        icon = icons.misc.ActiveLSP .. " LSP ~",
       },
     },
     lualine_y = { "fileformat", "encoding" },

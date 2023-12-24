@@ -149,6 +149,7 @@ map("n", "<leader>lf", function()
 end, { desc = "Format" })
 map("n", "<leader>lt", "<cmd>TroubleToggle<cr>", { desc = "Trouble" })
 map("n", "<leader>lo", "<cmd>SymbolsOutline<cr>", { desc = "SymbolsOutline" })
+map("n", "<leader>la", "<cmd>AerialToggle<cr>", { desc = "AerialToggle" })
 
 -- lazy
 map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })

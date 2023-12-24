@@ -277,6 +277,26 @@ return {
     config = true,
   },
   {
+    "stevearc/aerial.nvim",
+    cmd = "AerialToggle",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      attach_mode = "global",
+      backends = { "lsp", "treesitter", "markdown", "man" },
+      show_guides = true,
+      layout = { min_width = 28 },
+      guides = {
+        mid_item = "├╴",
+        last_item = "└╴",
+        nested_top = "│ ",
+        whitespace = "  ",
+      },
+    },
+  },
+  {
     "ray-x/lsp_signature.nvim",
     ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql" },
     config = true,
@@ -292,8 +312,7 @@ return {
     lazy = true,
     cmd = "ConformInfo",
     -- stylua: ignore
-    -- keys = { { mode = { "n" }, "<leader>lf", function() require("conform").format() end, desc = "Format" } },
-    keys = { "<leader>lf" },
+    keys = { { mode = { "n" }, "<leader>lf", function() require("conform").format() end, desc = "Format" } },
     opts = require("plugins.configs.conform"),
   },
   {
