@@ -81,14 +81,7 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
-    opts = {
-      window = {
-        width = 25,
-        mappings = {
-          ["l"] = "open",
-        },
-      },
-    },
+    opts = { window = { width = 25, mappings = { ["l"] = "open" } } },
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -121,23 +114,8 @@ return {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     build = ":MasonUpdate",
-    opts = require("plugins.configs.mason"),
-    config = function(_, opts)
-      require("mason").setup(opts)
-      local mr = require("mason-registry")
-      local function ensure_installed()
-        for _, tool in ipairs(opts.ensure_installed) do
-          local p = mr.get_package(tool)
-          if not p:is_installed() then
-            p:install()
-          end
-        end
-      end
-      if mr.refresh then
-        mr.refresh(ensure_installed)
-      else
-        ensure_installed()
-      end
+    config = function()
+      require("plugins.configs.mason")
     end,
   },
   {
@@ -147,19 +125,8 @@ return {
   },
   {
     "folke/which-key.nvim",
-    -- event = "VeryLazy",
     keys = "<leader>",
-    opts = {
-      window = {
-        border = "rounded",
-      },
-      defaults = {
-        mode = { "n", "v" },
-        ["<leader>f"] = { name = "+Telescope" },
-        ["<leader>s"] = { name = "+Split" },
-        ["<leader>l"] = { name = "+LSP/Lazy" },
-      },
-    },
+    opts = require("plugins.configs.which-key"),
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
@@ -168,7 +135,6 @@ return {
   },
   {
     "folke/flash.nvim",
-    opts = {},
     -- stylua: ignore start
     keys = {
       { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
@@ -177,7 +143,7 @@ return {
       { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
-    -- stylua: ignore end
+    opts = {},
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -203,10 +169,9 @@ return {
     "numToStr/Comment.nvim",
     -- stylua: ignore start
     keys = {
-      { "<C-/>",     function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
-      { "<leader>/", function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
+      { mode = { "n" }, "<C-/>",     function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
+      { mode = { "n" }, "<leader>/", function() require("Comment.api").toggle.linewise.current() end, desc = "Toggle comment" },
     },
-    -- stylua: ignore end
     config = true,
   },
   {
@@ -216,28 +181,17 @@ return {
     opts = require("plugins.configs.todo-comments"),
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = true,
-  },
-  {
-    "folke/neodev.nvim",
-    lazy = true,
-    opts = {},
-  },
-  {
     "neovim/nvim-lspconfig",
     ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql" },
+    dependencies = {
+      { "folke/neodev.nvim", config = true },
+      { "williamboman/mason-lspconfig.nvim", config = true },
+      { "ray-x/lsp_signature.nvim", config = true },
+      { "j-hui/fidget.nvim", tag = "legacy", config = true },
+    },
     config = function()
-      require("neodev").setup()
-      require("mason-lspconfig").setup()
       require("plugins.configs.lsp")
     end,
-  },
-  {
-    "j-hui/fidget.nvim",
-    tag = "legacy",
-    event = "LspAttach",
-    opts = {},
   },
   {
     "hrsh7th/nvim-cmp",
@@ -266,10 +220,7 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/" } })
       end,
     },
-    opts = {
-      history = true,
-      updateevents = "TextChanged,TextChangedI",
-    },
+    opts = { history = true, updateevents = "TextChanged,TextChangedI" },
   },
   {
     "simrat39/symbols-outline.nvim",
@@ -283,23 +234,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    opts = {
-      attach_mode = "global",
-      backends = { "lsp", "treesitter", "markdown", "man" },
-      show_guides = true,
-      layout = { min_width = 28 },
-      guides = {
-        mid_item = "├╴",
-        last_item = "└╴",
-        nested_top = "│ ",
-        whitespace = "  ",
-      },
-    },
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql" },
-    config = true,
+    opts = require("plugins.configs.aerial"),
   },
   {
     "folke/trouble.nvim",
@@ -319,11 +254,7 @@ return {
     "Saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      src = {
-        cmp = { enabled = true },
-      },
-    },
+    opts = { src = { cmp = { enabled = true } } },
   },
   {
     "Civitasv/cmake-tools.nvim",
