@@ -1,6 +1,13 @@
 return {
   "rcarriga/nvim-notify",
-  event = "VeryLazy",
+  lazy = true,
+  init = function()
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.notify = function(...)
+      require("lazy").load({ plugins = { "nvim-notify" } })
+      return vim.notify(...)
+    end
+  end,
   opts = { stages = "static" },
   config = function(_, opts)
     vim.cmd([[
