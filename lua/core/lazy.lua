@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
   ui = { border = "rounded" },
+  git = { url_format = "git@github.com:%s.git" },
   performance = {
     rtp = {
       disabled_plugins = {
