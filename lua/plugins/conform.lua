@@ -8,6 +8,7 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
+      nix = { "nixpkgs_fmt" },
       c = { "clang_format" },
       cpp = { "clang_format" },
       go = { "gofumpt" },

@@ -1,9 +1,13 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql" },
+  ft = { "lua", "c", "cpp", "python", "rust", "sh", "go", "sql", "nix" },
   dependencies = {
     { "folke/neodev.nvim", config = true },
-    { "williamboman/mason-lspconfig.nvim", config = true },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      enabled = os.execute("grep -q '^ID=.*nixos' /etc/os-release") == 1,
+      config = true,
+    },
     { "ray-x/lsp_signature.nvim", config = true },
     { "j-hui/fidget.nvim", tag = "legacy", config = true },
   },
@@ -120,6 +124,8 @@ return {
     lspconfig.bashls.setup({ on_attach = on_attach })
 
     lspconfig.sqlls.setup({ on_attach = on_attach })
+
+    lspconfig.nil_ls.setup({ on_attach = on_attach })
 
     local float_border = function()
       local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
