@@ -8,12 +8,13 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      nix = { "nixpkgs_fmt" },
+      nix = { "nixfmt" },
       c = { "clang_format" },
       cpp = { "clang_format" },
+      cmake = { "cmake_format" },
       go = { "gofumpt" },
       sh = { "shfmt" },
-      json = { { "jq", "prettier" } },
+      json = { "jq" },
       jsonc = { "prettier" },
       sql = { "sql_formatter" },
       zsh = { "beautysh" },

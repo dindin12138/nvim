@@ -2,19 +2,16 @@ return {
   "folke/which-key.nvim",
   keys = "<leader>",
   opts = {
-    window = {
+    win = {
       border = "rounded",
     },
-    defaults = {
-      mode = { "n", "v" },
-      ["<leader>f"] = { name = "+Telescope" },
-      ["<leader>s"] = { name = "+Split" },
-      ["<leader>l"] = { name = "+LSP/Lazy" },
+    icons = {
+      colors = false,
     },
   },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
-    wk.register(opts.defaults)
+    -- wk.register(opts.defaults)
   end,
 }

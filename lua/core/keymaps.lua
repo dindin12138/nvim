@@ -76,7 +76,7 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-map({ "i", "x", "n", "s" }, "W", "<cmd>w<cr><esc>", { desc = "Save file" })
+map({ "x", "n", "s" }, "W", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- quit quickly
 map("n", "Q", "<cmd>qa<cr>", { desc = "Quit all" })

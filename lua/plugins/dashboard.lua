@@ -16,15 +16,15 @@ return {
       theme = "doom",
       config = {
         header = vim.split(logo, "\n"),
-          -- stylua: ignore
-          center = {
-            { action = "Telescope projects", desc = "Projects", icon = "  ", key = "p" },
-            { action = "Telescope oldfiles", desc = "Recent files", icon = "  ", key = "o" },
-            { action = "Telescope find_files", desc = "Find Files", icon = "󰥨  ", key = "f" },
-            { action = "Lazy", desc = "Lazy", icon = "󰒲  ", key = "l" },
-            { action = "edit ~/.config/nvim/lua/core/lazy.lua", desc = "Config", icon = "  ", key = "c" },
-            { action = "qa", desc = "Quit", icon = "  ", key = "q" },
-          },
+        -- stylua: ignore
+        center = {
+          { action = "Telescope projects", desc = "Projects", icon = "  ", key = "p" },
+          { action = "Telescope oldfiles", desc = "Recent files", icon = "  ", key = "o" },
+          { action = "Telescope find_files", desc = "Find Files", icon = "󰥨  ", key = "f" },
+          { action = "Lazy", desc = "Lazy", icon = "󰒲  ", key = "l" },
+          { action = "edit ~/.config/nvim/lua/core/lazy.lua", desc = "Config", icon = "  ", key = "c" },
+          { action = "qa", desc = "Quit", icon = "  ", key = "q" },
+        },
         footer = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)

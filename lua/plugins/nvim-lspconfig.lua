@@ -5,10 +5,10 @@ return {
     { "folke/neodev.nvim", config = true },
     {
       "williamboman/mason-lspconfig.nvim",
-      enabled = os.execute("grep -q '^ID=.*nixos' /etc/os-release") == 1,
+      cond = os.execute("grep -q '^ID=.*nixos' /etc/os-release") == 1,
       config = true,
     },
-    { "ray-x/lsp_signature.nvim", config = true },
+    -- { "ray-x/lsp_signature.nvim", config = true },
     { "j-hui/fidget.nvim", tag = "legacy", config = true },
   },
   config = function()
@@ -30,7 +30,7 @@ return {
         )
       end
       -- Disable hover in favor of Pyright
-      if client.name == "ruff_lsp" then
+      if client.name == "ruff" then
         client.server_capabilities.hoverProvider = false
       end
     end
@@ -79,25 +79,20 @@ return {
     lspconfig.pyright.setup({
       on_attach = on_attach,
       settings = {
+        pyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
         python = {
           analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = "workspace",
-            useLibraryCodeForTypes = true,
+            -- Ignore all files for analysis to exclusively use Ruff for linting
+            ignore = { "*" },
           },
         },
       },
     })
 
-    lspconfig.ruff_lsp.setup({
-      on_attach = on_attach,
-      init_options = {
-        settings = {
-          -- Any extra CLI arguments for `ruff` go here.
-          args = {},
-        },
-      },
-    })
+    lspconfig.ruff.setup({ on_attach = on_attach })
 
     -- lspconfig.pylsp.setup({
     --   on_attach = on_attach,
@@ -125,7 +120,9 @@ return {
 
     lspconfig.sqlls.setup({ on_attach = on_attach })
 
-    lspconfig.nil_ls.setup({ on_attach = on_attach })
+    -- lspconfig.nil_ls.setup({ on_attach = on_attach })
+
+    lspconfig.nixd.setup({ on_attach = on_attach })
 
     local float_border = function()
       local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview

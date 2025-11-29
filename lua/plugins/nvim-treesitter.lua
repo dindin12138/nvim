@@ -37,6 +37,7 @@ return {
       "sql",
       "rust",
       "ninja",
+      "nix",
       "rst",
       "toml",
       "ron",

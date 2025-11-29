@@ -1,6 +1,6 @@
 return {
   "williamboman/mason.nvim",
-  enabled = os.execute("grep -q '^ID=.*nixos' /etc/os-release") == 1,
+  cond = os.execute("grep -q '^ID=.*nixos' /etc/os-release") == 1,
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   build = ":MasonUpdate",
   opts = {
